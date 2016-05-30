@@ -8,22 +8,22 @@ angular.module("app", ['ui.router'])
             })
             .state('practiceStaff', {
                 url: "/practiceStaff",
-                templateUrl: 'Views/practiceStaff.html',
+                templateUrl: './Views/practiceStaff.html',
                 controller: 'practiceStaffCtrl'
             })
             .state('practiceAdmin', {
                 url: "/practiceAdmin",
-                templateUrl: 'Views/practiceAdmin.html',
+                templateUrl: './Views/practiceAdmin.html',
                 controller: 'practiceAdminCtrl'
             })
             .state('billingStaff', {
                 url: "/billingStaff",
-                templateUrl: 'Views/billingStaff.html',
+                templateUrl: './Views/billingStaff.html',
                 controller: 'billingStaffCtrl'
             })
             .state('billingAdmin', {
                 url: "/billingAdmin",
-                templateUrl: 'Views/billingAdmin.html',
+                templateUrl: './Views/billingAdmin.html',
                 controller: 'billingAdminCtrl'
             })
             $urlRouterProvider.otherwise('./login');
