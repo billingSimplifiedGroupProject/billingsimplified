@@ -5,7 +5,7 @@ var UserSchema = new mongoose.Schema({
   name: { type: String },
   email: { type: String, index: true, trim: true },
   password: { type: String },
-  userType: {type: String, required: true, enum:["clinic", "practice admin", "billing", "billing Admin"]},
+  userType: {type: String, required: true, enum:["clinic staff", "practice admin", "billing staff", "billing admin"]},
   clinicId: {type: String}
 });
 

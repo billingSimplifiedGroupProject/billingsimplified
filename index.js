@@ -51,17 +51,20 @@ var userIsPracticeAdmin = function(req, res, next) {
   return res.status(401).send();
 };
 var userIsPracticeStaff = function(req, res, next) {
-  if (!req.isAuthenticated()) return res.status(401).send();
-  return next();
-};
+   if (!req.isAuthenticated()) return res.status(401).send();
+   if (req.user.userType === 'clinic staff' && req.body.clinicId === req.user.clinicId) return next();
+   return res.status(401).send();
+ };
 var userIsBillingStaff = function(req, res, next) {
-  if (!req.isAuthenticated()) return res.status(401).send();
-  return next();
-};
+   if (!req.isAuthenticated()) return res.status(401).send();
+   if (req.user.userType === 'billing staff' && req.body.clinicId === req.user.clinicId) return next();
+   return res.status(401).send();
+ };
 var userIsBillingAdmin = function(req, res, next) {
-  if (!req.isAuthenticated()) return res.status(401).send();
-  return next();
-};
+   if (!req.isAuthenticated()) return res.status(401).send();
+   if (req.user.userType === 'billing admin' && req.body.clinicId === req.user.clinicId) return next();
+   return res.status(401).send();
+ };
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/me'
