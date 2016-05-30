@@ -1,0 +1,29 @@
+{
+  "name": "billingsimplified",
+  "version": "1.0.0",
+  "description": "Billing made simple\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[b",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.1",
+    "express-session": "^1.13.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billingSimplifiedGroupProject/billingsimplified.git"
+  },
+  "author": "Corey, Mark, Kyle, Alex, Phillip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billingSimplifiedGroupProject/billingsimplified/issues"
+  },
+  "homepage": "https://github.com/billingSimplifiedGroupProject/billingsimplified#readme"
+}
