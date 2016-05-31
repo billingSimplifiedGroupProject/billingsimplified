@@ -34,22 +34,22 @@ app.put('/users/:_id', isAuthed, UserCtrl.update);
 //double auth
 var userIsPracticeAdmin = function(req, res, next) {
   if (!req.isAuthenticated()) return res.status(401).send();
-  if (req.user.userType === 'practiceAdmin' && req.body.clinicId === req.user.clinicId) return next();
+  if (req.user.userType === 'practiceAdmin' && req.body.practiceId === req.user.practiceId) return next();
   return res.status(401).send();
 };
 var userIsPracticeStaff = function(req, res, next) {
    if (!req.isAuthenticated()) return res.status(401).send();
-   if (req.user.userType === 'clinicStaff' && req.body.clinicId === req.user.clinicId) return next();
+   if (req.user.userType === 'practiceStaff' && req.body.practiceId === req.user.practiceId) return next();
    return res.status(401).send();
  };
 var userIsBillingStaff = function(req, res, next) {
    if (!req.isAuthenticated()) return res.status(401).send();
-   if (req.user.userType === 'billingStaff' && req.body.clinicId === req.user.clinicId) return next();
+   if (req.user.userType === 'billingStaff' && req.body.practiceId === req.user.practiceId) return next();
    return res.status(401).send();
  };
 var userIsBillingAdmin = function(req, res, next) {
    if (!req.isAuthenticated()) return res.status(401).send();
-   if (req.user.userType === 'billingAdmin' && req.body.clinicId === req.user.clinicId) return next();
+   if (req.user.userType === 'billingAdmin' && req.body.practiceId === req.user.practiceId) return next();
    return res.status(401).send();
  };
 app.post('/login', passport.authenticate('local', {
@@ -59,7 +59,13 @@ app.get('/logout', function(req, res, next) {
   req.logout();
   return res.status(200).send('logged out');
 });
-// app.get('/clinics', userIsPracticeStaff, UserCtrl.getClinics);
+// app.get('/practice', userIsPracticeStaff, UserCtrl.getpractices);
+// app.get('/secrets', userIsPracticeAdmin, billCtrl.secrets);
+// app.get('/secrets', userIsBillingStaff, billCtrl.secrets);
+// app.get('/login', userIsPracticeStaff, );
+// app.get('/login', userIsBillingStaff, );
+// app.get('/login', userIsBillingAdmin, );
+
 // CONNECTIONS //
 var mongoURI = config.MONGO_URI;
 var port = config.PORT;

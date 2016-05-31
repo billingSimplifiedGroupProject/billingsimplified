@@ -1,8 +1,30 @@
 BILLING ADMIN
-<form class="" action="index.html" method="post">
-<input ng-model="newUser.name">
-<input ng-model="newUser.email">
-<input ng-model="newUser.password">
-<input ng-model="newUser.userType">
-<!-- <input ng-model="newUser.clinicId">   -->
-</form>
+<!--ADD CLINIC -->
+<div class="create-practice">
+    <form name="lessonForm" action="index.html" method="post">
+        <input ng-model="newPractice.name" placeholder="Practice Name">
+          <div ng-class="{ 'has-error' : lessonForm.email.$invalid && !lessonForm.email.$pristine}">
+              <input placeholder="email" class="form-control" name="email" type="email" ng-model="newPractice.email" required>
+              <span ng-show="lessonForm.email.$invalid && !lessonForm.email.$pristine" class="formVal">Enter a valid email</span>
+          </div>
+        <input ng-model="newPractice.phoneNumber" placeholder="Practice Phone Number">
+        <input ng-model="newPractice.mailingAddress" placeholder="Practice Address">
+    </form>
+    <button ng-click="test(newPractice)">TEST<button>
+
+</div>
+<div class="create-user">
+    <form action="index.html" method="post">
+        <input ng-model="newUser.firstName" placeholder="First Name">
+        <input ng-model="newUser.lastName" placeholder="Last Name">
+        <input ng-model="newUser.email" placeholder="Email">
+        <input ng-model="newUser.password" placeholder="password">
+        <select ng-model="newUser.userType">
+            <option value="practiceAdmin">Practice Admin</option>
+            <option value="practiceStaff">Practice Staff</option>
+            <option value="billingAdmin">Billing Admin</option>
+            <option value="billingStaff">Billing Staff</option>
+        </select>
+        <div>
+            <!-- <input ng-model="newUser.practiceId">   -->
+    </form>
