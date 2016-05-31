@@ -1,12 +1,13 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var User = require('./../../Models/User.js');
 // var User = require('./../../models/User');
 
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function(email, password, done) {
+  console.log("all the marbles");
   User.findOne({ email: email })
   .exec(function(err, user) {
     if(err) done(err);
