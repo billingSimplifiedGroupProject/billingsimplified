@@ -6,7 +6,8 @@ var UserSchema = new mongoose.Schema({
   email: { type: String, index: true, trim: true },
   password: { type: String },
   userType: {type: String, required: true, enum:["clinicStaff", "practiceAdmin", "billingStaff", "billingAdmin"]},
-  clinicId: {type: String}
+  clinicId: {type: String},
+  patients:[{}]
 });
 
 UserSchema.pre('save', function(next) {

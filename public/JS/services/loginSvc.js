@@ -11,6 +11,7 @@ angular.module("app").service("loginSvc", function($http, $state) {
        }).then(function(response) {
            console.log(response);
            $state.go(response.data.userType);
+           console.log(response.data.userType);
            return response;
        });
    };

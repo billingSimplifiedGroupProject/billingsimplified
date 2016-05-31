@@ -12,8 +12,8 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/practiceStaff.html',
                 controller: 'practiceStaffCtrl',
                 resolve: {
-                    user: function(loginService, $state) {
-                        return loginService.getCurrentUser()
+                    user: function(loginSvc, $state) {
+                        return loginSvc.getCurrentUser()
                             .then(function(response) {
                                 console.log(response);
                                 if (response.data.userType === "practiceStaff") {
@@ -30,8 +30,8 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/practiceAdmin.html',
                 controller: 'practiceAdminCtrl',
                 resolve: {
-                    user: function(loginService, $state) {
-                        return loginService.getCurrentUser()
+                    user: function(loginSvc, $state) {
+                        return loginSvc.getCurrentUser()
                             .then(function(response) {
                                 console.log(response);
                                 if (response.data.userType === "practiceAdmin") {
@@ -48,11 +48,12 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/billingStaff.html',
                 controller: 'billingStaffCtrl',
                 resolve: {
-                    user: function(loginService, $state) {
-                        return loginService.getCurrentUser()
+                    user: function(loginSvc, $state) {
+                        return loginSvc.getCurrentUser()
                             .then(function(response) {
                                 console.log(response);
                                 if (response.data.userType === "billingStaff") {
+                                  console.log(response.data.userType);
                                     return response.data;
                                 } else {
                                     $state.go('login');
@@ -66,8 +67,8 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/billingAdmin.html',
                 controller: 'billingAdminCtrl',
                 resolve: {
-                    user: function(loginService, $state) {
-                        return loginService.getCurrentUser()
+                    user: function(loginSvc, $state) {
+                        return loginSvc.getCurrentUser()
                             .then(function(response) {
                                 console.log(response);
                                 if (response.data.userType === "billingAdmin") {
