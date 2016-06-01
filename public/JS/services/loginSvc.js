@@ -1,10 +1,28 @@
-angular.module("app").service("loginSvc", function() {
+angular.module("app").service("loginSvc", function($http, $state) {
 
-   // $scope.login = function() {
-   //    mainSvc.login().then(function(res) {
-   //       $scope.logindata = res;
-   //       console.log(res);
-   //    })
-   // }
+  this.login = function(data) {
+       return $http({
+           method: 'POST',
+           url: "/login",
+           data: {
+               email: data.email,
+               password: data.password
+           }
+       }).then(function(response) {
+           console.log(response);
+           $state.go(response.data.userType);
+           console.log(response.data.userType);
+           return response;
+       });
+   };
+   this.getCurrentUser = function() {
+       return $http({
+           method: 'GET',
+           url: '/current/user'
+       }).then(function(response) {
+           console.log(response);
+           return response;
+       });
+   };
 
 });
