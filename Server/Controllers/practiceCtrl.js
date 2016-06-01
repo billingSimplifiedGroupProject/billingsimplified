@@ -14,5 +14,14 @@ module.exports = {
         res.status(200).json(response);
       }
     });
+  },
+  getPractice: function(req, res, next){
+    Practice.findOne(req.query).exec(function(err, response){
+      if (err) {
+          res.status(500 + "getPractice function error").json(err);
+      } else {
+          res.status(200).json(response);
+      }
+    })
   }
 };

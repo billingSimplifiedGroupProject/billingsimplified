@@ -28,6 +28,7 @@ app.use(session({
 }));
 // PRACTICE CONTROLLERS
 app.post('/create/practice', practiceCtrl.createPractice);
+app.get('/get/practice', practiceCtrl.getPractice);
 //USER CONTROLLERS
 // app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
