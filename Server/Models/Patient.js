@@ -5,7 +5,7 @@ var PatientSchema = new mongoose.Schema({
  firstName: {type: String, required: true},
  lastName:{type: String, required: true},
  insurance: {type: String},
- phoneNumber: {type: Number},
+ phoneNumber: {type: String},
  email: {type: String},
  mailingAddress: {type: String},
  practiceId:{ref:'Practice'},
