@@ -34,6 +34,7 @@ getCurrentUser: function(req, res, next) {
     });
   },
 
+
     getAllUsers: function(req, res, next){
       User.find(req.query).exec(function(err, result){
         if (err) {
