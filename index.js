@@ -29,6 +29,9 @@ app.use(session({
 // PRACTICE CONTROLLERS
 app.post('/create/practice', practiceCtrl.createPractice);
 app.get('/get/practice', practiceCtrl.getPractice);
+app.get('/get/practice/:id', practiceCtrl.getPracticeById);
+app.put('/update/practice/:id', practiceCtrl.updatePractice);
+app.delete('/delete/practice/:id', practiceCtrl.deletePractice);
 //USER CONTROLLERS
 // app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
