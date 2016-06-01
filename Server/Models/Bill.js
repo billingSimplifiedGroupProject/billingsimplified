@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+// var Patient = require('./Patient');
 
 var BillSchema = new mongoose.Schema({
   billAmount:{type: String},
@@ -8,12 +9,12 @@ var BillSchema = new mongoose.Schema({
   billingAddress: {type:String},
   notes: {type:String},
      payments:{
-       remainingBal: {type: Number},
-       dateCreated:{type: Date, default: Date.now},
+       remainingBal: {type: String},
        totalPaid: {type: String},
        purpose: {type: String},
        method: {type: String},
-       comments: {type: String}
+       comments: {type: String},
+       dateCreated:{type: Date, default: Date.now}
      }
 })
 module.exports = mongoose.model('Bill', BillSchema);
