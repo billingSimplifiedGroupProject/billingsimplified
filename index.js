@@ -33,6 +33,10 @@ app.get('/get/practice/:id', practiceCtrl.getPracticeById);
 app.put('/update/practice/:id', practiceCtrl.updatePractice);
 app.delete('/delete/practice/:id', practiceCtrl.deletePractice);
 //USER CONTROLLERS
+app.get('/get/users', UserCtrl.getAllUsers);
+app.get('/get/user/:id', UserCtrl.getUserById);
+app.delete('/delete/user/:id', UserCtrl.deleteUser);
+app.put('/update/user/:id', UserCtrl.updateUser);
 // app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
 app.use(passport.initialize());
