@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema({
   password: { type: String },
   userType: {type: String, required: true, enum:["practiceStaff", "practiceAdmin", "billingStaff", "billingAdmin"]},
   practiceId: {type: Schema.Types.ObjectId, ref:'Practice'},
-  patients:[{type: Schema.Types.ObjectId, ref:'Patient'}]
+  // patients:[{type: Schema.Types.ObjectId, ref:'Patient'}]
 });
 
 UserSchema.pre('save', function(next) {
