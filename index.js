@@ -8,6 +8,7 @@ var config = require('./config');
 // CONTROLLERS //
 var UserCtrl = require('./Server/Controllers/localAuth/UserCtrl.js');
 var practiceCtrl = require('./Server/Controllers/practiceCtrl.js');
+var patientCtrl = require('./Server/Controllers/patientCtrl.js');
 // SERVICES //
 var passport = require('./Server/Controllers/localAuth/passport');
 //SCHEMAS
@@ -37,6 +38,13 @@ app.get('/get/users', UserCtrl.getAllUsers);
 app.get('/get/user/:id', UserCtrl.getUserById);
 app.delete('/delete/user/:id', UserCtrl.deleteUser);
 app.put('/update/user/:id', UserCtrl.updateUser);
+//PATIENT CONTROLLERS
+app.post('/create/patient', patientCtrl.createPatient);
+app.get('/get/patients', patientCtrl.getPatients);
+app.get('/get/patient/:id', patientCtrl.getPatientById);
+app.delete('/delete/patient/:id', patientCtrl.deletePatient);
+app.put('/update/patient/:id', patientCtrl.updatePatient);
+
 // app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
 app.use(passport.initialize());
