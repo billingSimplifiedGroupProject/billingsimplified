@@ -13,12 +13,22 @@ angular.module("app", ['ui.router', 'ngGrid'])
                 templateUrl: 'Views/practiceStaff.html',
                 controller: 'practiceStaffCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
+                    practiceStaffAndClinic: function(loginSvc, practiceStaffService, $state, $q) {
+                        var dfd = $q.defer();
                         return loginSvc.getCurrentUser()
                             .then(function(response) {
-                                console.log(response);
+                                var currentUser = response;
+                                console.log("resolve response", response);
                                 if (response.data.userType === "practiceStaff") {
-                                    return response.data;
+                                    practiceStaffService.getUsersPractice(response.data.practiceId)
+                                        .then(function(response) {
+                                            console.log(response);
+                                            dfd.resolve({
+                                                currentUser: currentUser.data,
+                                                practice: response.data
+                                            })
+                                        })
+                                        return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }

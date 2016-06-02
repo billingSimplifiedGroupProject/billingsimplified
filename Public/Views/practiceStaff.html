@@ -1,1 +1,17 @@
 PRACTICE STAFF
+
+{{staffMember}}
+<br><br><br>
+{{currentPractice}}
+<h1>test</h1>
+
+<form class="" action="index.html" method="post">
+    <label for="">Create New Patient</label><br>
+    <input type="text"ng-model="currentPracticeId"><br>
+    <input type="text" ng-model="newPatient.firstName" placeholder="first name"><br>
+    <input type="text" ng-model="newPatient.lastName" placeholder="last name"><br>
+    <input type="text" ng-model="newPatient.insurance" placeholder="insurance"><br><br>
+    <input type="text" ng-model="newPatient.email" placeholder="email"><br>
+    <input type="text" ng-model="newPatient.dob" placeholder="dob"><br>
+    <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
+</form>
