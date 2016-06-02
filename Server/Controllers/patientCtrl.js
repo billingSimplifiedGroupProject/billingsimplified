@@ -1,6 +1,7 @@
 // var Staff = require('./../Models/User');
 // var Practice = require('./../Models/Practice');
 var Patient = require('./../Models/Patient');
+var User = require('./../Models/User');
 
 module.exports = {
   createPatient: function(req, res, next){
@@ -23,6 +24,23 @@ module.exports = {
           res.status(200).json(result);
       }
     })
+  },
+  addPracticeId: function(req, res, next){
+    Patient.create(req.body, function(err, response){
+      if(err){
+        res.status(500).json(err);
+      }
+      else{
+        res.status(200).json(response);
+      }
+         })
+    // Patient.findByIdAndUpdate({"_id":req.params._id}).populate("practiceId").exec(function(err, response){
+    //   if (err) {
+    //       res.status(500).json(err);
+    //   } else {
+    //       res.status(200).json(response);
+    //   }
+    // });
   },
   getPatientById: function(req, res, next){
     Patient.findById(req.params.id).exec(function(err, result){

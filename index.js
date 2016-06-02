@@ -45,6 +45,7 @@ app.get('/get/patients', patientCtrl.getPatients);
 app.get('/get/patient/:id', patientCtrl.getPatientById);
 app.delete('/delete/patient/:id', patientCtrl.deletePatient);
 app.put('/update/patient/:id', patientCtrl.updatePatient);
+app.put('/update/patientPracticeId/:id', patientCtrl.addPracticeId);
 //BILL CONTROLLERS
 app.post('/create/bill', billCtrl.createBill);
 app.get('/get/bills', billCtrl.getBills);

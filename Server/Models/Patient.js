@@ -8,7 +8,7 @@ var PatientSchema = new mongoose.Schema({
  phoneNumber: {type: String},
  email: {type: String},
  mailingAddress: {type: String},
- practiceId:{type: String},
+ practiceId:[{type: Schema.Types.ObjectId, ref: "User"}],
  bills: [{type: Schema.Types.ObjectId, ref:'Bill'}]
 })
 module.exports = mongoose.model('Patient', PatientSchema);
