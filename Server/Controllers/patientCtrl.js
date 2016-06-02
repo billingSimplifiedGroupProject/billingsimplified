@@ -21,7 +21,7 @@ module.exports = {
       if (err) {
           res.status(500 + "getPatient function error").json(err);
       } else {
-          res.status(200).json(result);
+          res.status(200).json(result); 
       }
     })
   },
