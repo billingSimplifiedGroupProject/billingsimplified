@@ -1,0 +1,11 @@
+<form>
+
+    <input type="text" ng-model="newBill.patientID" placeholder="Patient ID#"><br>
+    <input type="text" ng-model="newBill.billTotalAmount" placeholder="Total Amount"><br>
+    <input type="text" ng-model="newBill.billDate" placeholder="Bill Date"><br>
+    <input type="text" ng-model="newBill.dueDate" placeholder="Due Date"><br>
+    <input type="text" ng-model="newBill.billingAddress" placeholder="Billing Address"><br>
+    <input type="text" ng-model="newBill.notes" placeholder="Notes"><br><br>
+
+    <button class="btn btn-primary" ng-click="createBill(newBill)"> Create Bill </button>
+</form>

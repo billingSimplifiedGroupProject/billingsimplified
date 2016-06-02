@@ -1,0 +1,12 @@
+<form>
+
+   <input type="text" ng-model="payment.billID" placeholder="Bill ID#"><br>
+    <input type="text" ng-model="payment.amount" placeholder="Payment Amount"><br>
+    <input type="text" ng-model="payment.method" placeholder="Payment Method"><br>
+    <input type="text" ng-model="payment.purpose" placeholder="Payment Purpose"><br>
+    <input type="text" ng-model="payment.paidBy" placeholder="Paid By"><br>
+    <input type="text" ng-model="payment.date" placeholder="Payment Date"><br>
+    <input type="text" ng-model="payment.notes" placeholder="Notes"><br><br>
+
+    <button class="btn btn-primary" ng-click="addPayment(payment)"> Add Payment </button>
+</form>
