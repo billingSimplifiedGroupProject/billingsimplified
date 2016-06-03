@@ -9,4 +9,4 @@ var PracticeSchema = new mongoose.Schema({
   staff:[{type: Schema.Types.ObjectId, ref:'User'}],
   patients: [{type: Schema.Types.ObjectId, ref:'Patient'}]
 });
-module.exports = mongoose.model('Practice', PracticeSchema)
+module.exports = mongoose.model('Practice', PracticeSchema);

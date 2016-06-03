@@ -3,12 +3,28 @@ var Schema = mongoose.Schema;
 
 var PatientSchema = new mongoose.Schema({
  firstName: {type: String, required: true},
+ middleName: {type: String},
  lastName:{type: String, required: true},
- insurance: {type: String},
- phoneNumber: {type: Number},
+ insurance: {
+         plan_name: { type: String },
+         plan_phone: { type: String },
+         member_id: { type: String },
+         group: { type: String },
+         bin: { type: Number },
+         pcn: { type: String }
+    },
+ phoneNumber: {type: String},
  email: {type: String},
- mailingAddress: {type: String},
- practiceId:{ref:'Practice'},
+ address: {
+        street: { type: String },
+        city: { type: String },
+        state: { type: String },
+        zip: { type: Number }
+    },
+ dateOfBirth: {type: String},
+ lastFourSocial: {type: String},
+ patientNotes: {type:String},
+ practiceId:[{type: Schema.Types.ObjectId, ref: "User"}],
  bills: [{type: Schema.Types.ObjectId, ref:'Bill'}]
 })
 module.exports = mongoose.model('Patient', PatientSchema);
