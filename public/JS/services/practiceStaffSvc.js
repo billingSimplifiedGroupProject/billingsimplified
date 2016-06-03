@@ -28,8 +28,10 @@ angular.module("app")
             });
         };
 
-        this.submitBill = function(data) {
-            console.log("submit bill", data);
+        this.submitBill = function(data, patientInfo) {
+            data.patientName = patientInfo.patientName;
+            data.patientId = patientInfo.id;
+            console.log(data);
             return $http({
                 method: 'POST',
                 url: '/create/bill',
@@ -39,12 +41,14 @@ angular.module("app")
             });
         };
 
-        this.addToBillArray = function() {
+        this.addToBillArray = function(patientInfo) {
+            console.log("patient id", patientInfo.data.patientId);
             return $http({
                 method: 'PUT',
-                url: '/update/bill/'
+                url: '/update/patient/' + patientInfo.data.patientId,
+                data: patientInfo.data
             }).then(function(response) {
-                console.log(response);
+                console.log("so many console logs", response);
                 return response;
             });
         };

@@ -4,6 +4,7 @@ var Bill = require('./../Models/Bill');
 
 module.exports = {
   createBill: function(req, res, next){
+      console.log("hitting new bill", req.body);
     var newBill = new Bill(req.body);
 
     newBill.save(function(err, result){

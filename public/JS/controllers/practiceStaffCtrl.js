@@ -23,13 +23,15 @@ angular.module("app")
                 .then(function(response) {
                     console.log("new patient", response);
                     practiceStaffService.addToBillArray(response)
+                        .then(function(response) {
+                            console.log("bill update", response.data);
+                        })
                 })
         }
 
         $scope.addPatient = function(patient, practiceId) {
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function(response) {
-                    console.log(response);
                     $scope.newAddPatient = response.data;
                 })
         },
