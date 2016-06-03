@@ -27,5 +27,14 @@ angular.module("app")
                 return response;
             });
         };
+        this.addToPatientArray = function(addPatient){
+          return $http({
+            method: "PUT",
+            url:'/updateClinic/patientArray/' + addPatient,
+            data: addPatient
+          }).then(function(response){
+            return response.data;
+          })
+        }
 
     });
