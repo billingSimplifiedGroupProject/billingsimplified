@@ -27,14 +27,36 @@ angular.module("app")
                 return response;
             });
         };
-        this.addToPatientArray = function(addPatient){
-          return $http({
-            method: "PUT",
-            url:'/updateClinic/patientArray/' + addPatient,
-            data: addPatient
-          }).then(function(response){
-            return response.data;
-          })
+
+        this.submitBill = function(data) {
+            console.log("submit bill", data);
+            return $http({
+                method: 'POST',
+                url: '/create/bill',
+                data: data
+            }).then(function(response) {
+                return response;
+            });
+        };
+
+        this.addToBillArray = function() {
+            return $http({
+                method: 'PUT',
+                url: '/update/bill/'
+            }).then(function(response) {
+                console.log(response);
+                return response;
+            });
+        };
+
+        this.addToPatientArray = function(addPatient) {
+            return $http({
+                method: "PUT",
+                url: '/updateClinic/patientArray/' + addPatient,
+                data: addPatient
+            }).then(function(response) {
+                return response.data;
+            })
         }
 
     });
