@@ -8,10 +8,30 @@ angular.module("app")
 
         $scope.currentPracticeId = practiceStaffAndClinic.practice._id;
 
+        $scope.addBill = true;
+        $scope.showAddBill = function(fName, lName, id) {
+            $scope.addBill = !$scope.addBill
+            $scope.patientInfo = {
+                patientName: fName + " " + lName,
+                id: id
+            };
+        }
+
+        $scope.submitBill = function(bill, patientInfo) {
+            console.log(bill, patientInfo);
+            practiceStaffService.submitBill(bill, patientInfo)
+                .then(function(response) {
+                    console.log("new patient", response);
+                    practiceStaffService.addToBillArray(response)
+                        .then(function(response) {
+                            console.log("bill update", response.data);
+                        })
+                })
+        }
+
         $scope.addPatient = function(patient, practiceId) {
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function(response) {
-                    console.log(response);
                     $scope.newAddPatient = response.data;
                 })
         },
@@ -20,7 +40,7 @@ angular.module("app")
             console.log(response);
           })
         }
-  
+
 
 
 });
