@@ -22,7 +22,7 @@ angular.module("app").controller("ngGridCtrl", function($scope, ngGridSvc) {
 
 
        $scope.getClinicData = function() {
-          console.log($scope.filter)
+         //  console.log($scope.filter)
          ngGridSvc.getClinicData($scope.filter)
          .then(function(res) {
             $scope.clinicData = res;
