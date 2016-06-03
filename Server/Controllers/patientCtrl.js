@@ -2,6 +2,7 @@
 // var Practice = require('./../Models/Practice');
 var Patient = require('./../Models/Patient');
 var User = require('./../Models/User');
+var Practice = require("./../Models/Practice");
 
 module.exports = {
   createPatient: function(req, res, next){
@@ -16,12 +17,36 @@ module.exports = {
       }
     });
   },
+  // createPatient: function(req, res, next){
+  //   var newPatient = new Patient(req.body);
+  //
+  //   newPatient.save(function(err, result){
+  //     if(err){
+  //       res.status(500 + 'createPatient function error').json(err);
+  //     }
+  //     else{
+  //       User.findByIdAndUpdate(req., {
+  //       $push: {
+  //         'photos': response._id
+  //       }
+  //     }, function (err, user) {
+  //       console.log(user);
+  //       if (err) {
+  //         res.status(500).send(err)
+  //       } else {
+  //         res.status(200).send(user)
+  //       }
+  //     })
+  //   }
+  //   });
+  // },
+
   getPatients: function(req, res, next){
     Patient.find(req.query).exec(function(err, result){
       if (err) {
           res.status(500 + "getPatient function error").json(err);
       } else {
-          res.status(200).json(result); 
+          res.status(200).json(result);
       }
     })
   },

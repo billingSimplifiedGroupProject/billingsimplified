@@ -12,7 +12,13 @@ angular.module("app")
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function(response) {
                     console.log(response);
+                    $scope.newAddPatient = response.data;
                 })
+        },
+        $scope.addToPatientArray = function(newAddPatient){
+          practiceStaffService.addToPatientArray(newAddPatient).then (function(response){
+            console.log(response);
+          })
         }
 
 
