@@ -68,6 +68,20 @@ module.exports = {
       }
     })
   },
+  addToPatientBillsArray: function(req, res, next){
+
+    Practice.findByIdAndUpdate(req.body.practiceId).populate({path: "patients", populate: {path:{$push:{"bills" : req.body}} }}), function(err, response){
+      if(err){
+        console.log("YOU SUCK MOST");
+        res.status(500).json(err);
+
+      }
+      else{
+        console.log("response........" + response);
+        res.status(200).json(response);
+      }
+    }
+  },
   updatePractice: function(req, res, next){
     Practice.findByIdAndUpdate(req.params.id, req.body).exec(function(err, result){
       console.log(req.body);

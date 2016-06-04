@@ -54,6 +54,7 @@ angular.module("app")
         };
 
         this.addToPatientArray = function(addPatient) {
+            console.log("doesn't hurt", addPatient);
             return $http({
                 method: "PUT",
                 url: '/updateClinic/patientArray/' + addPatient,

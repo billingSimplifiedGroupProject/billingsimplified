@@ -25,6 +25,10 @@ angular.module("app")
                     practiceStaffService.addToBillArray(response)
                         .then(function(response) {
                             console.log("bill update", response.data);
+                            practiceStaffService.addToPatientArray(response.data)
+                                .then(function(response){
+                                    console.log("jermy would be  proud", response);
+                            })
                         })
                 })
         }
