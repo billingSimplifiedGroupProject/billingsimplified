@@ -45,8 +45,16 @@ angular.module("app")
         };
 
         $scope.addPayment = true;
-        $scope.showAddPayment = function() {
+        $scope.showAddPayment = function(id) {
             $scope.addPayment = !$scope.addPayment;
+            $scope.billId = id;
+        }
+
+        $scope.makePayment = function(paymentInfo, billId) {
+            practiceStaffService.makePayment(paymentInfo, billId)
+                .then(function(response) {
+                    console.log(response);
+                })
         }
 
 

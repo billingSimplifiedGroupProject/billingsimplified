@@ -63,4 +63,15 @@ angular.module("app")
             })
         }
 
+        this.makePayment = function(paymentInfo, id) {
+            return $http({
+                method: "PUT",
+                url: '/update/bill/' + id,
+                data: paymentInfo
+            })
+                .then(function(response) {
+
+                })
+        }
+
     });
