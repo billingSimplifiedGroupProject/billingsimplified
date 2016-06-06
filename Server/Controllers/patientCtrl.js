@@ -6,13 +6,16 @@ var Practice = require("./../Models/Practice");
 
 module.exports = {
   createPatient: function(req, res, next){
+    console.log("create patient req.body", req.body);
     var newPatient = new Patient(req.body);
 
     newPatient.save(function(err, result){
       if(err){
         res.status(500 + 'createPatient function error').json(err);
       }
-      else{
+      else {
+          console.log("new Patient result", result);
+        //   Practice.findByIdAndUpdate(result.practiceId, {$push:{"patients": result}})
         res.status(200).json(result);
       }
     });
@@ -41,8 +44,11 @@ module.exports = {
   //   });
   // },
 
-  getPatients: function(req, res, next){
-    Patient.find(req.query).exec(function(err, result){
+  getPatients: function(req, res, next) {
+    Patient.find(req.query)
+    .populate("practiceId")
+    .populate("bills")
+    .exec(function(err, result){
       if (err) {
           res.status(500 + "getPatient function error").json(err);
       } else {
@@ -68,7 +74,10 @@ module.exports = {
     // });
   },
   getPatientById: function(req, res, next){
-    Patient.findById(req.params.id).exec(function(err, result){
+    Patient.findById(req.params.id)
+    .populate('practiceId')
+    .populate('bills')
+    .exec(function(err, result){
       if(err) {
         res.status(500 + "getPatientById function error").json(err);
       }
@@ -89,6 +98,7 @@ module.exports = {
       }
     })
   },
+
   updatePatient: function(req, res, next){
       console.log("req.params and req.body", req.params, req.body);
     Patient.findByIdAndUpdate(req.params.id, {$push:{"bills": req.body}}).exec(function(err, result){

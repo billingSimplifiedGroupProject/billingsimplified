@@ -36,7 +36,9 @@ getCurrentUser: function(req, res, next) {
 
 
     getAllUsers: function(req, res, next){
-      User.find(req.query).exec(function(err, result){
+      User.find(req.query)
+      .populate('practiceId')
+      .exec(function(err, result){
         if (err) {
             res.status(500 + "getUser function error").json(err);
         } else {
@@ -45,7 +47,9 @@ getCurrentUser: function(req, res, next) {
       })
     },
     getUserById: function(req, res, next){
-      User.findById(req.params.id).exec(function(err, result){
+      User.findById(req.params.id)
+      .populate('practiceId')
+      .exec(function(err, result){
         if(err) {
           res.status(500 + "getUserById function error").json(err);
         }
@@ -55,7 +59,8 @@ getCurrentUser: function(req, res, next) {
       })
     },
     deleteUser: function(req, res, next){
-      User.findByIdAndRemove(req.params.id).exec(function(err, result){
+      User.findByIdAndRemove(req.params.id)
+      .exec(function(err, result){
         console.log(req.params.id);
         if(err){
           console.log(err);

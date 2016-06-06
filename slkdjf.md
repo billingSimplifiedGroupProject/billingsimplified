@@ -20,3 +20,15 @@ console.log(req.body.practiceId);
     }
   })
 },
+
+Questions for Ryan.
+- You mentioned you were going to be inputting data from the billing Admin page for the graphs.  Were you wanting this data to be saved and persist?
+
+User has a 1 to 1 ref to Practice id
+
+Practice has a 1 to many ref to Patients.  Staff as well?
+
+Patient has a ref to Bills
+Patient has a ref to Clinic
+
+Bill has a ref to Patient

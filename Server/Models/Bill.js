@@ -6,7 +6,6 @@ var BillSchema = new mongoose.Schema({
   billAmount:{type: String},
   firstDateCreated:{type: Date, default: Date.now},
   patientId:{ type: Schema.Types.ObjectId, ref: "Patient"},
-  patientName: {type: String},
   billingAddress: {type:String},
   notes: {type:String},
      payments: {

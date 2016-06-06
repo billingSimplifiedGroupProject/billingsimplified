@@ -28,10 +28,9 @@ angular.module("app")
             });
         };
 
-        this.submitBill = function(data, patientInfo) {
-            data.patientName = patientInfo.patientName;
-            data.patientId = patientInfo.id;
-            console.log(data);
+        this.submitBill = function(data, patientId) {
+            data.patientId = patientId;
+            console.log("data", data);
             return $http({
                 method: 'POST',
                 url: '/create/bill',

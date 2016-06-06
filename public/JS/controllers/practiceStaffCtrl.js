@@ -9,26 +9,26 @@ angular.module("app")
         $scope.currentPracticeId = practiceStaffAndClinic.practice._id;
 
         $scope.addBill = true;
-        $scope.showAddBill = function(fName, lName, id) {
+
+        $scope.showAddBill = function(id) {
             $scope.addBill = !$scope.addBill
-            $scope.patientInfo = {
-                patientName: fName + " " + lName,
-                id: id
-            };
+            practiceStaffAndClinic.practice.patients.forEach(function(i) {
+                if (i._id === id) {
+                    $scope.patientInfo = i;
+                }
+            })
+            // $scope.patientInfo = {
+            //     patientName: fName + " " + lName,
+            //     id: id
+            // };
         }
 
-        $scope.submitBill = function(bill, patientInfo) {
-            console.log(bill, patientInfo);
-            practiceStaffService.submitBill(bill, patientInfo)
+        $scope.submitBill = function(bill, patientId) {
+            practiceStaffService.submitBill(bill, patientId)
                 .then(function(response) {
-                    console.log("new patient", response);
                     practiceStaffService.addToBillArray(response)
+                    // console.log("submit bill response", response);
                         .then(function(response) {
-                            console.log("bill update", response.data);
-                            practiceStaffService.addToPatientArray(response.data)
-                                .then(function(response){
-                                    console.log("jermy would be  proud", response);
-                            })
                         })
                 })
         }
@@ -37,13 +37,12 @@ angular.module("app")
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function(response) {
                     $scope.newAddPatient = response.data;
+                    practiceStaffService.addToPatientArray(response.data)
+                        .then (function(response){
+                            console.log(response);
+                        })
                 })
-        },
-        $scope.addToPatientArray = function(newAddPatient){
-          practiceStaffService.addToPatientArray(newAddPatient).then (function(response){
-            console.log(response);
-          })
-        }
+        };
 
 
 

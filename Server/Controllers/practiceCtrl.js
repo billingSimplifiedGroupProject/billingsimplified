@@ -16,7 +16,13 @@ module.exports = {
     });
   },
   getPractice: function(req, res, next){
-    Practice.find(req.query).exec(function(err, result){
+    Practice.find(req.query)
+    // .populate('patients')
+    .populate({
+        path: 'patients',
+        path: 'bills'
+    })
+    .exec(function(err, result){
       if (err) {
           res.status(500 + "getPractice function error").json(err);
       } else {
@@ -25,7 +31,12 @@ module.exports = {
     })
   },
   getPracticeById: function(req, res, next){
-    Practice.findById(req.params.id).exec(function(err, result){
+    Practice.findById(req.params.id)
+    .populate({
+        path: 'patients',
+        populate: {path: 'bills'}
+    })
+    .exec(function(err, result){
       if(err) {
         res.status(500 + "getPracticeById function error").json(err);
       }
@@ -48,14 +59,6 @@ module.exports = {
   },
   addToPatientArray: function(req, res, next){
     console.log( req.params.id);
-    console.log(JSON.stringify(req.body));
-    console.log(JSON.stringify(req.params));
-    console.log(req.body._id);
-  console.log(req.body.practiceId);
-  // console.log(req.params.Practice);
-    // console.log(addPatient);
-    // console.log(response);
-    // console.log(req.user);
     Practice.findByIdAndUpdate(req.body.practiceId, {$push:{"patients": req.body}}, function(err, response){
       if(err){
         console.log("YOU SUCK MOST");
