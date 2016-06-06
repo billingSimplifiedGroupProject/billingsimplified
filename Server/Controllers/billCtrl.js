@@ -50,9 +50,10 @@ module.exports = {
     })
   },
   updateBill: function(req, res, next){
-    Bill.findByIdAndUpdate(req.params.id, req.body).exec(function(err, result){
       console.log(req.body);
       console.log(req.params);
+      console.log(req.body.data);
+    Bill.findByIdAndUpdate(req.params.id, {$push:{'payments':req.body}}).exec(function(err, result) {
       if(err){
         res.status(500 + 'updateBill function error');
       }
