@@ -19,8 +19,16 @@ CURRENT PRACTICE{{currentPractice}}
         <li>{{patientInfo.mailingAddress}}</li>
     </ul>
     <ul ng-repeat="bill in patientInfo.bills">
-        <li>{{bill}}</li>
+        <li ng-click="showAddPayment()"><h1>Bill</h1>{{bill}}</li>
     </ul>
+    <div ng-hide="addPayment" class="">
+        <label> Payments</label>
+        <input type="text" ng-model="payment.remainingBal"placeholder="remaining balance">
+        <input type="text" ng-model="payment.totalPaid"placeholder="total paid">
+        <input type="text" ng-model="payment.purpose"placeholder="Purpose of Payment">
+        <input type="text" ng-model="payment.paymentMethod"placeholder="Payment Method">
+        <textarea type="text" ng-model="payment.comments"placeholder="comments"></textarea>
+    </div>
     <br><br><br><hr.
     <form>
         <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>

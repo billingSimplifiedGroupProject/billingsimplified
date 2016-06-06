@@ -44,6 +44,11 @@ angular.module("app")
                 })
         };
 
+        $scope.addPayment = true;
+        $scope.showAddPayment = function() {
+            $scope.addPayment = !$scope.addPayment;
+        }
+
 
 
 });
