@@ -7,6 +7,6 @@ var PracticeSchema = new mongoose.Schema({
   phoneNumber: {type: Number, required: true},
   mailingAddress:{type:String, required: true},
   staff:[{type: Schema.Types.ObjectId, ref:'User'}],
-  patients: []
+  patients: [{type: Schema.Types.ObjectId, ref:'Patient'}] //no patients are added at the time the Practice is created
 });
 module.exports = mongoose.model('Practice', PracticeSchema);

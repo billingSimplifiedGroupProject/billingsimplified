@@ -1,26 +1,32 @@
 PRACTICE STAFF
 
-{{staffMember}}
+STAFF MEMBER{{staffMember}}
 <br><br><br>
-{{currentPractice}}
+CURRENT PRACTICE{{currentPractice}}
 <br><br><br>
 
-<label for="">{{currentPractice.name}}'s Patients</label>
-<ul ng-repeat="patient in currentPractice.patients">
+<label>{{currentPractice.name}}'s Patients</label>
+<!-- <ul ng-click="showAddBill(patient.firstName, patient.lastName, patient._id)" ng-repeat="patient in currentPractice.patients"> -->
+<ul ng-click="showAddBill(patient._id)" ng-repeat="patient in currentPractice.patients">
     <li>{{patient.firstName}} {{patient.lastName}}</li>
-    <button ng-click="showAddBill(patient.firstName, patient.lastName, patient._id)">Add Bill</button>
 </ul>
 
 <div ng-hide="addBill" class="">
-    <form class="">
+    <ul>
+        <li>{{patientInfo.firstName}} {{patientInfo.lastName}}</li>
+        <li>{{patientInfo.email}}</li>
+        <li>{{patientInfo.phoneNumber}}</li>
+        <li>{{patientInfo.mailingAddress}}</li>
+    </ul>
+    <ul ng-repeat="bill in patientInfo.bills">
+        <li>{{bill}}</li>
+    </ul>
+    <br><br><br><hr.
+    <form>
         <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>
-        <input type="text" ng-model="patientInfo.patientName" placeholder="Patient Name"><br>
-        <input type="text" ng-model="patientInfo.id" placeholder="Patient Name"><br>
+        <input type="text" ng-model="patientInfo._id" placeholder="Patient Name"><br>
         <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
-        <button ng-click="submitBill(bill, patientInfo)"> Submit Bill</button>
-        <button ng-click="addToBillArray()"></button>
-        <!-- <textarea type="text" ng-model="bill.note" placeholder="EnterTextHere"><br> -->
-
+        <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
     </form>
 </div>
 <!-- {{currentPractice.patients.firstName}} {{currentPractice.patients.lastName}} -->
@@ -34,6 +40,4 @@ PRACTICE STAFF
     <input type="text" ng-model="newPatient.email" placeholder="email"><br>
     <input type="text" ng-model="newPatient.dob" placeholder="dob"><br>
     <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
-
-    <button ng-click="addToPatientArray(newAddPatient)" type="button" name="button">Add Patient To Clinic</button>
 </form>

@@ -24,7 +24,7 @@ var PatientSchema = new mongoose.Schema({
  dateOfBirth: {type: String},
  lastFourSocial: {type: String},
  patientNotes: {type:String},
- practiceId:[{type: Schema.Types.ObjectId, ref: "User"}],
+ practiceId:{type: Schema.Types.ObjectId, ref: "Practice"},
  bills: [{type: Schema.Types.ObjectId, ref:'Bill'}]
 })
 module.exports = mongoose.model('Patient', PatientSchema);
