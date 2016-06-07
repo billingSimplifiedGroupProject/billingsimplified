@@ -21,9 +21,9 @@ angular.module("app").controller("ngGridCtrl", function($scope, ngGridSvc) {
      };
 
 
-       $scope.getClinicData = function() {
+       $scope.getClinicData = function(filter) {
          //  console.log($scope.filter)
-         ngGridSvc.getClinicData($scope.filter)
+         ngGridSvc.getClinicData(filter)
          .then(function(res) {
             $scope.clinicData = res;
          })
