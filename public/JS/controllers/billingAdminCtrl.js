@@ -9,10 +9,17 @@ $scope.createNewPractice = function(newPractice) {
 }
 //
 $scope.getPractices = function() {
-    billingAdminService.getPractices();
-}
+    billingAdminService.getPractices().then(function(response){
+      $scope.practices = response.data;
+      console.log(response.data);
+    })
+}()
 $scope.createNewUser = function(newUser, practiceId) {
     billingAdminService.createNewUser(newUser, practiceId);
     $scope.newUser = "";
+}
+$scope.practiceShow = true;
+$scope.choosePractice = function (){
+$scope.practiceShow=!$scope.practiceShow;
 }
 });

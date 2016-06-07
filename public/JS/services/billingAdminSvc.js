@@ -32,4 +32,12 @@ angular.module("app").service("billingAdminService", function($http) {
             return response.data;
         });
     };
+    this.getPractices = function(){
+      return $http({
+        method: "GET",
+        url: "/get/practice"
+      }).then(function(response){
+        return response;
+      })
+    }
 });

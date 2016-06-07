@@ -8,13 +8,14 @@ var BillSchema = new mongoose.Schema({
   patientId:{ type: Schema.Types.ObjectId, ref: "Patient"},
   billingAddress: {type:String},
   notes: {type:String},
-     payments: {
+     payments: [{
        remainingBal: {type: String},
        totalPaid: {type: String},
        purpose: {type: String},
        method: {type: String},
        comments: {type: String},
-       dateCreated:{type: String}
-     }
+       dateCreated:{type: String},
+       billId: {type: String}
+     }]
 })
 module.exports = mongoose.model('Bill', BillSchema);

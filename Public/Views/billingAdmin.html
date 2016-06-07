@@ -32,3 +32,10 @@ BILLING ADMIN
     </form>
     <button ng-click="createNewUser(newUser, practiceId)">Submit New User</button>
 </div>
+
+<ul ng-repeat="practice in practices" ng-click="choosePractice(practice._id)">
+  <li ng-hide="practiceShow">{{practice.name}}
+</li>
+<div ng-hide="practiceShow">{{practice.mailingAddress}}</div>
+
+</ul>
