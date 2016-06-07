@@ -32,4 +32,23 @@ angular.module("app").service("billingAdminService", function($http) {
             return response.data;
         });
     };
+    this.getPractices = function(){
+      return $http({
+      method: "GET",
+      url: "/get/practice"
+    }).then(function(response){
+      return response;
+    })
+  };
+
+  this.submitChart = function(practiceChart, id){
+    practiceChart.practiceId = id;
+    return $http({
+      method:"POST",
+      url:"/create/charts",
+      data: practiceChart
+    }).then(function(response){
+      return response;
+    })
+  }
 });

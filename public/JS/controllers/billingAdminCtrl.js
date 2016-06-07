@@ -9,10 +9,26 @@ $scope.createNewPractice = function(newPractice) {
 }
 //
 $scope.getPractices = function() {
-    billingAdminService.getPractices();
-}
+    billingAdminService.getPractices().then(function(response){
+      $scope.practices = response.data;
+      console.log(response);
+    })
+}()
 $scope.createNewUser = function(newUser, practiceId) {
     billingAdminService.createNewUser(newUser, practiceId);
     $scope.newUser = "";
+}
+
+$scope.hidden = true;
+$scope.unhidden = function(practice){
+  $scope.hidden=!$scope.hidden;
+  $scope.chosenClinic = practice;
+}
+
+$scope.submitChart = function(practiceChart, id){
+  billingAdminService.submitChart(practiceChart, id).then(function(response){
+    return response;
+    console.log(response);
+  })
 }
 });
