@@ -1,39 +1,39 @@
 var mongoose = require('mongoose');
-
+var Schema = mongoose.Schema;
 var ChartSchema = new mongoose.Schema({
 
-    chart: {
-        practiceId: {type:Schema.Types.ObjecId, ref:"Practice"},
+    // chart: {
+        practiceId: {type: Schema.Types.ObjectId, ref:"Practice"},
         date: {type: Date, default: Date.now},
-        graphData:{
-            totalAR: {
-                current: Number,
-                thirtySixty: Number,
-                sixtyNinety: Number,
-                ninetyUp: Number,
-            },
-            insuranceAR: {
-                current: Number,
-                thirtySixty: Number,
-                sixtyNinety: Number,
-                ninetyUp: Number,
-            },
-            patientAR: {
-                current: Number,
-                thirtySixty: Number,
-                sixtyNinety: Number,
-                ninetyUp: Number,
-            },
-            patients: {
-                totalPatients: Number,
-                newPatients: Number
-            },
-            billed: {
+        // graphData:{
+            // totalAR: {
+                ARcurrent: Number,
+                ARthirtySixty: Number,
+                ARsixtyNinety: Number,
+                ARninetyUp: Number,
+            // },
+            // insuranceAR: {
+                insuranceARcurrent: Number,
+                insuranceARthirtySixty: Number,
+                insuranceARsixtyNinety: Number,
+                insuranceARninetyUp: Number,
+            // },/
+            // patientAR: {
+                patientARCurrent: Number,
+                patientARThirtySixty: Number,
+                patientARSixtyNinety: Number,
+                patientARNinetyUp: Number,
+            // },
+            // patients: {
+                patientTotalPatients: Number,
+                patientNewPatients: Number,
+            // },
+            // billed: {
                 totalBilled: Number,
                 billedPerPatient: Number
-            }
-        }
-      }
+            // }
+        // }
+      // }
 
 })
-module.exports = mongoose.model('Data', ChartSchema);
+module.exports = mongoose.model('Chart', ChartSchema);
