@@ -29,6 +29,6 @@ $scope.submitChart = function(practiceChart, id){
   billingAdminService.submitChart(practiceChart, id).then(function(response){
     return response;
     console.log(response);
-  })
+  });
 }
 });
