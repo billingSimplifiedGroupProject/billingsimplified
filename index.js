@@ -10,6 +10,7 @@ var UserCtrl = require('./Server/Controllers/localAuth/UserCtrl.js');
 var practiceCtrl = require('./Server/Controllers/practiceCtrl.js');
 var patientCtrl = require('./Server/Controllers/patientCtrl.js');
 var billCtrl = require('./Server/Controllers/billCtrl.js');
+var chartCtrl = require('./Server/Controllers/chartCtrl.js');
 // SERVICES //
 var passport = require('./Server/Controllers/localAuth/passport');
 //SCHEMAS
@@ -53,6 +54,12 @@ app.get('/get/bills', billCtrl.getBills);
 app.get('/get/bill/:id', billCtrl.getBillById);
 app.delete('/delete/bill/:id', billCtrl.deleteBill);
 app.put('/update/bill/:id', billCtrl.updateBill);
+//CHART CONTROLLERS
+app.post('/create/charts', chartCtrl.createChart);
+app.get('/get/charts', chartCtrl.getCharts);
+app.get('/get/chart/:id', chartCtrl.getChartById);
+app.delete('/delete/chart/:id', chartCtrl.deleteChart);
+app.put('/update/chart/:id', chartCtrl.updateChart);
 
 // app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
