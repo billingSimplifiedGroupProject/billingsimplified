@@ -31,4 +31,37 @@ BILLING ADMIN
         </select>
     </form>
     <button ng-click="createNewUser(newUser, practiceId)">Submit New User</button>
+
+</div>
+<div class="">
+  <span class=""  ng-hide="hidden">
+    {{chosenClinic.email}}
+    <!-- <input ng-model="practiceId" placeholder="EnterTextHere"> -->
+    <input ng-model="practiceChart.ARcurrent" placeholder="ARcurrent"><br>
+    <input ng-model="practiceChart.ARthirtySixty" placeholder="ARthirtySixty"><br>
+    <input ng-model="practiceChart.ARsixtyNinety" placeholder="ARsixtyNinety"><br>
+    <input ng-model="practiceChart.ARninetyUp" placeholder="ARninetyUp"><br>
+
+    <input ng-model="practiceChart.insuranceARcurrent" placeholder="insuranceARcurrent"><br>
+    <input ng-model="practiceChart.insuranceARthirtySixty" placeholder="insuranceARthirtySixty"><br>
+    <input ng-model="practiceChart.insuranceARsixtyNinety" placeholder="insuranceARsixtyNinety"><br>
+    <input ng-model="practiceChart.insuranceARninetyUp" placeholder="insuranceARninetyUp"><br>
+
+    <input ng-model="practiceChart.patientARCurrent" placeholder="patientARCurrent"><br>
+    <input ng-model="practiceChart.patientARThirtySixty" placeholder="patientARThirtySixty"><br>
+    <input ng-model="practiceChart.patientARSixtyNinety" placeholder="patientARSixtyNinety"><br>
+    <input ng-model="practiceChart.patientARNinetyUp" placeholder="patientARNinetyUp"><br>
+
+    <input ng-model="practiceChart.patientTotalPatients" placeholder="patientTotalPatients"><br>
+    <input ng-model="practiceChart.patientNewPatients" placeholder="patientNewPatients"><br>
+
+    <input ng-model="practiceChart.totalBilled" placeholder="totalBilled"><br>
+    <input ng-model="practiceChart.billedPerPatient" placeholder="billedPerPatient"><br>
+
+    <button ng-click="submitChart(practiceChart, chosenClinic._id)" name="button">submit</button>
+  </span>
+  <ul ng-click="unhidden(practice)" ng-repeat="practice in practices">{{practice.name}}
+
+  </ul>
+
 </div>
