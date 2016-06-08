@@ -1,0 +1,27 @@
+
+   <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-top:20%;">
+     <div class="container">
+      <div id="myContainer">
+         <div class="navbar-header">
+           <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-search"></span> Filter</a>
+         </div>
+         <form class="navbar-form navbar-left" role="search">
+           <div class="form-group">
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.patientId" placeholder="Patient ID #" > -->
+             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.lastName" placeholder="Last Name" >
+             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.firstName" placeholder="First Name" >
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.billID" placeholder="Bill ID#" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.phoneNumber" placeholder="Total Charged" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.balanceDue" placeholder="Balance Due" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateCharged" placeholder="Date Charged" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateDue" placeholder="Date Due" > -->
+             <button class="btn btn-primary" ng-click="getClinicData(filter)"> Submit </button>
+           </div>
+         </form>
+      </div>
+     </div>
+     <div class="panel panel-default">
+        <div class="panel-heading"> Your Filter Results:</div>
+        <div class="gridStyle" ng-grid="gridOptions" swap-image="defaultInfo.search"></div>
+     </div>
+   </div>
