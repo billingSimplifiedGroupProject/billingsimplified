@@ -7,15 +7,15 @@
          </div>
          <form class="navbar-form navbar-left" role="search">
            <div class="form-group">
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.patientID" placeholder="Patient ID #" >
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.patientId" placeholder="Patient ID #" > -->
              <input style="width: 125px;" type="text" class="form-control" ng-model="filter.lastName" placeholder="Last Name" >
              <input style="width: 125px;" type="text" class="form-control" ng-model="filter.firstName" placeholder="First Name" >
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.billID" placeholder="Bill ID#" >
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.totalCharged" placeholder="Total Charged" >
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.balanceDue" placeholder="Balance Due" >
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateCharged" placeholder="Date Charged" >
-             <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateDue" placeholder="Date Due" >
-             <button class="btn btn-primary" ng-click="getClinicData()"> Submit </button>
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.billID" placeholder="Bill ID#" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.phoneNumber" placeholder="Total Charged" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.balanceDue" placeholder="Balance Due" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateCharged" placeholder="Date Charged" > -->
+             <!-- <input style="width: 125px;" type="text" class="form-control" ng-model="filter.dateDue" placeholder="Date Due" > -->
+             <button class="btn btn-primary" ng-click="getClinicData(filter)"> Submit </button>
            </div>
          </form>
       </div>

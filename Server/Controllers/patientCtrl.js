@@ -56,6 +56,22 @@ module.exports = {
       }
     })
   },
+  getPatientsx: function(req, res) {
+     console.log("THIS IS OUR CONSOLE LOG!!! REQ " + req)
+     console.log("THIS IS OUR CONSOLE LOG!!! RES " + res)
+     console.log("THIS IS OUR CONSOLE LOG!!! REQ.Body " + req.body)
+   //  var query = {};
+   //  if (req.query.status) query["birds.status"] = req.query.status;
+   //  if (req.query.user) query["user"] = req.query.user;
+   req.query.firstName = new RegExp(req.query.firstName);
+   req.query.lastName = new RegExp(req.query.lastName);
+   // req.query.practiceId = req.user.practiceId;
+
+    Patient.find(req.query).populate("user bills").exec(function(err, users) {
+      console.log(req);
+      return res.send(users);
+    });
+},
   addPracticeId: function(req, res, next){
     Patient.create(req.body, function(err, response){
       if(err){
