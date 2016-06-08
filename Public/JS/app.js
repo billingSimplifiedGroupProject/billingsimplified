@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngGrid'])
+angular.module("app", ['ui.router', 'ngGrid', 'toaster'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login');
 
@@ -41,12 +41,22 @@ angular.module("app", ['ui.router', 'ngGrid'])
                 templateUrl: 'Views/practiceAdmin.html',
                 controller: 'practiceAdminCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
+                    practiceStaffAndClinic: function(loginSvc, practiceStaffService, $state, $q) {
+                        var dfd = $q.defer();
                         return loginSvc.getCurrentUser()
                             .then(function(response) {
-                                console.log(response);
+                                var currentUser = response;
+                                console.log("resolve response", response);
                                 if (response.data.userType === "practiceAdmin") {
-                                    return response.data;
+                                    practiceStaffService.getUsersPractice(response.data.practiceId)
+                                        .then(function(response) {
+                                            console.log(response);
+                                            dfd.resolve({
+                                                currentUser: currentUser.data,
+                                                practice: response.data
+                                            })
+                                        })
+                                        return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
