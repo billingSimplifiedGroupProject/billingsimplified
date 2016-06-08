@@ -44,6 +44,7 @@ app.put('/update/user/:id', UserCtrl.updateUser);
 //PATIENT CONTROLLERS
 app.post('/create/patient', patientCtrl.createPatient);
 app.get('/get/patients', patientCtrl.getPatients);
+app.get('/get/patientsx', patientCtrl.getPatientsx);
 app.get('/get/patient/:id', patientCtrl.getPatientById);
 app.delete('/delete/patient/:id', patientCtrl.deletePatient);
 app.put('/update/patient/:id', patientCtrl.updatePatient);
