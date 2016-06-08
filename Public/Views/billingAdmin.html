@@ -1,41 +1,97 @@
 BILLING ADMIN
 <hr>
-<!--ADD CLINIC -->
+<!--ADD BILLING ADMIN STAFF MEMBER -->
+<button ng-click="showAddNewStaff()">Add new Staff member to Billing simplified</button>
+<div ng-hide="addNewStaff">
+    <label>Create New Staff Member for Billing Simplified</label>
+    <form action="index.html" method="post">
+        <input ng-model="newUser.firstName" placeholder="First Name">
+        <br>
+        <input ng-model="newUser.lastName" placeholder="Last Name">
+        <br>
+        <input ng-model="newUser.email" placeholder="Email">
+        <br>
+        <input ng-model="newUser.password" placeholder="password">
+        <br>
+        <select ng-model="newUser.userType">
+            <option value="billingAdmin">Billing Simplified Admin</option>
+            <option value="billingStaff">Billing Simplified Staff</option>
+        </select>
+    </form>
+    <button ng-click="createNewUser(newUser)">Submit New User</button>
+</div>
+
+<br>
+<br>
+<hr>
+<!--ADD PRACTICE -->
 <label>Create Practice </label>
 <div class="create-practice">
     <form name="lessonForm" action="index.html" method="post">
-        <input ng-model="newPractice.name" placeholder="Practice Name"><br>
-          <div ng-class="{ 'has-error' : lessonForm.email.$invalid && !lessonForm.email.$pristine}"><br>
-              <input placeholder="email" class="form-control" name="email" type="email" ng-model="newPractice.email" required><br>
-              <span ng-show="lessonForm.email.$invalid && !lessonForm.email.$pristine" class="formVal">Enter a valid email</span><br>
-          </div>
-        <input ng-model="newPractice.phoneNumber" placeholder="Practice Phone Number"><br>
+        <input ng-model="newPractice.name" placeholder="Practice Name">
+        <br>
+        <div ng-class="{ 'has-error' : lessonForm.email.$invalid && !lessonForm.email.$pristine}">
+            <br>
+            <input placeholder="email" class="form-control" name="email" type="email" ng-model="newPractice.email" required>
+            <br>
+            <span ng-show="lessonForm.email.$invalid && !lessonForm.email.$pristine" class="formVal">Enter a valid email</span>
+            <br>
+        </div>
+        <input ng-model="newPractice.phoneNumber" placeholder="Practice Phone Number">
+        <br>
         <input ng-model="newPractice.mailingAddress" placeholder="Practice Address">
     </form>
     <button ng-click="createNewPractice(newPractice)">TEST</button>
 </div>
-<br><br><hr>
-<div ng-show="clinicAdded" class="create-user">
-    <label>Create User</label>
+<br>
+<br>
+<hr>
+
+<!--ADD CLINIC -->
+<div ng-hide="clinicAdded" class="create-user">
+    <label>Create User for {{practiceName}}</label>
     <form action="index.html" method="post">
         <input type="text" ng-model="practiceId" placeholder="EnterTextHere">
-        <input ng-model="newUser.firstName" placeholder="First Name"><br>
-        <input ng-model="newUser.lastName" placeholder="Last Name"><br>
-        <input ng-model="newUser.email" placeholder="Email"><br>
-        <input ng-model="newUser.password" placeholder="password"><br>
+        <input ng-model="newUser.firstName" placeholder="First Name">
+        <br>
+        <input ng-model="newUser.lastName" placeholder="Last Name">
+        <br>
+        <input ng-model="newUser.email" placeholder="Email">
+        <br>
+        <input ng-model="newUser.password" placeholder="password">
+        <br>
         <select ng-model="newUser.userType">
             <option value="practiceAdmin">Practice Admin</option>
             <option value="practiceStaff">Practice Staff</option>
-            <option value="billingAdmin">Billing Admin</option>
-            <option value="billingStaff">Billing Staff</option>
         </select>
     </form>
     <button ng-click="createNewUser(newUser, practiceId)">Submit New User</button>
-
 </div>
+
 <div class="">
-  <span class=""  ng-hide="hidden">
-    {{chosenClinic.email}}
+    <span class="" ng-hide="hidden">
+        <label>Create New User for  {{chosenClinic.name}}</label>
+        <form action="index.html" method="post">
+            <input type="text" ng-model="praxId" value="chosenClinic._id" placeholder="EnterTextHere">
+            <input ng-model="newUser.firstName" placeholder="First Name">
+            <br>
+            <input ng-model="newUser.lastName" placeholder="Last Name">
+            <br>
+            <input ng-model="newUser.email" placeholder="Email">
+            <br>
+            <input ng-model="newUser.password" placeholder="password">
+            <br>
+            <select ng-model="newUser.userType">
+                <option value="practiceAdmin">Practice Admin</option>
+                <option value="practiceStaff">Practice Staff</option>
+                <option value="billingAdmin">Billing Admin</option>
+                <option value="billingStaff">Billing Staff</option>
+            </select>
+        </form>
+        <button ng-click="createNewUser(newUser, praxId)">Submit New User</button>
+        <br><br><br>
+
+    {{chosenClinic.email}}<br>
     <!-- <input ng-model="practiceId" placeholder="EnterTextHere"> -->
     <input ng-model="practiceChart.ARcurrent" placeholder="ARcurrent"><br>
     <input ng-model="practiceChart.ARthirtySixty" placeholder="ARthirtySixty"><br>
@@ -60,8 +116,11 @@ BILLING ADMIN
 
     <button ng-click="submitChart(practiceChart, chosenClinic._id)" name="button">submit</button>
   </span>
-  <ul ng-click="unhidden(practice)" ng-repeat="practice in practices">{{practice.name}}
-
-  </ul>
+    <ul ng-click="unhidden(practice)" ng-repeat="practice in practices">
+        <li>Practice Name: {{practice.name}}</li>
+        <button ng-click="deletePractice(practice._id)">Delete Practice</button>
+    </ul>
 
 </div>
+
+<toaster-container></toaster-container>
