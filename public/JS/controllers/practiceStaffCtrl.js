@@ -29,6 +29,7 @@ angular.module("app")
                     practiceStaffService.addToBillArray(response)
                     // console.log("submit bill response", response);
                         .then(function(response) {
+                            $scope.bill = "";
                         })
                 })
         }
@@ -39,6 +40,7 @@ angular.module("app")
                     $scope.newAddPatient = response.data;
                     practiceStaffService.addToPatientArray(response.data)
                         .then (function(response){
+                            $scope.newPatient = "";
                             console.log(response);
                         })
                 })
@@ -54,6 +56,7 @@ angular.module("app")
             practiceStaffService.makePayment(paymentInfo, billId)
                 .then(function(response) {
                     console.log(response);
+                    $scope.payment = "";
                 })
         }
 
