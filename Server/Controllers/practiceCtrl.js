@@ -20,7 +20,7 @@ module.exports = {
     // .populate('patients')
     .populate({
         path: 'patients',
-        path: 'bills'
+        populate: {path: 'bills'}
     })
     .exec(function(err, result){
       if (err) {
@@ -30,6 +30,7 @@ module.exports = {
       }
     })
   },
+
   getPracticeById: function(req, res, next){
     Practice.findById(req.params.id)
     .populate({

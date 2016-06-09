@@ -42,7 +42,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
             })
         $scope.newUser = "";
     }
-
+//ssldkf
     $scope.hidden = true;
     $scope.unhidden = function(practice) {
         $scope.hidden = !$scope.hidden;
@@ -55,6 +55,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
             $scope.practiceChart = "";
             toaster.pop('success', "Successfully Added Chart Data");
             return response;
+
         })
     }
 });
