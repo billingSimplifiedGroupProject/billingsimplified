@@ -36,6 +36,7 @@ app.get('/get/practice/:id', practiceCtrl.getPracticeById);
 app.put('/update/practice/:id', practiceCtrl.updatePractice);
 app.delete('/delete/practice/:id', practiceCtrl.deletePractice);
 app.put('/updateClinic/patientArray/:id', practiceCtrl.addToPatientArray);
+
 //USER CONTROLLERS
 app.get('/get/users', UserCtrl.getAllUsers);
 app.get('/get/user/:id', UserCtrl.getUserById);

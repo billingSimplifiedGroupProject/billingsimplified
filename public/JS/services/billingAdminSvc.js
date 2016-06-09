@@ -38,6 +38,8 @@ angular.module("app").service("billingAdminService", function($http) {
     })
   };
 
+  
+
   this.deletePractice = function(id) {
       $http({
           method: "DELETE",

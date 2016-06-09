@@ -51,6 +51,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
         billingAdminService.submitChart(practiceChart, id).then(function(response) {
             return response;
             console.log(response);
+            console.log();
         })
     }
 });
