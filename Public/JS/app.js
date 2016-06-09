@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngGrid', 'toaster'])
+angular.module("app", ['ui.router', 'toaster'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login');
 
