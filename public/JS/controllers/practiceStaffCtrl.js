@@ -1,5 +1,5 @@
 angular.module("app")
-    .controller('practiceStaffCtrl', function($scope, practiceStaffService, practiceStaffAndClinic) {
+    .controller('practiceStaffCtrl', function($scope, practiceStaffService, practiceStaffAndClinic, toaster, $state) {
 
         console.log(practiceStaffAndClinic);
 
@@ -17,10 +17,6 @@ angular.module("app")
                     $scope.patientInfo = i;
                 }
             })
-            // $scope.patientInfo = {
-            //     patientName: fName + " " + lName,
-            //     id: id
-            // };
         }
 
         $scope.submitBill = function(bill, patientId) {
@@ -29,6 +25,7 @@ angular.module("app")
                     practiceStaffService.addToBillArray(response)
                     // console.log("submit bill response", response);
                         .then(function(response) {
+                            $scope.bill = "";
                         })
                 })
         }
@@ -39,10 +36,22 @@ angular.module("app")
                     $scope.newAddPatient = response.data;
                     practiceStaffService.addToPatientArray(response.data)
                         .then (function(response){
+                            $scope.newPatient = "";
+                            // $scope.currentPractice = response.data;
                             console.log(response);
+                            $state.reload();
                         })
                 })
         };
+
+        $scope.deletePatient = function(id) {
+            if (confirm("Are you sure you want to delete this patient?")) {
+                practiceStaffService.deletePatient(id)
+                    .then(function(response) {
+                        $state.reload();
+                    })
+            }
+        }
 
         $scope.addPayment = true;
         $scope.showAddPayment = function(id) {
@@ -54,6 +63,15 @@ angular.module("app")
             practiceStaffService.makePayment(paymentInfo, billId)
                 .then(function(response) {
                     console.log(response);
+                    $scope.payment = "";
+                })
+        }
+
+        var getClinicInfo = function(id) {
+            practiceStaffService.getUsersPractice(id)
+                .then(function(response) {
+                    console.log("get clinic info", response);
+                    return response.data;
                 })
         }
 
