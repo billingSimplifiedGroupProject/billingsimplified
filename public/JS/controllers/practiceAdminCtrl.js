@@ -29,6 +29,7 @@ angular.module("app").controller('practiceAdminCtrl', function($scope, practiceS
                         practiceStaffService.addToBillArray(response)
                         // console.log("submit bill response", response);
                             .then(function(response) {
+                                $scope.bill = "";
                             })
                     })
             }
@@ -40,6 +41,7 @@ angular.module("app").controller('practiceAdminCtrl', function($scope, practiceS
                         practiceStaffService.addToPatientArray(response.data)
                             .then (function(response){
                                 console.log(response);
+                                $scope.newPatient = "";
                             })
                     })
             };
@@ -54,6 +56,7 @@ angular.module("app").controller('practiceAdminCtrl', function($scope, practiceS
                 practiceStaffService.makePayment(paymentInfo, billId)
                     .then(function(response) {
                         console.log(response);
+                        $scope.payment = "";
                     })
             }
 
