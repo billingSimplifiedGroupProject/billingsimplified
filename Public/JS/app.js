@@ -1,4 +1,5 @@
-angular.module("app", ['ui.router'])
+
+angular.module("app", ['ui.router', 'toaster'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login');
 
@@ -41,12 +42,22 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/practiceAdmin.html',
                 controller: 'practiceAdminCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
+                    practiceStaffAndClinic: function(loginSvc, practiceStaffService, $state, $q) {
+                        var dfd = $q.defer();
                         return loginSvc.getCurrentUser()
                             .then(function(response) {
-                                console.log(response);
+                                var currentUser = response;
+                                console.log("resolve response", response);
                                 if (response.data.userType === "practiceAdmin") {
-                                    return response.data;
+                                    practiceStaffService.getUsersPractice(response.data.practiceId)
+                                        .then(function(response) {
+                                            console.log(response);
+                                            dfd.resolve({
+                                                currentUser: currentUser.data,
+                                                practice: response.data
+                                            })
+                                        })
+                                        return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
@@ -59,18 +70,17 @@ angular.module("app", ['ui.router'])
                 templateUrl: 'Views/billingStaff.html',
                 controller: 'billingStaffCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
-                        return loginSvc.getCurrentUser()
-                            .then(function(response) {
-                                console.log(response);
-                                if (response.data.userType === "billingStaff") {
-                                  console.log(response.data.userType);
-                                    return response.data;
-                                } else {
-                                    $state.go('login');
-                                }
-                            })
-                    }
+                  user: function(loginSvc, $state) {
+                      return loginSvc.getCurrentUser()
+                          .then(function(response) {
+                              console.log(response);
+                              if (response.data.userType === "billingStaff") {
+                                  return response.data;
+                              } else {
+                                  $state.go('login');
+                              }
+                          })
+                  }
                 }
             })
             .state('billingAdmin', {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 PRACTICE STAFF STAFF MEMBER{{staffMember}}
 <br>
 <br>
@@ -5,11 +6,20 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
 <br>
 <br>
 <br>
+=======
+
+
+<!-- STAFF MEMBER{{staffMember}} --
+<!-- CURRENT PRACTICE{{currentPractice}} -->
+<h2>Logged in as: {{staffMember.firstName}} {{staffMember.lastName}} at {{currentPractice.name}}</h2>
+<br><br><br>
+>>>>>>> master
 
 <label>{{currentPractice.name}}'s Patients</label>
 <!-- <ul ng-click="showAddBill(patient.firstName, patient.lastName, patient._id)" ng-repeat="patient in currentPractice.patients"> -->
-<ul ng-click="showAddBill(patient._id)" ng-repeat="patient in currentPractice.patients">
-    <li>{{patient.firstName}} {{patient.lastName}}</li>
+<ul  ng-repeat="patient in currentPractice.patients">
+    <li ng-click="showAddBill(patient._id)">{{patient.firstName}} {{patient.lastName}}</li>
+    <button ng-click="deletePatient(patient._id)">Delete</button>
 </ul>
 
 
@@ -18,6 +28,7 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
         <li>{{patientInfo.email}}</li>
         <li>{{patientInfo.phoneNumber}}</li>
         <li>{{patientInfo.mailingAddress}}</li>
+<<<<<<< HEAD
     </ul> -->
 <!-- <ul ng-repeat="bill in patientInfo.bills">
         <li ng-click="showAddPayment(bill._id)">
@@ -37,6 +48,33 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
         <br>
         <input type="text" ng-model="patientInfo._id" placeholder="Patient Name">
         <br>
+=======
+    </ul>
+    <h3>Bills</h3>
+    <ul ng-repeat="bill in patientInfo.bills">
+        <li ng-click="showAddPayment(bill._id)">
+
+            Created On: {{bill.firstDateCreated | date: "short"}}<br>
+            Amount: ${{bill.billAmount}}
+            <hr>
+        </li>
+    </ul>
+    <div ng-hide="addPayment" class="">
+        <label> Payments</label>
+        <input type="text" ng-model="billId" placeholder="EnterTextHere"><br>
+        <input type="text" ng-model="payment.remainingBal"placeholder="remaining balance"><br>
+        <input type="text" ng-model="payment.totalPaid"placeholder="total paid"><br>
+        <input type="text" ng-model="payment.purpose"placeholder="Purpose of Payment"><br>
+        <input type="text" ng-model="payment.paymentMethod"placeholder="Payment Method"><br>
+        <textarea type="text" ng-model="payment.comments"placeholder="comments"></textarea><br>
+        <button ng-click="makePayment(payment, billId)">Add Payment</button>
+    </div>
+    <br><br><br><hr>
+    <form>
+        <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>
+        <input type="text" ng-model="patientInfo._id" placeholder="Patient Name"><br>
+        <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
+>>>>>>> master
         <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
         </form>
 </div>
@@ -62,6 +100,7 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
 <br>
 <br>
 <form class="" action="index.html" method="post">
+<<<<<<< HEAD
     <label for="">New Patient</label>
     <br>
     <input type="text" ng-model="currentPracticeId">
@@ -105,10 +144,27 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
     <br>
     <input type="text" ng-model="newPatient.address.zip" placeholder="Zip Code">
     <br>
+=======
+    <label for="">Add New Patient to {{currentPractice.name}}</label><br>
+    <input type="text"ng-model="currentPracticeId"><br>
+    <input type="text" ng-model="newPatient.firstName" placeholder="first name"><br>
+    <input type="text" ng-model="newPatient.middleName" placeholder="middleName"><br>
+    <input type="text" ng-model="newPatient.lastName" placeholder="last name"><br>
+    <input type="text" ng-model="newPatient.email" placeholder="email"><br>
+    <input type="text" ng-model="newPatient.dob" placeholder="dob"><br>
+
+    <input type="text" ng-model="newPatient.phoneNumber" placeholder="phoneNumber"><br>
+    <input type="text" ng-model="newPatient.lastFourSocial" placeholder="lastFourSocial"><br>
+    <input type="text" ng-model="newPatient.dateOfBirth" placeholder="dateOfBirth"><br>
+>>>>>>> master
     <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
 </form>
 <br>
 <br>
 
+<<<<<<< HEAD
 <search-bill-dir></search-bill-dir>
 <!-- <search-patient-dir></search-patient-dir> -->
+=======
+<toaster-container></toaster-container>
+>>>>>>> master
