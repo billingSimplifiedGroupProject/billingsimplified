@@ -1,9 +1,19 @@
+<<<<<<< HEAD
+PRACTICE STAFF STAFF MEMBER{{staffMember}}
+<br>
+<br>
+<br> CURRENT PRACTICE{{currentPractice}}
+<br>
+<br>
+<br>
+=======
 
 
 <!-- STAFF MEMBER{{staffMember}} --
 <!-- CURRENT PRACTICE{{currentPractice}} -->
 <h2>Logged in as: {{staffMember.firstName}} {{staffMember.lastName}} at {{currentPractice.name}}</h2>
 <br><br><br>
+>>>>>>> master
 
 <label>{{currentPractice.name}}'s Patients</label>
 <!-- <ul ng-click="showAddBill(patient.firstName, patient.lastName, patient._id)" ng-repeat="patient in currentPractice.patients"> -->
@@ -12,12 +22,33 @@
     <button ng-click="deletePatient(patient._id)">Delete</button>
 </ul>
 
-<div ng-hide="addBill" class="">
-    <ul>
+
+<!-- <ul>
         <li>{{patientInfo.firstName}} {{patientInfo.lastName}}</li>
         <li>{{patientInfo.email}}</li>
         <li>{{patientInfo.phoneNumber}}</li>
         <li>{{patientInfo.mailingAddress}}</li>
+<<<<<<< HEAD
+    </ul> -->
+<!-- <ul ng-repeat="bill in patientInfo.bills">
+        <li ng-click="showAddPayment(bill._id)">
+            <h1>Bill</h1>{{bill}}</li>
+    </ul> -->
+<br>
+<div>Create New Bill
+    <br>
+    <hr. <form>
+        <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount">
+        <br>
+        <input type="text" ng-model="bill.firstDateCreated" placeholder="Bill Created Date">
+        <br>
+        <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address">
+        <br>
+        <input type="text" ng-model="bill.notes" placeholder="Notes">
+        <br>
+        <input type="text" ng-model="patientInfo._id" placeholder="Patient Name">
+        <br>
+=======
     </ul>
     <h3>Bills</h3>
     <ul ng-repeat="bill in patientInfo.bills">
@@ -43,12 +74,77 @@
         <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>
         <input type="text" ng-model="patientInfo._id" placeholder="Patient Name"><br>
         <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
+>>>>>>> master
         <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
-    </form>
+        </form>
 </div>
-<!-- {{currentPractice.patients.firstName}} {{currentPractice.patients.lastName}} -->
-<br><br><br>
+<br>
+
+<div>
+    <label>Add Payment</label>
+    <br>
+    <input type="text" ng-model="billId" placeholder="EnterTextHere">
+    <br>
+    <input type="text" ng-model="payment.remainingBal" placeholder="remaining balance">
+    <br>
+    <input type="text" ng-model="payment.totalPaid" placeholder="total paid">
+    <br>
+    <input type="text" ng-model="payment.purpose" placeholder="Purpose of Payment">
+    <br>
+    <input type="text" ng-model="payment.paymentMethod" placeholder="Payment Method">
+    <br>
+    <textarea type="text" ng-model="payment.comments" placeholder="comments"></textarea>
+    <br>
+    <button ng-click="makePayment(payment, billId)"></button>
+</div>
+<br>
+<br>
 <form class="" action="index.html" method="post">
+<<<<<<< HEAD
+    <label for="">New Patient</label>
+    <br>
+    <input type="text" ng-model="currentPracticeId">
+    <br>
+    <input type="text" ng-model="newPatient.lastName" placeholder="last name">
+    <br>
+    <input type="text" ng-model="newPatient.firstName" placeholder="first name">
+    <br>
+    <input type="text" ng-model="newPatient.middleName" placeholder="middle name">
+    <br>
+    <input type="text" ng-model="newPatient.dateOfBirth" placeholder="Date of Birth">
+    <br>
+    <input type="text" ng-model="newPatient.lastFourSocial" placeholder="last four ssn">
+    <br>
+    <br>Insurance Information
+    <br>
+    <input type="text" ng-model="newPatient.insurance.plan_name" placeholder="Plan Name">
+    <br>
+    <input type="text" ng-model="newPatient.insurance.plan_phone" placeholder="Plan Phone">
+    <br>
+    <input type="text" ng-model="newPatient.insurance.member_id" placeholder="Member Id">
+    <br>
+    <input type="text" ng-model="newPatient.insurance.group" placeholder="Group">
+    <br>
+    <input type="text" ng-model="newPatient.insurance.bin" placeholder="BIN">
+    <br>
+    <input type="text" ng-model="newPatient.insurance.pcn" placeholder="PCN">
+    <br>
+
+    <br> Contact Information
+    <br>
+    <input type="text" ng-model="newPatient.phoneNumber" placeholder="Phone Nummber">
+    <br>
+    <input type="text" ng-model="newPatient.email" placeholder="Email Address">
+    <br>
+    <input type="text" ng-model="newPatient.address.street" placeholder="Street Address">
+    <br>
+    <input type="text" ng-model="newPatient.address.city" placeholder="City">
+    <br>
+    <input type="text" ng-model="newPatient.address.state" placeholder="State">
+    <br>
+    <input type="text" ng-model="newPatient.address.zip" placeholder="Zip Code">
+    <br>
+=======
     <label for="">Add New Patient to {{currentPractice.name}}</label><br>
     <input type="text"ng-model="currentPracticeId"><br>
     <input type="text" ng-model="newPatient.firstName" placeholder="first name"><br>
@@ -60,7 +156,15 @@
     <input type="text" ng-model="newPatient.phoneNumber" placeholder="phoneNumber"><br>
     <input type="text" ng-model="newPatient.lastFourSocial" placeholder="lastFourSocial"><br>
     <input type="text" ng-model="newPatient.dateOfBirth" placeholder="dateOfBirth"><br>
+>>>>>>> master
     <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
 </form>
+<br>
+<br>
 
+<<<<<<< HEAD
+<search-bill-dir></search-bill-dir>
+<!-- <search-patient-dir></search-patient-dir> -->
+=======
 <toaster-container></toaster-container>
+>>>>>>> master

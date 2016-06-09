@@ -19,6 +19,7 @@ module.exports = {
   getBills: function(req, res, next){
     Bill.find(req.query)
     .populate("patientId")
+
     .exec(function(err, result){
       if (err) {
           res.status(500 + "getBill function error").json(err);
