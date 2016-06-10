@@ -6,7 +6,7 @@ angular.module("app")
         // Modal show and hide
         $scope.modalShown = false;
         $scope.toggleModal = function () {
-            $scope.modalShown = !$scope.modalShown;
+        $scope.modalShown = !$scope.modalShown;
         };
 
 

@@ -7,7 +7,7 @@
         <input class="practice-id" type="text" ng-model="currentPracticeId">
 
         <div class="new-patient-title">
-            <h1>Create New Patient</h1>
+            <h1><u>Create New Patient</u></h1>
         </div>
 
         <div class="new-patient-form-wrapper">
@@ -18,22 +18,22 @@
                     <h1 class="title">First Name:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.firstName" placeholder="first name">
+                    <input type="text" ng-model="newPatient.firstName" placeholder="First name">
                 </div>
 
                 <div class="title-div-left">
                     <h1 class="title">Middle Name:</h1>
                 </div>
-                <div class="input-div"> <input type="text" ng-model="newPatient.middleName" placeholder="middle name">
+                <div class="input-div"> <input type="text" ng-model="newPatient.middleName" placeholder="Middle name">
                 </div>
 
                 <div class="title-div-left">
                     <h1 class="title">Last Name:</h1>
                 </div>
-                <div class="input-div"> <input type="text" ng-model="newPatient.lastName" placeholder="last name">
+                <div class="input-div"> <input type="text" ng-model="newPatient.lastName" placeholder="Last name">
                 </div>
 
-                <div class="title-div-left">
+                <div class="title-div-left" style="margin-top:50px;">
                     <h1 class="title">Date of Birth:</h1>
                 </div>
                 <div class="input-div"> <input class="dob" type="date" ng-model="newPatient.dateOfBirth">
@@ -138,31 +138,39 @@
                     <h1 class="title">Email:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.email" placeholder="email">
+                    <input type="text" ng-model="newPatient.email" placeholder="Email">
                 </div>
 
             </section>
 
             <section class="right-section-info">
 
-                <div class="title-div-middle">
+                <div class="title-div-right">
                     <h1 class="title">Insurance:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.insurance" placeholder="insurance">
+                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
+                </div>
+
+                <div class="title-div-right">
+                    <h1 class="title">Insurance:</h1>
+                </div>
+                <div class="input-div">
+                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
+                </div>
+
+                <div class="title-div-right">
+                    <h1 class="title">Insurance:</h1>
+                </div>
+                <div class="input-div">
+                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
                 </div>
 
             </section>
 
-
-
-
-
-
-
         </div>
 
-        <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
+        <button class="new-patient-submit" ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Create New Patient</button>
 
     </div>
 
