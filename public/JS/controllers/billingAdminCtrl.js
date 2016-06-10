@@ -27,11 +27,8 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
     $scope.deletePractice = function(id) {
         if (confirm("Are you sure you want to delete this Practice from the database?")) {
             billingAdminService.deletePractice(id)
-                .then(function(response) {
-                    toaster.pop('success', "Successfully Deleted Practice");
-                    getPractices();
-                })
-
+            toaster.pop('success', "Successfully Deleted Practice");
+            getPractices();
         }
     }
     $scope.createNewUser = function(newUser, practiceId) {
@@ -42,10 +39,10 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
             })
         $scope.newUser = "";
     }
-//ssldkf
-    $scope.hidden = true;
-    $scope.unhidden = function(practice) {
-        $scope.hidden = !$scope.hidden;
+
+    $scope.practiceUserAndChartForms = true;
+    $scope.showPracticeUserAndChartForms = function(practice) {
+        $scope.practiceUserAndChartForms = !$scope.practiceUserAndChartForms;
         $scope.chosenClinic = practice;
         $scope.praxId = practice._id;
     }

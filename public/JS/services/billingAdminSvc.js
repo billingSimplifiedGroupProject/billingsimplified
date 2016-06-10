@@ -14,6 +14,7 @@ angular.module("app").service("billingAdminService", function($http) {
             return response;
         });
     };
+    // ****** PRACTICE CRUD ******
     this.createNewPractice = function(data) {
         return $http({
             method: 'POST',
@@ -38,8 +39,6 @@ angular.module("app").service("billingAdminService", function($http) {
     })
   };
 
-  
-
   this.deletePractice = function(id) {
       $http({
           method: "DELETE",
@@ -51,6 +50,7 @@ angular.module("app").service("billingAdminService", function($http) {
         })
   }
 
+  // ****** CHART CRUD ******
   this.submitChart = function(practiceChart, id){
     practiceChart.practiceId = id;
     return $http({

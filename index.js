@@ -63,7 +63,6 @@ app.get('/get/chart/:id', chartCtrl.getChartById);
 app.delete('/delete/chart/:id', chartCtrl.deleteChart);
 app.put('/update/chart/:id', chartCtrl.updateChart);
 
-// app.post('/create/user', userCtrl, register);
 // LOCAL AUTH
 app.use(passport.initialize());
 app.use(passport.session());
@@ -71,6 +70,13 @@ app.post('/create/user', UserCtrl.register);
 app.get('/me', isAuthed, UserCtrl.me);
 app.get('/current/user', UserCtrl.getCurrentUser);
 app.put('/users/:_id', isAuthed, UserCtrl.update);
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/me'
+}));
+app.get('/logout', function(req, res, next) {
+  req.logout();
+  return res.status(200).send('logged out');
+});
 //double auth
 var userIsPracticeAdmin = function(req, res, next) {
   if (!req.isAuthenticated()) return res.status(401).send();
@@ -92,19 +98,6 @@ var userIsBillingAdmin = function(req, res, next) {
    if (req.user.userType === 'billingAdmin' && req.body.practiceId === req.user.practiceId) return next();
    return res.status(401).send();
  };
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/me'
-}));
-app.get('/logout', function(req, res, next) {
-  req.logout();
-  return res.status(200).send('logged out');
-});
-// app.get('/practice', userIsPracticeStaff, UserCtrl.getpractices);
-// app.get('/secrets', userIsPracticeAdmin, billCtrl.secrets);
-// app.get('/secrets', userIsBillingStaff, billCtrl.secrets);
-// app.get('/login', userIsPracticeStaff, );
-// app.get('/login', userIsBillingStaff, );
-// app.get('/login', userIsBillingAdmin, );
 
 // CONNECTIONS //
 var mongoURI = config.MONGO_URI;

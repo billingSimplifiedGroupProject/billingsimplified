@@ -1,4 +1,4 @@
-BILLING ADMIN
+
 <hr>
 <!--ADD BILLING ADMIN STAFF MEMBER -->
 <button ng-click="showAddNewStaff()">Add new Staff member to Billing simplified</button>
@@ -15,7 +15,7 @@ BILLING ADMIN
         <br>
         <select ng-model="newUser.userType">
             <option value="billingAdmin">Billing Simplified Admin</option>
-            <option value="billingStaff">Billing Simplified Staff</option>
+            <option value="billingStaff">Billing Simplified Staff Member</option>
         </select>
     </form>
     <button ng-click="createNewUser(newUser)">Submit New User</button>
@@ -26,22 +26,20 @@ BILLING ADMIN
 <hr>
 <!--ADD PRACTICE -->
 <label>Create Practice </label>
-<div  class="create-practice">
+<div class="create-practice">
     <form name="lessonForm" action="index.html" method="post">
         <input ng-model="newPractice.name" placeholder="Practice Name">
         <br>
         <div ng-class="{ 'has-error' : lessonForm.email.$invalid && !lessonForm.email.$pristine}">
-            <br>
             <input placeholder="email" class="form-control" name="email" type="email" ng-model="newPractice.email" required>
             <br>
             <span ng-show="lessonForm.email.$invalid && !lessonForm.email.$pristine" class="formVal">Enter a valid email</span>
-            <br>
         </div>
         <input ng-model="newPractice.phoneNumber" placeholder="Practice Phone Number">
         <br>
         <input ng-model="newPractice.mailingAddress" placeholder="Practice Address">
     </form>
-    <button ng-click="createNewPractice(newPractice)">TEST</button>
+    <button ng-click="createNewPractice(newPractice)">Create New Practice</button>
 </div>
 <br>
 <br>
@@ -69,7 +67,7 @@ BILLING ADMIN
 </div>
 
 <div class="">
-    <span class="" ng-hide="hidden">
+    <span class="" ng-hide="practiceUserAndChartForms">
         <label>Create New User for  {{chosenClinic.name}}</label>
         <form action="index.html" method="post">
             <input type="text" ng-model="praxId" value="chosenClinic._id" placeholder="EnterTextHere">
@@ -117,7 +115,7 @@ BILLING ADMIN
 
     <button ng-click="submitChart(practiceChart, chosenClinic._id)" name="button">submit</button>
   </span>
-    <ul ng-click="unhidden(practice)" ng-repeat="practice in practices">
+    <ul ng-click="showPracticeUserAndChartForms(practice)" ng-repeat="practice in practices">
         <li>Practice Name: {{practice.name}}</li>
         <button ng-click="deletePractice(practice._id)">Delete Practice</button>
     </ul>
