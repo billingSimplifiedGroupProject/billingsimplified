@@ -15,6 +15,7 @@ angular.module("app", ['ui.router', 'toaster'])
                 resolve: {
                     getPatient: function (patientProfileSvc, $stateParams) {
                         return patientProfileSvc.getPatient($stateParams.id).then(function (response) {
+                            console.log(response);
                             return response;
                         })
                     }

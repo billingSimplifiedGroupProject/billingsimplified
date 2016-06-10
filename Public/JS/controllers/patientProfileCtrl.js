@@ -13,6 +13,10 @@ angular.module("app")
 
         $scope.patientInfo = getPatient;
 
+        $scope.patientBills = $scope.patientInfo.bills;
+
+        console.log($scope.patientBills)
+
         $scope.addBill = true;
 
         $scope.showAddBill = function (id) {

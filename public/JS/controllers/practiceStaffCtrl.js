@@ -9,10 +9,6 @@ angular.module("app")
         $scope.modalShown = !$scope.modalShown;
         };
 
-        $scope.showPatientModal = function(patient) {
-            alert(patient.firstName);
-        }
-
 
         $scope.staffMember = practiceStaffAndClinic.currentUser;
         $scope.currentPractice = practiceStaffAndClinic.practice

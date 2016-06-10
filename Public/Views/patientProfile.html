@@ -1,3 +1,122 @@
+<div class="patient-profile">
+
+    <input class="practice-id" type="text" ng-model="currentPracticeId">
+
+    <div class="patient-header">
+        <h1 class="patient-name">{{ patientInfo.firstName }} {{ patientInfo.middleName }} {{ patientInfo.lastName }}</h1>
+
+        <input class="create-bill" type="submit" value="Create New Bill" ng-click="toggleModal()">
+    </div>
+
+
+
+    <div class="patient-form-wrapper">
+
+        <section class="left-section-patient">
+
+            <div class="left-inner">
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">Address:</h1>
+                </div>
+                <div class="patient-input-div">
+                    {{patientInfo.address.street}} {{patientInfo.address.city}}, {{patientInfo.address.state}}, {{patientInfo.address.zip}}
+                </div>
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">Phone Number:</h1>
+                </div>
+                <div class="patient-input-div">
+                    {{patientInfo.phoneNumber}}
+                </div>
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">Email:</h1>
+                </div>
+                <div class="patient-input-div">
+                    {{patientInfo.email}}
+                </div>
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">SSN:</h1>
+                </div>
+                <div class="patient-input-div">
+                    {{patientInfo.lastFourSocial}}
+                </div>
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">Date of Birth:</h1>
+                </div>
+                <div class="patient-input-div">
+                    {{patientInfo.dateOfBirth | date}}
+                </div>
+
+            </div>
+
+            <div class="right-inner">
+
+                <div class="patient-title-div-left">
+                    <h1 class="patient-title">Insurance</h1>
+                </div>
+                <div class="patient-input-div">
+                    <h4 class="patient-title">Plan Name:</h4> {{patientInfo.insurance.plan_name}}
+                </div>
+                <div class="patient-input-div">
+                    <h4 class="patient-title">Member ID:</h4> {{patientInfo.insurance.member_id}}
+                </div>
+                <div class="patient-input-div">
+                    <h4 class="patient-title">Plan Phone:</h4> {{patientInfo.insurance.plan_phone}}
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section class="right-section-patient">
+
+            <div class="tg-wrap">
+                <table class="tg">
+                    <tr>
+                        <th class="tg-yw4l">Bill ID</th>
+                        <th class="tg-yw4l">Total Amount</th>
+                        <th class="tg-yw4l">Date Charged</th>
+                        <th class="tg-yw4l">Date Due</th>
+                        <th class="tg-yw4l">Days Past Due</th>
+                        <th class="tg-yw4l">Amount Paid</th>
+                        <th class="tg-yw4l">Balance</th>
+                        <th class="tg-yw4l">PAID</th>
+                    </tr>
+                    <tr ng-repeat="bill in patientBills">
+                        <td class="tg-yw4l">{{ bill._id }}</td>
+                        <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
+                        <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
+                        <td class="tg-yw4l">{{ bill.dateDue }}</td>
+                        <td class="tg-yw4l">{{ bill.daysPastDue }}</td>
+                        <td class="tg-yw4l">{{ bill.totalPaid }}</td>
+                        <td class="tg-yw4l">$200</td>
+                        <td class="tg-yw4l">{{ bill.paid }}</td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </section>
+    </div>
+</div>
+
+
+<new-bill-modal-dir></new-bill-modal-dir>
+<bill-modal-dir></bill-modal-dir>
+
+
+
+
+
+
+
+
+
 <ul ng-click="showAddBill(patient._id)">
     <li>{{patient.firstName}} {{patient.lastName}}</li>
 </ul>

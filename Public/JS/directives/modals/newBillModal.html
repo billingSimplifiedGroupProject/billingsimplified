@@ -1,0 +1,22 @@
+<div class="modal" ng-show="modalShown">
+
+    <div class="login-overlay" ng-click="toggleModal()"></div>
+
+    <div class="new-bill-form">
+
+        <div ng-show="addBill" class="">
+            <ul>
+                <li>{{patientInfo.firstName}} {{patientInfo.lastName}}</li>
+                <li>{{patientInfo.email}}</li>
+                <li>{{patientInfo.phoneNumber}}</li>
+                <li>{{patientInfo.mailingAddress}}</li>
+            </ul>
+            <ul ng-repeat="bill in patientInfo.bills">
+                <li ng-click="showAddPayment(bill._id)">
+                    <h1>Bill</h1>{{bill}}</li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>
