@@ -174,13 +174,19 @@ textarea {
 
 .patient-list {
     width: 100%;
+    max-height: 500px;
     background-color: white;
+    overflow-y: scroll;
     box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3);
 }
 
 .patient-table {
     border-bottom: 1px solid gray;
     cursor: pointer;
+}
+
+.patient-table a {
+    text-decoration: none;
 }
 
 .patient-table, textarea {
@@ -206,13 +212,15 @@ textarea {
 
 .patient-header-container {
     width: 100%;
-    background-color: white;
+    height: 60px;
+    background-color: #99CCEE;
     margin-bottom: 15px;
     margin-top: 15px;
+    box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3);
 }
 
 .patient-headers, textarea {
-    padding-top: 10px;
+    padding-top: 1px;
     padding-bottom: 10px;
 }
 
