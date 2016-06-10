@@ -1,4 +1,5 @@
-angular.module("app").controller('billingStaffCtrl', function($scope, billingStaffService) {
+angular.module("app")
+	.controller('billingStaffCtrl', function($scope, billingStaffService) {
 
 
 
