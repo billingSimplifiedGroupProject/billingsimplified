@@ -16,27 +16,25 @@
 
         <div class="search-title">
             <h1 style="margin:2px;"><u>Find Your Patient:</u></h1>
-            <input id="patient-filter" type="search" placeholder="Patient Name" ng-model="patientInfo.firstName">
+            <input id="patient-filter" type="search" placeholder="Patient Name" ng-model="search.firstName">
         </div>
 
         <div class="search-title">
             <h1 style="margin:2px;"><u>Date of Birth</u></h1>
-            <input id="dob-filter" type="date" ng-model="patientInfo.dateOfBirth">
+            <input id="dob-filter" type="date" ng-model="search.dateOfBirth">
         </div>
 
         <div class="search-title">
             <h1 style="margin:2px;"><u>SSN</u></h1>
-            <input id="ssn-filter" type="text" placeholder="Last 4 of SSN" maxlength="4" ng-model="patientInfo.lastFourSocial">
+            <input id="ssn-filter" type="text" placeholder="Last 4 of SSN" maxlength="4" ng-model="search.lastFourSocial">
         </div>
 
     </div>
 
-    <input id="submit-search" type="submit" value="Submit Search">
-
     <input id="create-patient" type="submit" value="Create New Patient" ng-click="toggleModal()">
 
-    <div class="header-titles">
-        
+    <!--<div class="header-titles">
+
         <div class="search-header">
             <h3>Name</h3>
         </div>
@@ -52,14 +50,26 @@
         <div class="search-header">
             <h3>Email</h3>
         </div>
-        
+
+    </div>-->
+
+    <div class="patient-header-container">
+        <div class="patient-headers">
+            <ul class="patient-list-headers">
+                <li>Name</li>
+                <li>DOB</li>
+                <li>SSN</li>
+                <li>Phone</li>
+                <li>Email</li>
+            </ul>
+        </div>
     </div>
 
     <div class="patient-list">
-        <div class="patient-table" ng-repeat="patient in currentPractice.patients | filter : patientInfo.firstName">
-            <ul class="patient-list-items">
+        <div class="patient-table" ng-repeat="patient in currentPractice.patients | filter : search | orderBy:'firstName'">
+            <ul class="patient-list-items" ng-click="showPatientModal(patient)">
                 <li>{{ patient.firstName }} {{ patient.lastName }}</li>
-                <li>{{ patient.dateOfBirth | date }}</li>
+                <li>{{ patient.dateOfBirth | date : "MM/dd/yyyy" }}</li>
                 <li>{{ patient.lastFourSocial }}</li>
                 <li>{{ patient.phoneNumber }}</li>
                 <li>{{ patient.email }}</li>
@@ -75,16 +85,7 @@
 
 
 
-
-
-
-
-PRACTICE STAFF STAFF MEMBER{{staffMember}}
-<br><br><br> CURRENT PRACTICE{{currentPractice}}
-<br><br><br>
-
-<label>{{currentPractice.name}}'s Patients</label>
-<!-- <ul ng-click="showAddBill(patient.firstName, patient.lastName, patient._id)" ng-repeat="patient in currentPractice.patients"> -->
+<!--
 <ul ng-click="showAddBill(patient._id)" ng-repeat="patient in currentPractice.patients">
     <li>{{patient.firstName}} {{patient.lastName}}</li>
 </ul>
@@ -117,4 +118,4 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
         <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
         <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
         </form>
-</div>
+</div>-->
