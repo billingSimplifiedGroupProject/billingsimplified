@@ -26,7 +26,7 @@ BILLING ADMIN
 <hr>
 <!--ADD PRACTICE -->
 <label>Create Practice </label>
-<div class="create-practice">
+<div  class="create-practice">
     <form name="lessonForm" action="index.html" method="post">
         <input ng-model="newPractice.name" placeholder="Practice Name">
         <br>
@@ -93,6 +93,7 @@ BILLING ADMIN
 
     {{chosenClinic.email}}<br>
     <!-- <input ng-model="practiceId" placeholder="EnterTextHere"> -->
+    <input ng-model="practiceChart.date" type="date" placeholder="Date">
     <input ng-model="practiceChart.ARcurrent" placeholder="ARcurrent"><br>
     <input ng-model="practiceChart.ARthirtySixty" placeholder="ARthirtySixty"><br>
     <input ng-model="practiceChart.ARsixtyNinety" placeholder="ARsixtyNinety"><br>

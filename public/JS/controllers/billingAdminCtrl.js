@@ -27,9 +27,12 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
     $scope.deletePractice = function(id) {
         if (confirm("Are you sure you want to delete this Practice from the database?")) {
             billingAdminService.deletePractice(id)
-            toaster.pop('success', "Successfully Deleted Practice");
-        }
+                .then(function(response) {
+                    toaster.pop('success', "Successfully Deleted Practice");
+                    getPractices();
+                })
 
+        }
     }
     $scope.createNewUser = function(newUser, practiceId) {
         billingAdminService.createNewUser(newUser, practiceId)
@@ -39,7 +42,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
             })
         $scope.newUser = "";
     }
-
+//ssldkf
     $scope.hidden = true;
     $scope.unhidden = function(practice) {
         $scope.hidden = !$scope.hidden;
@@ -49,8 +52,10 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
 
     $scope.submitChart = function(practiceChart, id) {
         billingAdminService.submitChart(practiceChart, id).then(function(response) {
+            $scope.practiceChart = "";
+            toaster.pop('success', "Successfully Added Chart Data");
             return response;
-            console.log(response);
+
         })
     }
 });

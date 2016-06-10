@@ -69,18 +69,17 @@ angular.module("app", ['ui.router', 'toaster'])
                 templateUrl: 'Views/billingStaff.html',
                 controller: 'billingStaffCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
-                        return loginSvc.getCurrentUser()
-                            .then(function(response) {
-                                console.log(response);
-                                if (response.data.userType === "billingStaff") {
-                                  console.log(response.data.userType);
-                                    return response.data;
-                                } else {
-                                    $state.go('login');
-                                }
-                            })
-                    }
+                  user: function(loginSvc, $state) {
+                      return loginSvc.getCurrentUser()
+                          .then(function(response) {
+                              console.log(response);
+                              if (response.data.userType === "billingStaff") {
+                                  return response.data;
+                              } else {
+                                  $state.go('login');
+                              }
+                          })
+                  }
                 }
             })
             .state('billingAdmin', {

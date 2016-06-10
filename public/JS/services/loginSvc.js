@@ -1,4 +1,4 @@
-angular.module("app").service("loginSvc", function($http, $state) {
+angular.module("app").service("loginSvc", function($http, $state) { 
 
   this.login = function(data) {
        return $http({
