@@ -28,6 +28,17 @@ angular.module("app")
             });
         };
 
+        this.deletePatient = function(id) {
+            return $http({
+                method: "DELETE",
+                url: "/delete/patient/" + id
+            })
+            .then(function(response) {
+                console.log(response);
+                return response;
+            })
+        }
+
         this.submitBill = function(data, patientId) {
             data.patientId = patientId;
             console.log("data", data);
@@ -70,6 +81,9 @@ angular.module("app")
                 data: paymentInfo
             })
                 .then(function(response) {
+
+                  return response;
+
 
                 })
         }
