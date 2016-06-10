@@ -42,7 +42,7 @@
                 <div class="title-div-left">
                     <h1 class="title">Social Security:</h1>
                 </div>
-                <div class="input-div"> <input class="ssn" type="text" placeholder="123-45-6789" ng-model="newPatient.lastFourSocial">
+                <div class="input-div"> <input class="ssn" maxlength="4" type="text" placeholder="Last 4 of Social" ng-model="newPatient.lastFourSocial">
                 </div>
             </section>
 
@@ -131,7 +131,7 @@
                     <h1 class="title">Patient Phone:</h1>
                 </div>
                 <div class="input-div">
-                    <input class="phone" type="text" placeholder="(555)555-5555" ng-model="newPatient.phone">
+                    <input class="phone" type="text" placeholder="555-555-5555" ng-model="newPatient.phoneNumber">
                 </div>
 
                 <div class="title-div-middle">
@@ -149,22 +149,30 @@
                     <h1 class="title">Insurance:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
+                    <input type="text" ng-model="newPatient.insurance.plan_name" placeholder="Plan Name">
                 </div>
 
                 <div class="title-div-right">
-                    <h1 class="title">Insurance:</h1>
+                    <h1 class="title">Plane Phone:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
+                    <input type="text" ng-model="newPatient.insurance.plan_phone" placeholder="555-555-5555">
                 </div>
 
                 <div class="title-div-right">
-                    <h1 class="title">Insurance:</h1>
+                    <h1 class="title">Member ID:</h1>
                 </div>
                 <div class="input-div">
-                    <input type="text" ng-model="newPatient.insurance" placeholder="Insurance">
+                    <input type="text" ng-model="newPatient.insurance.member_id">
                 </div>
+
+                <div class="title-div-right" style="margin-top:45px;">
+                    <h1 class="title">Patient Notes:</h1>
+                </div>
+                <div class="input-div">
+                    <textarea type="text" ng-model="newPatient.insurance.patientNotes"></textarea>
+                </div>
+
 
             </section>
 

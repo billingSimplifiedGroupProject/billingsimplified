@@ -39,6 +39,7 @@ angular.module("app")
         }
 
         $scope.addPatient = function (patient, practiceId) {
+            console.log(patient, practiceId)
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function (response) {
                     $scope.newAddPatient = response.data;

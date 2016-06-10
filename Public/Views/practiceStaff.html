@@ -1,3 +1,84 @@
+<div class="module-container">
+
+    <div class="nav-container">
+
+        <div class="practice-staff-header">
+            <img src="Assets/images/Billingsimplified logo.png">
+        </div>
+
+        <div>
+            <h1 class="practice-name">{{currentPractice.name}}</h1>
+        </div>
+
+    </div>
+
+    <div class="search-container">
+
+        <div class="search-title">
+            <h1 style="margin:2px;"><u>Find Your Patient:</u></h1>
+            <input id="patient-filter" type="search" placeholder="Patient Name" ng-model="patientInfo.firstName">
+        </div>
+
+        <div class="search-title">
+            <h1 style="margin:2px;"><u>Date of Birth</u></h1>
+            <input id="dob-filter" type="date" ng-model="patientInfo.dateOfBirth">
+        </div>
+
+        <div class="search-title">
+            <h1 style="margin:2px;"><u>SSN</u></h1>
+            <input id="ssn-filter" type="text" placeholder="Last 4 of SSN" maxlength="4" ng-model="patientInfo.lastFourSocial">
+        </div>
+
+    </div>
+
+    <input id="submit-search" type="submit" value="Submit Search">
+
+    <input id="create-patient" type="submit" value="Create New Patient" ng-click="toggleModal()">
+
+    <div class="header-titles">
+        
+        <div class="search-header">
+            <h3>Name</h3>
+        </div>
+        <div class="search-header">
+            <h3>DOB</h3>
+        </div>
+        <div class="search-header">
+            <h3>SSN</h3>
+        </div>
+        <div class="search-header">
+            <h3>Phone</h3>
+        </div>
+        <div class="search-header">
+            <h3>Email</h3>
+        </div>
+        
+    </div>
+
+    <div class="patient-list">
+        <div class="patient-table" ng-repeat="patient in currentPractice.patients | filter : patientInfo.firstName">
+            <ul class="patient-list-items">
+                <li>{{ patient.firstName }} {{ patient.lastName }}</li>
+                <li>{{ patient.dateOfBirth | date }}</li>
+                <li>{{ patient.lastFourSocial }}</li>
+                <li>{{ patient.phoneNumber }}</li>
+                <li>{{ patient.email }}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<new-patient-modal-dir></new-patient-modal-dir>
+
+
+
+
+
+
+
+
+
 PRACTICE STAFF STAFF MEMBER{{staffMember}}
 <br><br><br> CURRENT PRACTICE{{currentPractice}}
 <br><br><br>
@@ -37,76 +118,3 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
         <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
         </form>
 </div>
-<!-- {{currentPractice.patients.firstName}} {{currentPractice.patients.lastName}} -->
-<br><br><br>
-<form class="" action="index.html" method="post">
-    <label for="">Create New Patient</label><br>
-    <input type="text" ng-model="currentPracticeId"><br>
-    <input type="text" ng-model="newPatient.firstName" placeholder="first name"><br>
-    <input type="text" ng-model="newPatient.lastName" placeholder="last name"><br>
-    <input type="text" ng-model="newPatient.insurance" placeholder="insurance"><br><br>
-    <input type="text" ng-model="newPatient.email" placeholder="email"><br>
-    <input type="text" ng-model="newPatient.dateofBirth" placeholder="dateofBirth"><br>
-    <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
-</form>
-
-<div class="module-container">
-
-    <div class="nav-container">
-
-        <div class="practice-staff-header">
-            <img src="Assets/images/Billingsimplified logo.png">
-        </div>
-
-        <div>
-            <h1 class="practice-name">{{currentPractice.name}}</h1>
-        </div>
-
-    </div>
-
-    <div class="search-container">
-
-        <div class="search-title">
-            <h1 style="margin:2px;"><u>Find Your Patient:</u></h1>
-            <input id="patient-filter" type="search" placeholder="Patient Name" ng-model="patientInfo.firstName">
-        </div>
-
-        <div class="search-title">
-            <h1 style="margin:2px;"><u>Date of Birth</u></h1>
-            <input id="dob-filter" type="date" ng-model="patientInfo.dateOfBirth">
-        </div>
-
-        <div class="search-title">
-            <h1 style="margin:2px;"><u>SSN</u></h1>
-            <input id="ssn-filter" type="text" placeholder="Last 4 of SSN" maxlength="4" ng-model="patientInfo.lastFourSocial">
-        </div>
-
-    </div>
-
-    <input id="submit-search" type="submit" value="Submit Search">
-
-    <input id="create-patient" type="submit" value="Create New Patient" ng-click="toggleModal()">
-
-    <div class="search-titles">
-        <h3>Name</h3>
-        <h3>DOB</h3>
-        <h3>SSN</h3>
-        <h3>Phone</h3>
-        <h3>Email</h3>
-    </div>
-
-    <div class="patient-list">
-        <div class="patient-table" ng-repeat="patient in currentPractice.patients | filter : patientInfo.firstName">
-            <ul class="patient-list-items">
-                <li>{{ patient.firstName }} {{ patient.lastName }}</li>
-                <li>{{ patient.dateOfBirth | date }}</li>
-                <li>{{ patient.lastFourSocial }}</li>
-                <li>{{ patient.phoneNumber }}</li>
-                <li>{{ patient.email }}</li>
-            </ul>
-        </div>
-    </div>
-
-</div>
-
-<new-patient-modal-dir></new-patient-modal-dir>

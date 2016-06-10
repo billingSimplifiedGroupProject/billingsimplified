@@ -111,7 +111,7 @@ textarea {
 }
 
 #create-patient {
-    background-color: #062F5C;
+    background-color: #FF9922;
     margin-top: 15px;
     height: 40px;
     border: none;
@@ -155,19 +155,22 @@ textarea {
     padding-right: 20px;
 }
 
-.search-titles {
+.header-titles {
     display: flex;
-    margin-top: 20px;
 }
 
-.search-titles h3 {
-    width: 20%;    
+// .header-titles h3 {
+//     width: 20%;    
+// }
+
+.search-header {
+    width: 20%;
 }
 
-.search-titles h3, textarea {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+// .header-titles h3, textarea {
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+// }
 
 .patient-list {
     width: 100%;
