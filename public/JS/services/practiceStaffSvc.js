@@ -87,5 +87,18 @@ angular.module("app")
 
                 })
         }
+        this.updatePatient = function(updated, id){
+            console.log("AHH",updated);
+            console.log("IDDD", id);
+            // data.patientId = id;
+            return $http({
+                method: "PUT",
+                url: "/update/patientInfo/" + id,
+                data: updated
+            }).then(function(response){
+
+                return response.data;
+            })
+        }
 
     });

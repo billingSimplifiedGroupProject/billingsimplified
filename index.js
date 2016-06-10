@@ -57,6 +57,7 @@ app.get('/get/patientsx', patientCtrl.getPatientsx);
 app.get('/get/patient/:id', patientCtrl.getPatientById);
 app.delete('/delete/patient/:id', patientCtrl.deletePatient);
 app.put('/update/patient/:id', patientCtrl.updatePatient);
+app.put('/update/patientInfo/:id', patientCtrl.updatePatientFoReal);
 app.put('/update/patientPracticeId/:id', patientCtrl.addPracticeId);
 
 //BILL CONTROLLERS

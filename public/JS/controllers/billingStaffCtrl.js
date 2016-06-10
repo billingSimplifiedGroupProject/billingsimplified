@@ -59,5 +59,16 @@ angular.module("app")
                     })
             })
     }
+    $scope.updatePatient = function(updatePat, patientBill){
+        console.log("update", updatePat);
+        console.log("patient", patientBill);
+        practiceStaffService.updatePatient(updatePat, patientBill)
+        
+            .then(function(response){
+                $scope.updatedPatient =  response;
+                console.log(response);
+                return response;
+            })
+    }
 
 });

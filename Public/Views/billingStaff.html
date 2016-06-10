@@ -5,9 +5,16 @@
 <div class="">
     <span class="" ng-hide="hidden">
     {{chosenClinic.email}}<br>
-    <ul ng-repeat= "patient in chosenClinic.patients">
-      <li ng-click="showPatientBills(patient)">{{patient.firstName}}{{patient.lastName}}</li>
-    </ul>
+        <ul ng-repeat= "patient in chosenClinic.patients">
+        <li ng-click="showPatientBills(patient)">{{patient.firstName}}{{patient.lastName}}</li>
+        </ul>
+    <input type="text" ng-model="patientBill._id"><br>
+    <input type="text" ng-model="updatePat.firstName" placeholder="first name"><br>
+    <input type="text" ng-model="updatePat.lastName" placeholder="last name"><br>
+    <input type="text" ng-model="updatePat.insurance" placeholder="insurance"><br><br>
+    <input type="text" ng-model="updatePat.email" placeholder="email"><br>
+    <input type="text" ng-model="updatePat.dateofBirth" placeholder="dateofBirth"><br>
+    <button ng-click="updatePatient(updatePat, patientBill._id)">Update Patient Information</button>
 
     <span ng-show="hidebills">
 

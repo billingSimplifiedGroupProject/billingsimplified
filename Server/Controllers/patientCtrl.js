@@ -129,5 +129,21 @@ module.exports = {
         res.status(200).json(result);
       }
     })
+  },
+
+    updatePatientFoReal: function(req, res, next){
+      // console.log("req.params and req.body", req.params, req.body);
+    Patient.findByIdAndUpdate(req.params.id, req.body, function(err, result){
+      console.log(req.body);
+      console.log(req.params);
+      console.log("result", result);
+      if(err){
+        res.status(500 + 'updatePatient function error');
+      }
+      else{
+         console.log("success", result);
+        res.status(200).json(result);
+      }
+    })
   }
 };
