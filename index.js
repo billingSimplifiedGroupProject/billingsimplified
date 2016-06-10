@@ -66,12 +66,15 @@ app.get('/get/bill/:id', billCtrl.getBillById);
 app.delete('/delete/bill/:id', billCtrl.deleteBill);
 app.put('/update/bill/:id', billCtrl.updateBill);
 
-//CHART CONTROLLERS
-app.post('/create/charts', chartCtrl.createChart);
-app.get('/get/charts', chartCtrl.getCharts);
-app.get('/get/chart/:id', chartCtrl.getChartById);
-app.delete('/delete/chart/:id', chartCtrl.deleteChart);
-app.put('/update/chart/:id', chartCtrl.updateChart);
+//PRACTICE DATA FOR CHARTS CONTROLLERS
+app.post('/create/chartData', chartCtrl.createChartData);
+app.get('/get/dailyChartData', chartCtrl.getDailyChartData);
+app.get('/get/weeklyChartData', chartCtrl.getWeeklyChartData);
+app.get('/get/monthlyChartData', chartCtrl.getMonthlyChartData);
+app.get('/get/chartData/:id', chartCtrl.getChartDataById);
+app.delete('/delete/chartData/:id', chartCtrl.deleteChartData);
+app.put('/update/chartData/:id', chartCtrl.updateChartData);
+
 // app.post('/create/user', userCtrl, register);
 
 // LOCAL AUTH

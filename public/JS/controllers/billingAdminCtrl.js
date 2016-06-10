@@ -1,9 +1,30 @@
-angular.module("app").controller('billingAdminCtrl', function($scope, billingAdminService, toaster) {
+angular.module("app").controller('billingAdminCtrl', function($scope, billingAdminService, toaster, chartService) {
     $scope.clinicAdded = true; //this keeps the "create new user for clinic" div hidden until a new clinic is added
     $scope.addNewStaff = true; //
     $scope.showAddNewStaff = function() {
         $scope.addNewStaff = !$scope.addNewStaff;
     }
+
+    // Get currentMDY and sixDaysPrevMDY for daily and weekly charts and Wkly Range input date fields
+	var makeCurrentDate = new Date();
+	var sixDaysPrev = new Date();
+	sixDaysPrev.setDate(sixDaysPrev.getDate() - 6);
+	var getMDY = function(currentDate) {
+		var dd = ('0' + currentDate.getDate()).slice(-2);
+		var mm = ('0' + (currentDate.getMonth() + 1) ).slice(-2);
+		// return mm + "/" + dd + "/" + currentDate.getFullYear();
+		// return currentDate.getFullYear() + "/" + mm + "/" + dd;
+		return currentDate.getFullYear() + "-" + mm + "-" + dd;
+	};
+	$scope.currentMDY = getMDY(makeCurrentDate);
+	$scope.sixDaysPrevMDY = getMDY(sixDaysPrev);
+	console.log($scope.currentMDY);
+
+	// Wkly Range button toggles weekly range - two input date fields
+	$scope.wklyRangeIsVisible = false;
+	$scope.showHideWklyRange = function() {
+		$scope.wklyRangeIsVisible = $scope.wklyRangeIsVisible ? false : true;
+	};
 
     // ****** PRACTICE CRUD ******
     $scope.createNewPractice = function(newPractice) {
@@ -18,9 +39,10 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
             })
     }
     var getPractices = function() {
-        billingAdminService.getPractices().then(function(response) {
-            $scope.practices = response.data;
-        })
+        billingAdminService.getPractices()
+	        .then(function(response) {
+	            $scope.practices = response.data;
+	        })
     }
     getPractices()
 
@@ -50,12 +72,35 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
         $scope.praxId = practice._id;
     }
 
-    $scope.submitChart = function(practiceChart, id) {
-        billingAdminService.submitChart(practiceChart, id).then(function(response) {
-            $scope.practiceChart = "";
-            toaster.pop('success', "Successfully Added Chart Data");
-            return response;
+	$scope.submitPracticeData = function(practiceData, practiceId) {
+		billingAdminService.submitPracticeData(practiceData, practiceId)
+			.then(function(response) {
+				toaster.pop('success', "Successfully Added Chart Data");
+				return response;
+			});
+	};
 
-        })
-    }
+	$scope.getDailyChartData = function(practiceId, date) {
+		chartService.getDailyChartData(practiceId, date)
+			.then(function(response) {
+				$scope.dailyChartData = response;
+			});
+	};
+
+	$scope.getWeeklyChartData = function(practiceId, startDate, endDate) {
+		chartService.getWeeklyChartData(practiceId, startDate, endDate)
+			.then(function(response) {
+				console.log(response);
+				$scope.weeklyChartData = response;
+			});
+	};
+
+	$scope.getMonthlyChartData = function(practiceId) {
+		chartService.getMonthlyChartData(practiceId)
+			.then(function(response) {
+				console.log(response);
+				$scope.monthlyChartData = response;
+			});
+	};
+
 });
