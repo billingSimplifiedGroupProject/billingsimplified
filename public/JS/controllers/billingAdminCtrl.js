@@ -10,7 +10,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
 	var sixDaysPrev = new Date();
 	sixDaysPrev.setDate(sixDaysPrev.getDate() - 6);
 	var getMDY = function(currentDate) {
-		var dd = ('0' + currentDate.getDate()).slice(-2);			
+		var dd = ('0' + currentDate.getDate()).slice(-2);
 		var mm = ('0' + (currentDate.getMonth() + 1) ).slice(-2);
 		// return mm + "/" + dd + "/" + currentDate.getFullYear();
 		// return currentDate.getFullYear() + "/" + mm + "/" + dd;
