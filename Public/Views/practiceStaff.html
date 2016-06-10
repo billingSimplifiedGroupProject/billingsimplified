@@ -1,18 +1,3 @@
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
-
-
 PRACTICE STAFF STAFF MEMBER{{staffMember}}
 <br><br><br> CURRENT PRACTICE{{currentPractice}}
 <br><br><br>
@@ -65,13 +50,6 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
     <button ng-click="addPatient(newPatient, currentPracticeId)" type="button" name="button">Creat New Patient</button>
 </form>
 
-<script src="Assets/materializeComponents/leanModal.js"></script>
-
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-
-
 <div class="module-container">
 
     <div class="nav-container">
@@ -107,7 +85,7 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
 
     <input id="submit-search" type="submit" value="Submit Search">
 
-    <input id="create-patient" type="submit" value="Create New Patient">
+    <input id="create-patient" type="submit" value="Create New Patient" ng-click="toggleModal()">
 
     <div class="search-titles">
         <h3>Name</h3>
@@ -130,3 +108,5 @@ PRACTICE STAFF STAFF MEMBER{{staffMember}}
     </div>
 
 </div>
+
+<new-patient-modal-dir></new-patient-modal-dir>
