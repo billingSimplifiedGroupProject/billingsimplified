@@ -1,4 +1,5 @@
-  angular.module("app").controller('billingStaffCtrl', function($scope, practiceStaffService, billingAdminService) {
+angular.module("app")
+    .controller('billingStaffCtrl', function($scope, practiceStaffService, billingAdminService) {
 
     $scope.clinicAdded = true; //this keeps the "create new user for clinic" div hidden until a new clinic is added
     $scope.addNewStaff = true; //
