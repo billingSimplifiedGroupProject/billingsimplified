@@ -39,6 +39,7 @@ angular.module("app")
         }
 
         $scope.addPatient = function (patient, practiceId) {
+            console.log(patient, practiceId)
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function (response) {
                     $scope.newAddPatient = response.data;
@@ -69,10 +70,12 @@ angular.module("app")
         }
 
         $scope.makePayment = function (paymentInfo, billId) {
+            console.log("hitting here")
             practiceStaffService.makePayment(paymentInfo, billId)
                 .then(function (response) {
                     console.log(response);
                     $scope.payment = "";
+                    $state.reload();
                 })
         }
 

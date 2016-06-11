@@ -8,10 +8,7 @@ var PatientSchema = new mongoose.Schema({
     insurance: {
         plan_name: { type: String },
         plan_phone: { type: String },
-        member_id: { type: String },
-        group: { type: String },
-        bin: { type: Number },
-        pcn: { type: String }
+        member_id: { type: String }
     },
     phoneNumber: { type: String },
     email: { type: String },

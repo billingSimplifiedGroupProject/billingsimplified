@@ -13,16 +13,11 @@ angular.module("app")
 
         this.addPatient = function(patientInfo, practiceId) {
             console.log(patientInfo, practiceId);
+            patientInfo.practiceId = practiceId
             return $http({
                 method: 'POST',
                 url: '/create/patient',
-                data: {
-                    firstName: patientInfo.firstName,
-                    lastName: patientInfo.lastName,
-                    insurance: patientInfo.insurance,
-                    email: patientInfo.email,
-                    practiceId: practiceId
-                }
+                data: patientInfo
             }).then(function(response) {
                 return response;
             });
