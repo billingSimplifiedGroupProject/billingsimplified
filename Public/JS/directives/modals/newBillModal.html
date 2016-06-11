@@ -6,7 +6,7 @@
 
         <input class="hidden" type="text" ng-model="currentPracticeId">
 
-        <div class="new-patient-title">
+        <div class="new-bill-title">
             <h1><u>Create New Bill</u></h1>
         </div>
 
@@ -28,7 +28,7 @@
 
                 <div ng-hide="addPayment">
 
-                    <div class="new-patient-title">
+                    <div class="new-bill-title">
                         <h1><u>Submit A Quick Payment Below</u></h1>
                     </div>
 
@@ -46,9 +46,11 @@
 
                     <input class="bill-input" type="text" ng-model="payment.paymentMethod" placeholder="Payment Method">
 
-                    <textarea type="text" ng-model="payment.comments" placeholder="Comments"></textarea>
+                    <input class="bill-input" type="text" ng-model="payment.comments" placeholder="Comments">
 
                     <button class="submit-quick-payment" ng-click="makePayment(payment, billId)">Submit Quick Payment</button>
+
+                    <button class="exit-quick-payment">Exit</button>
 
                 </div>
 
