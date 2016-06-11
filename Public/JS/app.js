@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'toaster'])
+angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login');
 
