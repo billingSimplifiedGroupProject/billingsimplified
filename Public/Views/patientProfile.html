@@ -13,9 +13,8 @@
 
     <div class="patient-form-wrapper">
 
-        <section class="left-section-patient">
+        <section class="left-section-patient" style="height:70vh;">
 
-            <div class="left-inner">
 
                 <div class="patient-title-div-left">
                     <h1 class="patient-title">Address:</h1>
@@ -52,12 +51,9 @@
                     {{patientInfo.dateOfBirth | date}}
                 </div>
 
-            </div>
-
-            <div class="right-inner">
 
                 <div class="patient-title-div-left">
-                    <h1 class="patient-title"><u>Insurance</u></h1>
+                    <h1 class="patient-title" style="margin-bottom:-20px;"><u>Insurance</u></h1>
                 </div>
                 <div class="patient-input-div">
                     <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
@@ -69,12 +65,11 @@
                     <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
                 </div>
 
-            </div>
 
 
         </section>
 
-        <section class="right-section-patient">
+        <section class="right-section-patient" style="overflow-y:scroll; height:70vh;">
 
             <div class="tg-wrap">
                 <table class="tg">
@@ -92,7 +87,7 @@
                         <td class="tg-yw4l">{{ bill._id }}</td>
                         <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
                         <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
-                        <td class="tg-yw4l">{{ bill.dateDue }}</td>
+                        <td class="tg-yw4l">{{ bill.dateDue | date }}</td>
                         <td class="tg-yw4l">{{ bill.daysPastDue }}</td>
                         <td class="tg-yw4l">{{ bill.totalPaid }}</td>
                         <td class="tg-yw4l">{{ bill.balance }}</td>
@@ -118,7 +113,7 @@
 
 
 
-<ul ng-click="showAddBill(patient._id)">
+<!--<ul ng-click="showAddBill(patient._id)">
     <li>{{patient.firstName}} {{patient.lastName}}</li>
 </ul>
 
@@ -150,4 +145,4 @@
         <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
         <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
     </form>
-</div>
+</div>-->
