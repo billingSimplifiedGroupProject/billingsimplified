@@ -33,6 +33,11 @@
     background-color: #26ADE4;
 }
 
+.bill-bar:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3);
+}
+
 .tg .tg-yw4l {
     vertical-align: top
 }

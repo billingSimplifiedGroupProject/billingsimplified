@@ -70,10 +70,12 @@ angular.module("app")
         }
 
         $scope.makePayment = function (paymentInfo, billId) {
+            console.log("hitting here")
             practiceStaffService.makePayment(paymentInfo, billId)
                 .then(function (response) {
                     console.log(response);
                     $scope.payment = "";
+                    $state.reload();
                 })
         }
 

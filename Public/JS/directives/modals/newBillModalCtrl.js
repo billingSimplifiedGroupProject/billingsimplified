@@ -1,19 +1,23 @@
 angular.module("app")
-    .controller('newBillModalCtrl', function ($scope) {
+    .controller('newBillModalCtrl', function ($scope, patientProfileSvc, $stateParams, practiceStaffService) {
 
         // Modal show and hide
         $scope.modalShown = false;
-        $scope.toggleModal = function () {
+        $scope.toggleModal = function (id) {
             console.log("hit modal");
-        $scope.modalShown = !$scope.modalShown;
+            $scope.modalShown = !$scope.modalShown;
         };
 
-        // $scope.staffMember = practiceStaffAndClinic.currentUser;
-        // $scope.currentPractice = practiceStaffAndClinic.practice
+        var patientId = $stateParams.id
 
-        // $scope.currentPracticeId = practiceStaffAndClinic.practice._id;
+        $scope.getPatientInfo = function () {
+            patientProfileSvc.getPatient(patientId).then(function (response) {
+                console.log(response);
+                $scope.patientInfo = response;
+            })
+        }
 
-        $scope.addBill = true;
+        $scope.getPatientInfo();
 
         $scope.showAddBill = function (id) {
             $scope.addBill = !$scope.addBill
@@ -27,14 +31,30 @@ angular.module("app")
         $scope.submitBill = function (bill, patientId) {
             practiceStaffService.submitBill(bill, patientId)
                 .then(function (response) {
+                    console.log(response);
+                    $scope.billId = response.data._id;
+                    console.log($scope.billId);
                     practiceStaffService.addToBillArray(response)
 
-                    // console.log("submit bill response", response);
-                        .then(function(response) {
+                        // console.log("submit bill response", response);
+                        .then(function (response) {
+                            console.log(response)
+                            $scope.addPayment = false;
+                            $scope.hideSubmitBill = true;
                             $scope.bill = "";
                         })
                 })
         }
 
-        
+        $scope.hideSubmitBill = false;
+        $scope.addPayment = true;
+        $scope.showAddPayment = function (id) {
+            $scope.addPayment = !$scope.addPayment;
+            // $scope.billId = id;
+        }
+
+        $scope.hideQuickPayment = true;
+
+
+
     });

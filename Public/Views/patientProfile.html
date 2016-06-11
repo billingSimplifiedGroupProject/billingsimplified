@@ -5,7 +5,8 @@
     <div class="patient-header">
         <h1 class="patient-name">{{ patientInfo.firstName }} {{ patientInfo.middleName }} {{ patientInfo.lastName }}</h1>
 
-        <input class="create-bill" type="submit" value="Create New Bill" ng-click="toggleModal()">
+        <input class="create-bill" type="submit" value="Create New Bill" ng-click="toggleModal(patientInfo._id)">
+
     </div>
 
 
@@ -24,7 +25,7 @@
                 </div>
 
                 <div class="patient-title-div-left">
-                    <h1 class="patient-title">Phone Number:</h1>
+                    <h1 class="patient-title">Phone:</h1>
                 </div>
                 <div class="patient-input-div">
                     {{patientInfo.phoneNumber}}
@@ -45,7 +46,7 @@
                 </div>
 
                 <div class="patient-title-div-left">
-                    <h1 class="patient-title">Date of Birth:</h1>
+                    <h1 class="patient-title">DOB:</h1>
                 </div>
                 <div class="patient-input-div">
                     {{patientInfo.dateOfBirth | date}}
@@ -56,16 +57,16 @@
             <div class="right-inner">
 
                 <div class="patient-title-div-left">
-                    <h1 class="patient-title">Insurance</h1>
+                    <h1 class="patient-title"><u>Insurance</u></h1>
                 </div>
                 <div class="patient-input-div">
-                    <h4 class="patient-title">Plan Name:</h4> {{patientInfo.insurance.plan_name}}
+                    <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
                 </div>
                 <div class="patient-input-div">
-                    <h4 class="patient-title">Member ID:</h4> {{patientInfo.insurance.member_id}}
+                    <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
                 </div>
                 <div class="patient-input-div">
-                    <h4 class="patient-title">Plan Phone:</h4> {{patientInfo.insurance.plan_phone}}
+                    <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
                 </div>
 
             </div>
@@ -87,14 +88,14 @@
                         <th class="tg-yw4l">Balance</th>
                         <th class="tg-yw4l">PAID</th>
                     </tr>
-                    <tr ng-repeat="bill in patientBills">
+                    <tr class="bill-bar" ng-repeat="bill in patientBills">
                         <td class="tg-yw4l">{{ bill._id }}</td>
                         <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
                         <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
                         <td class="tg-yw4l">{{ bill.dateDue }}</td>
                         <td class="tg-yw4l">{{ bill.daysPastDue }}</td>
                         <td class="tg-yw4l">{{ bill.totalPaid }}</td>
-                        <td class="tg-yw4l">$200</td>
+                        <td class="tg-yw4l">{{ bill.balance }}</td>
                         <td class="tg-yw4l">{{ bill.paid }}</td>
                     </tr>
                 </table>

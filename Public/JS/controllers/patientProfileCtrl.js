@@ -51,6 +51,7 @@ angular.module("app")
                 .then(function (response) {
                     console.log(response);
                     $scope.payment = "";
+                    $state.reload();
                 })
         }
 
