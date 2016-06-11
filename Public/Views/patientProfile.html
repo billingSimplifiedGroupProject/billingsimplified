@@ -16,54 +16,54 @@
         <section class="left-section-patient" style="height:70vh;">
 
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Address:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.address.street}} {{patientInfo.address.city}}, {{patientInfo.address.state}}, {{patientInfo.address.zip}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Address:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.address.street}} {{patientInfo.address.city}}, {{patientInfo.address.state}}, {{patientInfo.address.zip}}
+            </div>
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Phone:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.phoneNumber}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Phone:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.phoneNumber}}
+            </div>
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Email:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.email}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Email:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.email}}
+            </div>
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">SSN:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.lastFourSocial}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">SSN:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.lastFourSocial}}
+            </div>
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">DOB:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.dateOfBirth | date}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">DOB:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.dateOfBirth | date}}
+            </div>
 
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title" style="margin-bottom:-20px;"><u>Insurance</u></h1>
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
-                </div>
+            <div class="patient-title-div-left">
+                <h1 class="patient-title" style="margin-bottom:-20px;"><u>Insurance</u></h1>
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
+            </div>
 
 
 
@@ -99,7 +99,10 @@
 
         </section>
     </div>
+    <a ui-sref="practiceStaff"><button class="back-to-patients">Go Back to all Patients</button></a>
 </div>
+
+
 
 
 <new-bill-modal-dir></new-bill-modal-dir>
