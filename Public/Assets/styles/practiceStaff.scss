@@ -200,6 +200,7 @@ textarea {
 .patient-list-items {
     display: flex;
     list-style-type: none;
+    margin: 0;
 }
 
 .patient-list-items li {
@@ -210,7 +211,7 @@ textarea {
 }
 
 .patient-header-container {
-    width: 100%;
+    width: 99%;
     height: 35px;
     background-color: #99CCEE;
     margin-bottom: 15px;
