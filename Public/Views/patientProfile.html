@@ -83,8 +83,8 @@
                         <th class="tg-yw4l">Balance</th>
                         <th class="tg-yw4l">PAID</th>
                     </tr>
-                    <tr class="bill-bar" ng-repeat="bill in patientBills">
-                        <td class="tg-yw4l">{{ bill._id }}</td>
+                    <tr ng-repeat="bill in patientBills">
+                        <td class="tg-yw4l" style="cursor: pointer;box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3);" ng-click="">{{ bill._id }}</td>
                         <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
                         <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
                         <td class="tg-yw4l">{{ bill.dateDue | date }}</td>
