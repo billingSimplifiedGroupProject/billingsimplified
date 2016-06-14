@@ -11,6 +11,7 @@ var BillSchema = new mongoose.Schema({
   billingAddress: {type:String},
   notes: {type:String},
   payments: [{
+       paymentAmount: {type: String},
        remainingBal: {type: String},
        purpose: {type: String},
        paidBy: {type: String},

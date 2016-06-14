@@ -1,0 +1,118 @@
+.bill-container {
+  position: fixed;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: #fff;
+  background-size: cover;
+  z-index: 10;
+}
+
+.bill-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: pink;
+}
+
+.bill-patient-header {
+  background-color: blue;
+}
+
+.days-past-due {
+  background-color: orange;
+}
+
+.upper-bill-containers {
+  display: flex;
+}
+
+.left-bill-info-container {
+  width: 30%;
+  height: 40vh;
+  display: flex;
+  background-color: purple;
+}
+
+.bill-address {
+  width: 50%;
+}
+
+.bill-notes {
+  width: 50%
+}
+
+.right-bill-info-container {
+  width: 70%;
+  height: 40vh;
+  display: flex;
+  background-color: red;
+}
+
+.bill-description {
+  width: 50%;
+  background-color: brown;
+}
+
+.bill-vitals {
+  width: 50%;
+  background-color: yellow;
+}
+
+.payment-table-container {
+  width: 100%;
+  background-color: green;
+}
+
+.bill-table-header-container {
+  width: 100%;
+  display: flex;
+  background-color: mediumpurple;
+}
+
+.bill-table-header {
+  border-right: 1px solid gray;
+  background-color: darkorange;
+}
+
+.payment-input-container {
+  background-color: greenyellow;
+}
+
+.payment-date-created {
+  background-color: cornflowerblue;
+}
+
+.payment-purpose {
+  background-color: turquoise;
+}
+
+.payment-paid-by {
+  background-color: magenta;
+}
+
+.payment-method {
+  background-color: darkcyan;
+}
+
+.payment-comments {
+  background-color: darkkhaki;
+}
+
+.payment-amount {
+  background-color: darkblue;
+}
+
+.payment-submit-container {
+  background-color: darkred;
+}
+
+.bill-footer-container {
+  background-color: gray;
+}
+
+
+
+
+

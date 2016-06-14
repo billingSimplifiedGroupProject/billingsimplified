@@ -1,63 +1,97 @@
-<div class="modal" ng-show="modalShown">
+<div class="modal" ng-show="billModalShown">
 
-    <div class="login-overlay" ng-click="toggleModal()"></div>
+    <div class="login-overlay" ng-click="toggleBillModal()"></div>
 
     <div class="bill-container">
 
-        <div style="padding: 50px;">
-            <div style="width:100%">
-                <span>{{patientId}}</span><span style="float: right; margin-right: 50px;">{{billId}}</span>
-                <br>
-                <br>
-                <span>{{firstName}}</span><span style="margin-left: 10px;">{{lastName}}</span><span style="margin-left: 30px;">{{patientDOB}}</span><span style="margin-left: 30px;">{{phoneNumber}}</span><span style="margin-left: 30px;">{{patientDOB}}</span>
+        <div class="bill-header">
+            <div class="bill-patient-header">
+                <h1>{{ patientInfo.firstName }} {{ patientInfo.lastName }}</h1>
             </div>
-            <br>
-            <br>
-            <br>
 
-            <table style="width:100%;">
-                <tr style="text-align: left;">
-                    <th style="width: 10%">Date</th>
-                    <th style="width: 10%">Payment Method</th>
-                    <!-- <th>Paid by</th> -->
-                    <th style="width: 10%">Purpose</th>
-                    <th style="width: 10%">Payment Amount</th>
-                    <th style="width: 60%">Comments</th>
-                </tr>
-                <tr ng-repeat="payment in payments">
-                    <td>{{dateCreated}}</td>
-                    <td>{{method}}</td>
-                    <!-- <td>{{paidBy}}</td> -->
-                    <td>{{purpose}}</td>
-                    <td>{{totalPaid}}</td>
-                    <td>{{comments}}</td>
-                </tr>
-            </table>
-            <br>
-            <br>
-            <br>
-
-            <form>
-                Add Payment
-                <br>
-                <br>
-                <input type="text" ng-model="newPayment.date" placeholder="date">
-                <br>
-                <input type="text" ng-model="newPayment.method" placeholder="method">
-                <br>
-                <input type="text" ng-model="newPayment.paydBy" placeholder="Payment Made By">
-                <br>
-                <input type="text" ng-model="newPayment.purpose" placeholder="Payment Purpose">
-                <br>
-                <input type="text" ng-model="newPayment.amount" placeholder="Payment Amount">
-                <br>
-                <br>
-                <textarea name="name" rows="8" cols="90" ng-model="newPayment.comments"></textarea>
-                <br>
-
-                <button class="btn btn-primary" ng-click="createBill(newBill)"> Add Payment </button>
-            </form>
+            <div class="days-past-due">
+                <h1>Days Past Due: 11</h1>
+            </div>
         </div>
 
+        <div class="upper-bill-containers">
+            <div class="left-bill-info-container">
+                <div class="bill-address">
+                    <h3>Billing Address:</h3>
+                    <h4>{{ patientInfo.address }}</h4>
+                </div>
+
+                <div class="bill-notes">
+                    <h3>Billing Notes:</h3>
+                    <h4>{{ billInfo.notes }}</h4>
+                </div>
+
+
+            </div>
+
+            <div class="right-bill-info-container">
+
+                <div class="bill-description">
+                </div>
+
+                <div class="bill-vitals">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="payment-table-container">
+
+            <div class="bill-table-header-container">
+                <div class="bill-table-header">
+                </div>
+                <div class="bill-table-header">
+                </div>
+                <div class="bill-table-header">
+                </div>
+                <div class="bill-table-header">
+                </div>
+                <div class="bill-table-header">
+                </div>
+                <div class="bill-table-header">
+                </div>
+            </div>
+
+            <div class="payment-input-container">
+                <input class="payment-date-created">
+                <input class="payment-purpose">
+                <input class="payment-paid-by">
+                <input class="payment-method">
+                <input class="payment-comments">
+                <input class="payment-amount">
+            </div>
+
+            <div class="payment-submit-container">
+            </div>
+
+        </div>
+
+        <div class="bill-footer-container">
+            <div class="bill-vitals">
+            </div>
+
+            <div class="bill-description">
+            </div>
+
+            <div class="bill-vitals">
+            </div>
+
+            <div class="bill-description">
+            </div>
+
+            <div class="bill-vitals">
+            </div>
+
+        </div>
+
+
     </div>
+
+
+</div>
 </div>
