@@ -8,7 +8,23 @@ angular.module("app")
                 billService.getBill(billId).then(function (response) {
                     console.log(response);
                     $scope.billInfo = response.data;
-                    // $scope.billInfo.dateDue = response.data.dateDue;
+                    $scope.billInfo.dateDue = response.data.dateDue;
+                    console.log($scope.billInfo);
+                    var today = Date.now();
+                    var dueDate = new Date($scope.billInfo.dateDue);
+                    console.log(dueDate);
+                    dueDate = dueDate.getTime();
+
+                    var days = today - dueDate;
+
+                    days = days / 86400000;
+
+                    $scope.daysPastDue = Math.floor(days);
+
+
+
+                    console.log(today);
+                    console.log(dueDate);
                 })
                 $scope.billModalShown = !$scope.billModalShown
             } else {
@@ -28,13 +44,6 @@ angular.module("app")
                     })
                 })
         }
-
-        // var today = new Date ();
-        // var dueDate = new Date ($scope.billInfo.dateDue);
-
-        // $scope.daysPastDue = dueDate - today;
-
-        // console.log(today);
 
 
     });
