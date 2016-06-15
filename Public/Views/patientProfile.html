@@ -83,8 +83,8 @@
                         <th class="tg-yw4l">Balance</th>
                         <th class="tg-yw4l">PAID</th>
                     </tr>
-                    <tr ng-repeat="bill in patientBills">
-                        <td class="tg-yw4l" style="cursor: pointer;box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3);" ng-click="toggleBillModal(bill._id)">{{ bill._id }}</td>
+                    <tr class="therow" ng-repeat="bill in patientBills">
+                        <td class="tg-yw4l" ng-click="toggleBillModal(bill._id)">{{ bill._id }}</td>
                         <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
                         <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
                         <td class="tg-yw4l">{{ bill.dateDue | date }}</td>
@@ -107,45 +107,3 @@
 
 <new-bill-modal-dir></new-bill-modal-dir>
 <bill-modal-dir></bill-modal-dir>
-
-
-
-
-
-
-
-
-
-<!--<ul ng-click="showAddBill(patient._id)">
-    <li>{{patient.firstName}} {{patient.lastName}}</li>
-</ul>
-
-<div ng-show="addBill" class="">
-    <ul>
-        <li>{{patientInfo.firstName}} {{patientInfo.lastName}}</li>
-        <li>{{patientInfo.email}}</li>
-        <li>{{patientInfo.phoneNumber}}</li>
-        <li>{{patientInfo.mailingAddress}}</li>
-    </ul>
-    <ul ng-repeat="bill in patientInfo.bills">
-        <li ng-click="showAddPayment(bill._id)">
-            <h1>Bill</h1>{{bill}}</li>
-    </ul>
-    <div ng-show="addPayment" class="">
-        <label> Payments</label>
-        <input type="text" ng-model="billId" placeholder="EnterTextHere"><br>
-        <input type="text" ng-model="payment.remainingBal" placeholder="remaining balance"><br>
-        <input type="text" ng-model="payment.totalPaid" placeholder="total paid"><br>
-        <input type="text" ng-model="payment.purpose" placeholder="Purpose of Payment"><br>
-        <input type="text" ng-model="payment.paymentMethod" placeholder="Payment Method"><br>
-        <textarea type="text" ng-model="payment.comments" placeholder="comments"></textarea><br>
-        <button ng-click="makePayment(payment, billId)"></button>
-    </div>
-    <br><br><br>
-    <form>
-        <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>
-        <input type="text" ng-model="patientInfo._id" placeholder="Patient Name"><br>
-        <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
-        <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
-    </form>
-</div>-->
