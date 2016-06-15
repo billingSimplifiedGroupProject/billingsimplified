@@ -1,15 +1,17 @@
 .bill-container {
   position: fixed;
   width: 80%;
-  height: 90vh;
+  height: 67vh;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   background-color: #fff;
   background-size: cover;
   z-index: 10;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 25px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .bill-header {
@@ -74,6 +76,7 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 40px;
+  float: right;
   // background-color: red;
 }
 
@@ -194,6 +197,13 @@
   margin-bottom: 15px;
   border: 1px solid black;
   // background-color: gray;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .bill-container {
+        height: 79vh;
+}
 }
 
 

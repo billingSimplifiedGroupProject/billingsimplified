@@ -33,6 +33,7 @@ angular.module("app")
 
                     // console.log("submit bill response", response);
                         .then(function(response) {
+                            $scope.recentBill = response;
                             $scope.bill = "";
                         })
                 })
