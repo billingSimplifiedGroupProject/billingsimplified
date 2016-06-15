@@ -1,19 +1,21 @@
-angular.module("app").controller("csvImportCtrl", function($scope) {
+angular.module("app").controller("csvImportCtrl", function($scope, patientProfileSvc) {
 
 $scope.csvupload = function(csv) {
+   var newPatient={};
    if(csv) {
-      console.log(csv)
-      // var newPatient;
-      // newPatient.firstName=csv[0];
-      // newPatient.lastName=csv[1];
-      // newPatient.insurance=csv[2];
-      // newPatient.email=csv[3];
-      // newPatient.dob=csv[4];
+      console.log(csv.result[0])
+      var pData = csv.result[0];
+      newPatient.firstName=pData[0];
+      newPatient.lastName=pData[1];
+      newPatient.insurance=pData[2];
+      newPatient.email=pData[3];
+      newPatient.dob=pData[4];
+      
+      patientProfileSvc.addPatient(newPatient);
 
       alert("upload successful")
-      // console.log(newPatient)
-      // csvSvc.csvupload(newPatient)
-   }
+      console.log(newPatient + "BSDLKJG:LKSDJ:LK")
+   } //end if statement
    else {
       alert("please select a file")
    }
