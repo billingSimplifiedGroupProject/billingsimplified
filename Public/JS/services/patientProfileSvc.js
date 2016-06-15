@@ -28,6 +28,7 @@ angular.module("app").service("patientProfileSvc", function ($http) {
             url: '/create/patient',
             data: patientInfo
         }).then(function (response) {
+           console.log(response);
             return response;
         });
     };
