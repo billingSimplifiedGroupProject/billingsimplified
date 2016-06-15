@@ -37,8 +37,8 @@
         </tr>
         <tr ng-repeat="bill in bills | filter:search:strict">
             <td><a ng-click="selectBill(bill)">{{bill._id}}</a></td>
-            <td>{{bill.firstDateCreated}}</td>
-            <td>{{bill.billAmount}}</td>
+            <td>{{bill.firstDateCreated | date}}</td>
+            <td>{{bill.billAmount | currency}}</td>
             <td><a ng-click="selectPatient(bill)">{{bill.patientId._id}}</a></td>
             <!-- <td>{{bill.patientId._id}}</td> -->
             <td>{{bill.patientId.lastName}}</td>
