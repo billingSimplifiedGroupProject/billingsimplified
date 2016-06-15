@@ -50,7 +50,7 @@
             <a ui-sref="patientProfile({id:patient._id})">
                 <ul class="patient-list-items">
                     <li>{{ patient.firstName }} {{ patient.lastName }}</li>
-                    <li>{{ patient.dateOfBirth | date : "MM/dd/yyyy" }}</li>
+                    <li>{{ patient.dateOfBirth | date }}</li>
                     <li>{{ patient.lastFourSocial }}</li>
                     <li>{{ patient.phoneNumber }}</li>
                     <li>{{ patient.email }}</li>

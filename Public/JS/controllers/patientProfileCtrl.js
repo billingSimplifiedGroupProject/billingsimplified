@@ -1,5 +1,5 @@
 angular.module("app")
-    .controller('patientProfileCtrl', function ($scope, patientProfileSvc, practiceStaffService, $state, getPatient) {
+    .controller('patientProfileCtrl', function ($scope, patientProfileSvc, practiceStaffService, $state, getPatient, billService) {
 
         // Modal show and hide
         $scope.modalShown = false;

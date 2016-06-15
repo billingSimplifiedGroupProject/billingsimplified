@@ -13,68 +13,63 @@
 
     <div class="patient-form-wrapper">
 
-        <section class="left-section-patient">
+        <section class="left-section-patient" style="height:70vh;">
 
-            <div class="left-inner">
 
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Address:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.address.street}} {{patientInfo.address.city}}, {{patientInfo.address.state}}, {{patientInfo.address.zip}}
-                </div>
-
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Phone:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.phoneNumber}}
-                </div>
-
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">Email:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.email}}
-                </div>
-
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">SSN:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.lastFourSocial}}
-                </div>
-
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title">DOB:</h1>
-                </div>
-                <div class="patient-input-div">
-                    {{patientInfo.dateOfBirth | date}}
-                </div>
-
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Address:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.address.street}} {{patientInfo.address.city}}, {{patientInfo.address.state}}, {{patientInfo.address.zip}}
             </div>
 
-            <div class="right-inner">
-
-                <div class="patient-title-div-left">
-                    <h1 class="patient-title"><u>Insurance</u></h1>
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
-                </div>
-                <div class="patient-input-div">
-                    <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
-                </div>
-
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Phone:</h1>
             </div>
+            <div class="patient-input-div">
+                {{patientInfo.phoneNumber}}
+            </div>
+
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">Email:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.email}}
+            </div>
+
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">SSN:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.lastFourSocial}}
+            </div>
+
+            <div class="patient-title-div-left">
+                <h1 class="patient-title">DOB:</h1>
+            </div>
+            <div class="patient-input-div">
+                {{patientInfo.dateOfBirth | date}}
+            </div>
+
+
+            <div class="patient-title-div-left">
+                <h1 class="patient-title" style="margin-bottom:-20px;"><u>Insurance</u></h1>
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
+            </div>
+            <div class="patient-input-div">
+                <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
+            </div>
+
 
 
         </section>
 
-        <section class="right-section-patient">
+        <section class="right-section-patient" style="overflow-y:scroll; height:70vh;">
 
             <div class="tg-wrap">
                 <table class="tg">
@@ -88,11 +83,11 @@
                         <th class="tg-yw4l">Balance</th>
                         <th class="tg-yw4l">PAID</th>
                     </tr>
-                    <tr class="bill-bar" ng-repeat="bill in patientBills">
-                        <td class="tg-yw4l">{{ bill._id }}</td>
+                    <tr class="therow" ng-repeat="bill in patientBills">
+                        <td class="tg-yw4l" ng-click="toggleBillModal(bill._id)">{{ bill._id }}</td>
                         <td class="tg-yw4l">{{ bill.billAmount | currency }}</td>
                         <td class="tg-yw4l">{{ bill.firstDateCreated | date }}</td>
-                        <td class="tg-yw4l">{{ bill.dateDue }}</td>
+                        <td class="tg-yw4l">{{ bill.dateDue | date }}</td>
                         <td class="tg-yw4l">{{ bill.daysPastDue }}</td>
                         <td class="tg-yw4l">{{ bill.totalPaid }}</td>
                         <td class="tg-yw4l">{{ bill.balance }}</td>
@@ -104,50 +99,11 @@
 
         </section>
     </div>
+    <a ui-sref="practiceStaff"><button class="back-to-patients">Go Back to all Patients</button></a>
 </div>
+
+
 
 
 <new-bill-modal-dir></new-bill-modal-dir>
 <bill-modal-dir></bill-modal-dir>
-
-
-
-
-
-
-
-
-
-<ul ng-click="showAddBill(patient._id)">
-    <li>{{patient.firstName}} {{patient.lastName}}</li>
-</ul>
-
-<div ng-show="addBill" class="">
-    <ul>
-        <li>{{patientInfo.firstName}} {{patientInfo.lastName}}</li>
-        <li>{{patientInfo.email}}</li>
-        <li>{{patientInfo.phoneNumber}}</li>
-        <li>{{patientInfo.mailingAddress}}</li>
-    </ul>
-    <ul ng-repeat="bill in patientInfo.bills">
-        <li ng-click="showAddPayment(bill._id)">
-            <h1>Bill</h1>{{bill}}</li>
-    </ul>
-    <div ng-show="addPayment" class="">
-        <label> Payments</label>
-        <input type="text" ng-model="billId" placeholder="EnterTextHere"><br>
-        <input type="text" ng-model="payment.remainingBal" placeholder="remaining balance"><br>
-        <input type="text" ng-model="payment.totalPaid" placeholder="total paid"><br>
-        <input type="text" ng-model="payment.purpose" placeholder="Purpose of Payment"><br>
-        <input type="text" ng-model="payment.paymentMethod" placeholder="Payment Method"><br>
-        <textarea type="text" ng-model="payment.comments" placeholder="comments"></textarea><br>
-        <button ng-click="makePayment(payment, billId)"></button>
-    </div>
-    <br><br><br>
-    <form>
-        <input type="text" ng-model="bill.billAmount" placeholder="Bill Amount"><br>
-        <input type="text" ng-model="patientInfo._id" placeholder="Patient Name"><br>
-        <input type="text" ng-model="bill.billingAddress" placeholder="Billing Address"><br>
-        <button ng-click="submitBill(bill, patientInfo._id)"> Submit Bill</button>
-    </form>
-</div>

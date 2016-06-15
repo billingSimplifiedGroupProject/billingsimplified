@@ -1,31 +1,31 @@
 angular.module("app")
-	.service("chartService", function($http) {
+	.service("chartService", function ($http) {
 
-		this.getDailyChartData = function(practiceId, date) {
+		this.getDailyChartData = function (practiceId, date) {
 			return $http({
 				method: 'GET',
 				url: '/get/dailyChartData?practiceId=' + practiceId + '&&date=' + date
-			}).then(function(response){
+			}).then(function (response) {
 				return response;
 			});
 		};
 
-		this.getWeeklyChartData = function(practiceId, startDate, endDate) {
+		this.getWeeklyChartData = function (practiceId, startDate, endDate) {
 			return $http({
 				method: 'GET',
 				url: '/get/weeklyChartData?practiceId=' + practiceId + '&&startDate=' + startDate + '&&endDate=' + endDate
-			}).then(function(response){
+			}).then(function (response) {
 				return response;
 			});
 		};
 
-		this.getMonthlyChartData = function(practiceId) {
+		this.getMonthlyChartData = function (practiceId) {
 			return $http({
 				method: 'GET',
 				url: '/get/monthlyChartData'
-			}).then(function(response){
+			}).then(function (response) {
 				return response;
 			});
 		};
 
-});
+	});
