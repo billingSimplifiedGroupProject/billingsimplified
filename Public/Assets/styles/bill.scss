@@ -1,8 +1,8 @@
 .bill-container {
   position: fixed;
   width: 80%;
-  height: 67vh;
   top: 50%;
+  max-height: 90vh;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   background-color: #fff;
@@ -75,8 +75,8 @@
   width: 35%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 40px;
   float: right;
+  margin-bottom: 15px;
   // background-color: red;
 }
 
@@ -138,6 +138,22 @@
   border: 1px solid gray;
   width: 16%;
   font-size: 2vh;
+}
+
+.payments-container {
+  margin-bottom: 15px;
+}
+
+.payments {
+  display:flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.payment-data {
+  width: 16.6%;
+  border: 1px solid gray;
 }
 
 .payment-date-created {
@@ -202,7 +218,7 @@
 
 @media screen and (max-width: 1400px) {
     .bill-container {
-        height: 79vh;
+        max-height: 99vh;
 }
 }
 
