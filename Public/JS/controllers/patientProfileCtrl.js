@@ -54,5 +54,15 @@ angular.module("app")
                     $state.reload();
                 })
         }
+        $scope.iamgone= true;
+        $scope.unhide = function(iamgone){
+          $scope.iamgone = !$scope.iamgone;
+        }
+
+        $scope.updatePatient = function (updated, id){
+          practiceStaffService.updatePatient(updated, id).then(function(response){
+            $scope.updatedPatient = response;
+          })
+        }
 
     });
