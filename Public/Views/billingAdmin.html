@@ -114,9 +114,10 @@ BILLING ADMIN
 
 		<input type="number" ng-model="practiceData.totalBilled" ng-value="dailyChartData.data[0].totalBilled" placeholder="totalBilled"> totalBilled <br>
 		<input type="number" ng-model="practiceData.billedPerPatient" ng-value="dailyChartData.data[0].billedPerPatient" placeholder="billedPerPatient"> billedPerPatient <br>
+    <input ng-model="dailyChart.data[0]._id"></input>
 
 		<button ng-hide="dailyChartData.data[0]" ng-click="submitPracticeData(practiceData, chosenClinic._id)" name="button">Submit</button>
-		<button ng-show="dailyChartData.data[0]" ng-click="updatePracticeData(practiceData, chosenClinic._id)" name="button">Update</button>
+		<button ng-show="dailyChartData.data[0]" ng-click="updatePracticeData(practiceData, dailyChart.data[0]._id)" name="button">Update</button>
 	</span>
 	<ul ng-click="unhidden(practice); getDailyChartData(chosenClinic._id, currentMDY)" ng-repeat="practice in practices">
 		<li>Practice Name: {{practice.name}}</li>

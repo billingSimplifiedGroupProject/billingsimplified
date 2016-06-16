@@ -100,7 +100,37 @@
         </section>
     </div>
     <a ui-sref="practiceStaff"><button class="back-to-patients">Go Back to all Patients</button></a>
+    <button class="back-to-patients" ng-click="unhide(iamgone)">Update Patent Info</button>
+    <div ng-hide="iamgone">
+      <input ng-model="updated.firstName" placeholder="First Name"/>
+      <input ng-model="updated.middleName" placeholder="middle name"/>
+
+      <input ng-model="updated.lastName" placeholder="Last Name"/>
+
+      <input ng-model="updated.insurance.plan_name" placeholder="plan name"/>
+      <input ng-model="updated.insurance.plan_phone" placeholder="plan phone"/>
+      <input ng-model="updated.phoneNumber" placeholder="Phone Number"/>
+      <input ng-model="updated.email" placeholder="email"/>
+
+
+
+
+      <input ng-model="patientInfo._id"></input>
+      <button ng-click="updatePatient(updated, patientInfo._id)">update</button>
+    </div>
+<!-- </div>
+<div class="patient-title-div-left">
+    <h1 class="patient-title" style="margin-bottom:-20px;"><u>Insurance</u></h1>
 </div>
+<div class="patient-input-div">
+    <p class="patient-title">Plan Name:</p> {{patientInfo.insurance.plan_name}}
+</div>
+<div class="patient-input-div">
+    <p class="patient-title">Member ID:</p> {{patientInfo.insurance.member_id}}
+</div>
+<div class="patient-input-div">
+    <p class="patient-title">Plan Phone:</p> {{patientInfo.insurance.plan_phone}}
+</div> -->
 
 
 
