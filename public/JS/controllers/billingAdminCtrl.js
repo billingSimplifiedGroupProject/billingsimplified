@@ -96,7 +96,7 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
 				$scope.weeklyChartData = response;
 			});
 	};
-
+//s
 	$scope.getMonthlyChartData = function(practiceId) {
 		chartService.getMonthlyChartData(practiceId)
 			.then(function(response) {
