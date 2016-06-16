@@ -61,4 +61,14 @@ angular.module("app")
             });
         };
 
+        this.updatePracticeData = function(practiceData, id){
+          // practiceData.practiceId = id;
+          return $http({
+            method:"PUT",
+            url:"/update/chartData/" + id,
+            data: practiceData
+          }).then(function(response){
+            return response.data;
+          })
+        }
     });
