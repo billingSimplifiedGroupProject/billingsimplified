@@ -30,45 +30,65 @@ angular.module("app")
                 return response.data;
             });
         };
-        this.getPractices = function () {
+
+        this.getPractices = function(){
             return $http({
                 method: "GET",
                 url: "/get/practice"
-            }).then(function (response) {
+            }).then(function(response){
                 return response;
             });
         };
 
-        this.deletePractice = function (id) {
+        this.deletePractice = function(id) {
             $http({
                 method: "DELETE",
                 url: '/delete/practice/' + id
-            })
-                .then(function (response) {
-                    console.log(response.data);
-                    return response;
-                });
+            }).then(function(response) {
+                  console.log(response.data);
+                  return response;
+            });
         };
 
-        this.submitPracticeData = function (practiceData, id) {
+        this.submitPracticeData = function(practiceData, id){
             practiceData.practiceId = id;
             return $http({
                 method: 'POST',
                 url: '/create/chartData',
                 data: practiceData
-            }).then(function (response) {
+                // data: {
+                //     date: practiceData.date,
+                //     ARcurrent: practiceData.ARcurrent,
+                //     ARthirtySixty: practiceData.ARthirtySixty,
+                //     ARsixtyNinety: practiceData.ARsixtyNinety,
+                //     ARninetyUp: practiceData.ARninetyUp,
+                //     insuranceARcurrent: practiceData.insuranceARcurrent,
+                //     insuranceARthirtySixty: practiceData.insuranceARthirtySixty,
+                //     insuranceARsixtyNinety: practiceData.insuranceARsixtyNinety,
+                //     insuranceARninetyUp: practiceData.insuranceARninetyUp,
+                //     patientARCurrent: practiceData.patientARCurrent,
+                //     patientARThirtySixty: practiceData.patientARThirtySixty,
+                //     patientARSixtyNinety: practiceData.patientARSixtyNinety,
+                //     patientARNinetyUp: practiceData.patientARNinetyUp,
+                //     patientTotalPatients: practiceData.patientTotalPatients,
+                //     patientNewPatients: practiceData.patientNewPatients,
+                //     totalBilled: practiceData.totalBilled,
+                //     billedPerPatient: practiceData.billedPerPatient,
+                // }
+            }).then(function(response){
                 return response;
             });
         };
 
         this.updatePracticeData = function(practiceData, id){
-          // practiceData.practiceId = id;
-          return $http({
-            method:"PUT",
-            url:"/update/chartData/" + id,
-            data: practiceData
-          }).then(function(response){
-            return response.data;
-          })
-        }
+            // practiceData.practiceId = id;
+            return $http({
+                method: 'PUT',
+                url: '/update/chartData/' + id,
+                data: practiceData
+            }).then(function(response){
+                return response.data;
+            });
+        };
+
     });

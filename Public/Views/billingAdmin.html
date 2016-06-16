@@ -91,72 +91,78 @@ BILLING ADMIN
         <button ng-click="createNewUser(newUser, praxId)">Submit New User</button>
         <br><br><br>
 		{{chosenClinic.email}}
+		<br>
 		<!-- <input ng-model="practiceId" placeholder="EnterTextHere"> -->
-		<input type="date" ng-model="practiceData.date" ng-change="getDailyChartData(chosenClinic._id, practiceData.date)" placeholder="Date"> date <br>
+		<input type="date" ng-model="practiceData.date" ng-change="getDailyChartData(chosenClinic._id, practiceData.date)" placeholder="Date"> Date <br>
 
-		<input type="number" ng-model="practiceData.ARcurrent" ng-value="dailyChartData.data[0].ARcurrent" placeholder="ARcurrent"> ARcurrent <br>
-		<input type="number" ng-model="practiceData.ARthirtySixty" ng-value="dailyChartData.data[0].ARthirtySixty" placeholder="ARthirtySixty"> ARthirtySixty <br>
-		<input type="number" ng-model="practiceData.ARsixtyNinety" ng-value="dailyChartData.data[0].ARsixtyNinety" placeholder="ARsixtyNinety"> ARsixtyNinety <br>
-		<input type="number" ng-model="practiceData.ARninetyUp" ng-value="dailyChartData.data[0].ARninetyUp" placeholder="ARninetyUp"> ARninetyUp <br>
+		<input type="number" ng-model="practiceData.ARcurrent" ng-value="chartData.data.ARcurrent" placeholder="ARcurrent" > ARcurrent <br>
+		<input type="number" ng-model="practiceData.ARthirtySixty" ng-value="chartData.data.ARthirtySixty" placeholder="ARthirtySixty"> ARthirtySixty <br>
+		<input type="number" ng-model="practiceData.ARsixtyNinety" ng-value="chartData.data.ARsixtyNinety" placeholder="ARsixtyNinety"> ARsixtyNinety <br>
+		<input type="number" ng-model="practiceData.ARninetyUp" ng-value="chartData.data.ARninetyUp" placeholder="ARninetyUp"> ARninetyUp <br>
 
-		<input type="number" ng-model="practiceData.insuranceARcurrent" ng-value="dailyChartData.data[0].insuranceARcurrent" placeholder="insuranceARcurrent"> insuranceARcurrent <br>
-		<input type="number" ng-model="practiceData.insuranceARthirtySixty" ng-value="dailyChartData.data[0].insuranceARthirtySixty" placeholder="insuranceARthirtySixty"> insuranceARthirtySixty <br>
-		<input type="number" ng-model="practiceData.insuranceARsixtyNinety" ng-value="dailyChartData.data[0].insuranceARsixtyNinety" placeholder="insuranceARsixtyNinety"> insuranceARsixtyNinety <br>
-		<input type="number" ng-model="practiceData.insuranceARninetyUp" ng-value="dailyChartData.data[0].insuranceARninetyUp" placeholder="insuranceARninetyUp"> insuranceARninetyUp <br>
+		<input type="number" ng-model="practiceData.insuranceARcurrent" ng-value="chartData.data.insuranceARcurrent" placeholder="insuranceARcurrent"> insuranceARcurrent <br>
+		<input type="number" ng-model="practiceData.insuranceARthirtySixty" ng-value="chartData.data.insuranceARthirtySixty" placeholder="insuranceARthirtySixty"> insuranceARthirtySixty <br>
+		<input type="number" ng-model="practiceData.insuranceARsixtyNinety" ng-value="chartData.data.insuranceARsixtyNinety" placeholder="insuranceARsixtyNinety"> insuranceARsixtyNinety <br>
+		<input type="number" ng-model="practiceData.insuranceARninetyUp" ng-value="chartData.data.insuranceARninetyUp" placeholder="insuranceARninetyUp"> insuranceARninetyUp <br>
 
-		<input type="number" ng-model="practiceData.patientARCurrent" ng-value="dailyChartData.data[0].patientARCurrent" placeholder="patientARCurrent"> patientARCurrent <br>
-		<input type="number" ng-model="practiceData.patientARThirtySixty" ng-value="dailyChartData.data[0].patientARThirtySixty" placeholder="patientARThirtySixty"> patientARThirtySixty <br>
-		<input type="number" ng-model="practiceData.patientARSixtyNinety" ng-value="dailyChartData.data[0].patientARSixtyNinety" placeholder="patientARSixtyNinety"> patientARSixtyNinety <br>
-		<input type="number" ng-model="practiceData.patientARNinetyUp" ng-value="dailyChartData.data[0].patientARNinetyUp" placeholder="patientARNinetyUp"> patientARNinetyUp <br>
+		<input type="number" ng-model="practiceData.patientARCurrent" ng-value="chartData.data.patientARCurrent" placeholder="patientARCurrent"> patientARCurrent <br>
+		<input type="number" ng-model="practiceData.patientARThirtySixty" ng-value="chartData.data.patientARThirtySixty" placeholder="patientARThirtySixty"> patientARThirtySixty <br>
+		<input type="number" ng-model="practiceData.patientARSixtyNinety" ng-value="chartData.data.patientARSixtyNinety" placeholder="patientARSixtyNinety"> patientARSixtyNinety <br>
+		<input type="number" ng-model="practiceData.patientARNinetyUp" ng-value="chartData.data.patientARNinetyUp" placeholder="patientARNinetyUp"> patientARNinetyUp <br>
 
-		<input type="number" ng-model="practiceData.patientTotalPatients" ng-value="dailyChartData.data[0].patientTotalPatients" placeholder="patientTotalPatients"> patientTotalPatients <br>
-		<input type="number" ng-model="practiceData.patientNewPatients" ng-value="dailyChartData.data[0].patientNewPatients" placeholder="patientNewPatients"> patientNewPatients <br>
+		<input type="number" ng-model="practiceData.patientTotalPatients" ng-value="chartData.data.patientTotalPatients" placeholder="patientTotalPatients"> patientTotalPatients <br>
+		<input type="number" ng-model="practiceData.patientNewPatients" ng-value="chartData.data.patientNewPatients" placeholder="patientNewPatients"> patientNewPatients <br>
 
-		<input type="number" ng-model="practiceData.totalBilled" ng-value="dailyChartData.data[0].totalBilled" placeholder="totalBilled"> totalBilled <br>
-		<input type="number" ng-model="practiceData.billedPerPatient" ng-value="dailyChartData.data[0].billedPerPatient" placeholder="billedPerPatient"> billedPerPatient <br>
-    <input ng-model="dailyChart.data[0]._id"></input>
+		<input type="number" ng-model="practiceData.totalBilled" ng-value="chartData.data.totalBilled" placeholder="totalBilled"> totalBilled <br>
+		<input type="number" ng-model="practiceData.billedPerPatient" ng-value="chartData.data.billedPerPatient" placeholder="billedPerPatient"> billedPerPatient <br>
+	<input ng-model="dailyChart.data[0]._id"></input>
 
-		<button ng-hide="dailyChartData.data[0]" ng-click="submitPracticeData(practiceData, chosenClinic._id)" name="button">Submit</button>
-		<button ng-show="dailyChartData.data[0]" ng-click="updatePracticeData(practiceData, dailyChart.data[0]._id)" name="button">Update</button>
+		<button ng-hide="practiceData._id" ng-click="submitPracticeData(practiceData, chosenClinic._id)" name="button">Submit</button>
+		<button ng-show="practiceData._id" ng-click="updatePracticeData(practiceData, chosenClinic._id)" name="button">Update</button>
 	</span>
+	<!-- <ul ng-click="unhidden(practice); getAllChartData(chosenClinic._id, currentMDY, weekStartDate, monthStartDate, monthEndDate)" ng-repeat="practice in practices"> -->
 	<ul ng-click="unhidden(practice); getDailyChartData(chosenClinic._id, currentMDY)" ng-repeat="practice in practices">
+	<!-- <ul ng-click="unhidden(practice); getWeeklyChartData(chosenClinic._id, weekStartDate, currentMDY)" ng-repeat="practice in practices"> -->
 		<li>Practice Name: {{practice.name}}</li>
 		<button ng-click="deletePractice(practice._id)">Delete Practice</button>
 	</ul>
-
 </div>
 <hr>
-
-
 
 <!-- CHART CONTAINER -->
 <div class="">
 
-	<!-- CHANGE CHART TIME RANGES -->
-	<button ng-click="getDailyChartData(chosenClinic._id, practiceData.date)">Daily</button>
-	<button ng-click="getWeeklyChartData()">Weekly</button>
-	<button ng-click="getMonthlyChartData()">Monthly</button>
-
-	<br>&emsp;&emsp;
-
-	<button class="button-weekly-range" ng-click="showHideWklyRange(); setWeeklyDefaultRange()">Wkly Range</button>
-	<div ng-show="wklyRangeIsVisible">
-		<input type="date" ng-value="sixDaysPrevMDY" ng-model="startDate" ng-change="getWeeklyChartData(chosenClinic._id, startDate, endDate)">
-		<input type="date" ng-value="currentMDY" ng-model="endDate" ng-change="getWeeklyChartData(chosenClinic._id, startDate, endDate)">
+	<!-- DAILY / WEEKLY / MONTHLY - CHART TYPES -->
+	<button ng-click="getDailyChartData(chosenClinic._id, currentMDY)">Daily</button>
+	<button ng-click="getWeeklyChartData(chosenClinic._id, weekStartDate, currentMDY)">Weekly</button>
+	<button ng-click="getMonthlyChartData(chosenClinic._id, monthStartDate, monthEndDate)">Monthly</button>
+	<br>
+	<!-- DEFINE TIME RANGES -->
+	<button class="button-daily-date" ng-click="showHideDailyDate()">Daily Date</button>
+	<button class="button-weekly-range" ng-click="showHideWeeklyRange(); setWeeklyRangeDefault()">Weekly Range</button>
+	<button class="button-monthly-range" ng-click="showHideMonthlyRange()">Monthly Range</button>
+	<br>
+    <div ng-show="dailyDateIsVisible">
+		<input type="date" ng-model="currentMDY" ng-change="getDailyChartData(chosenClinic._id, currentMDY)">
+	</div>
+	<div ng-show="weeklyRangeIsVisible">
+		<input type="date" ng-model="weekStartDate" ng-change="getWeeklyChartData(chosenClinic._id, weekStartDate, currentMDY)">
+		<input type="date" ng-model="currentMDY" ng-change="getWeeklyChartData(chosenClinic._id, weekStartDate, currentMDY)">
+	</div>
+	<div ng-show="monthlyRangeIsVisible">
+		<input type="date" ng-value="elevenMonthsPrevMY" ng-model="startMonthDate" ng-change="getMonthChartData(chosenClinic._id, monthStartDate, monthEndDate)">
+		<input type="date" ng-value="currentMY" ng-model="endMonthDate" ng-change="getMonthChartData(chosenClinic._id, monthStartDate, monthEndDate)">
 	</div>
 	<br>
 
 	<!-- TOTAL A/R CHART -->
-	<total-ar-chart daily-ar-chart-data="dailyChartData" weekly-ar-chart-data="" monthly-ar-chart-data=""></total-ar-chart>
-
-	<!-- TOTAL A/R VS GOAL CHART -->
-	<ar-goal-chart ar-goal-chart-data=""></ar-goal-chart> <!-- arGoalBarChart -->
-
-	<!-- PATIENTS SEEN CHART -->
-	<patients-chart patients-chart-data=""></patients-chart> <!-- patientSplineChart -->
-
-	<!-- AMOUNT BILLED OUT CHART -->
-	<amt-billed-chart amt-billed-chart-data=""></amt-billed-chart> <!-- risingBarChart -->
+	<total-ar-chart chart-data="chartData" ng-if="chartData.data"></total-ar-chart>
+	<!-- TOTAL A/R VS GOAL CHART --> <!-- arGoalBarChart -->
+	<ar-goal-chart chart-data="chartData" ng-if="chartData.data"></ar-goal-chart>
+	<!-- PATIENTS SEEN CHART --> <!-- patientSplineChart -->
+	<patients-chart chart-data="chartData" ng-if="chartData.data"></patients-chart>
+	<!-- AMOUNT BILLED OUT CHART --> <!-- risingBarChart -->
+	<amt-billed-chart chart-data="chartData" ng-if="chartData.data"></amt-billed-chart>
 
 </div>
 

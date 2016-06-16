@@ -2,7 +2,7 @@ var Chart = require('./../Models/Charts');
 
 module.exports = {
 	createChartData: function(req, res, next){
-		console.log("hitting new chart", req.body);
+		console.log("hitting new chart", req.body);	// CHANGE TO REQ.QUERY
 		var newChart = new Chart(req.body);
 		newChart.save(function(err, result){
 			if (err) {
@@ -27,23 +27,32 @@ module.exports = {
 		});
 	},
 	getWeeklyChartData: function(req, res, next){
-		var endOfToday = new Date(req.query.endDate);
+		var xDaysPrev = new Date(req.query.weekStartDate);
+		var endOfToday = new Date(req.query.weekEndDate);
 		endOfToday.setDate(endOfToday.getDate() + 1);
-		var xDaysPrev = newDate(req.query.startDate);
-		// sixDaysPrev.setDate(sixDaysPrev.get() - 6);
 
 		Chart.find({"practiceId": req.query.practiceId, "date": {"$gte": xDaysPrev, "$lt": endOfToday}})
 		.exec(function(err, result){
 			if (err) {
 				res.status(500 + "getWeeklyChartData function error").json(err);
 			} else {
+				var sortDescDate = function(arr) {	// sort array with highest date first [0]
+					arr.sort(function(a, b){
+						var c = new Date(a.date);
+						var d = new Date(b.date);
+						return d - c;
+					});
+					return arr;
+				};
+				sortDescDate(result);
 				res.status(200).json(result);
 			}
 		});
 	},
+
 	getMonthlyChartData: function(req, res, next){
-		Chart.find(req.query)
-		.populate("practiceId")
+
+		Chart.find({"practiceId": req.query.practiceId, "date": {"$gte": startMonthDate, "$lt": endMonthDate}})
 		.exec(function(err, result){
 			if (err) {
 				res.status(500 + "getMonthlyChartData function error").json(err);

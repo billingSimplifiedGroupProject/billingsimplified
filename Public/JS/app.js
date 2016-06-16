@@ -17,7 +17,7 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                         return patientProfileSvc.getPatient($stateParams.id).then(function (response) {
                             console.log(response);
                             return response;
-                        })
+                        });
                     }
                 }
             })
@@ -34,18 +34,18 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                                 console.log("resolve response", response);
                                 if (response.data.userType === "practiceStaff") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
-                                        .then(function (response) {
+                                        .then(function(response) {
                                             console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
-                                            })
-                                        })
+                                            });
+                                        });
                                     return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             })
@@ -62,18 +62,18 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                                 console.log("resolve response", response);
                                 if (response.data.userType === "practiceAdmin") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
-                                        .then(function (response) {
+                                        .then(function(response) {
                                             console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
-                                            })
-                                        })
+                                            });
+                                        });
                                     return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             })
@@ -82,7 +82,7 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                 templateUrl: 'Views/billingStaff.html',
                 controller: 'billingStaffCtrl',
                 resolve: {
-                    user: function (loginSvc, $state) {
+                    user: function(loginSvc, $state) {
                         return loginSvc.getCurrentUser()
                             .then(function (response) {
                                 console.log(response);
@@ -91,7 +91,7 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             })
@@ -109,7 +109,7 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             });

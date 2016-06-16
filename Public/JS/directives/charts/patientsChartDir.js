@@ -3,12 +3,12 @@ angular.module('app')
 
 		return {
 			scope: {
-				patientsChartData: '='
+				chartData: '='
 			},
 			templateUrl: './JS/directives/charts/patientsChart.html',
 			link: function(scope, element, attrs){
 
-				var patientsChartData = scope.patientsChartData;
+				var patientsChartData = scope.chartData;
 				
 				var data = [
 					{ "date": "2015-11", "Total": "69", "New": "8" }, // "Prior": "61"
