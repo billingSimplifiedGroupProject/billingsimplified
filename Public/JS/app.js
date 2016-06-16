@@ -22,17 +22,16 @@ angular.module("app", ['ui.router', 'toaster'])
                                 if (response.data.userType === "practiceStaff") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
                                         .then(function(response) {
-                                            console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
-                                            })
-                                        })
+                                            });
+                                        });
                                         return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             })
@@ -50,17 +49,16 @@ angular.module("app", ['ui.router', 'toaster'])
                                 if (response.data.userType === "practiceAdmin") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
                                         .then(function(response) {
-                                            console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
-                                            })
-                                        })
+                                            });
+                                        });
                                         return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             })
@@ -72,13 +70,12 @@ angular.module("app", ['ui.router', 'toaster'])
                   user: function(loginSvc, $state) {
                       return loginSvc.getCurrentUser()
                           .then(function(response) {
-                              console.log(response);
                               if (response.data.userType === "billingStaff") {
                                   return response.data;
                               } else {
                                   $state.go('login');
                               }
-                          })
+                          });
                   }
                 }
             })
@@ -90,13 +87,12 @@ angular.module("app", ['ui.router', 'toaster'])
                     user: function(loginSvc, $state) {
                         return loginSvc.getCurrentUser()
                             .then(function(response) {
-                                console.log(response);
                                 if (response.data.userType === "billingAdmin") {
                                     return response.data;
                                 } else {
                                     $state.go('login');
                                 }
-                            })
+                            });
                     }
                 }
             });

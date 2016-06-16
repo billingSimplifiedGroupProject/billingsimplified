@@ -9,9 +9,8 @@ angular.module("app").service("loginSvc", function($http, $state) {
                password: data.password
            }
        }).then(function(response) {
-           console.log(response);
            $state.go(response.data.userType);
-           console.log(response.data.userType);
+           // console.log(response.data.userType);
            return response;
        });
    };
@@ -20,7 +19,6 @@ angular.module("app").service("loginSvc", function($http, $state) {
            method: 'GET',
            url: '/current/user'
        }).then(function(response) {
-           console.log(response);
            return response;
        });
    };
