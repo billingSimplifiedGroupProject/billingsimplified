@@ -31,6 +31,7 @@
 
 .practice-filter
     height: 3em
+    width: 85%
     border: 0
     box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3)
     text-align: center
@@ -46,8 +47,8 @@
         border: 1px solid black
 
 .practices-container
-    width: 20%
-    height: 75vh
+    width: 16.5%
+    // height: 75vh
     overflow-y: scroll
     background-color: white
     box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3)
@@ -87,29 +88,79 @@
 
 
 
+.chart-input-container
+    width: 25%
+
+.chart-inputs
+    width: 100%
+
+    input
+        width: 100%
+        font-size: 2em
+        margin-bottom: 5px
+        padding-left: 10px
+        border: .5px solid gray
+
+    select
+        width: 100%
+        font-size: 2em
+        margin-bottom: 5px
+        padding-left: 10px
+        border: .5px solid gray
+
+    textarea
+        margin-left: 18%
+        border: .5px solid gray
+        resize: none
+        font-size: 15px
+
+    form
+        margin-top: -55px
+
+    button 
+        background-color: #FF9922
+        margin-top: 15px
+        weight: 24%
+        border: none
+        border-radius: 2px
+        color: white
+        padding: 10px 32px
+
+        &:hover
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+            cursor: pointer
+            
+        &:focus
+            outline: none
+
+.practice-email
+    margin-bottom: -13px
+    margin-top: 0px
+
+.create-practice-user
+    margin-bottom: 25px
+    margin-top: 40px
+
+
 .charts-container
 
 
 .visuals-container
-    display: flex
-    justify-content: space-around
     border: 1px solid gray
 
 .chart-buttons
     display: flex
     justify-content: space-around
-    
+
     button
         background-color: #FF9922
         margin-top: 15px
-        margin-left: 15px
-        height: 40px
+        weight: 24%
         border: none
         border-radius: 2px
         color: white
         padding: 10px 32px
-        font-size: 20px
-        
+
         &:hover
             box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
             cursor: pointer
@@ -124,11 +175,10 @@
     width: 45%
 
 .chart-div
-    height: 50vh
 
 .amt-billed-chart
-    width: 50vh
-    height: 50vh
+    // width: 50vh
+    // height: 50vh
 
 .ar-goal-chart
     // width: 50vh
