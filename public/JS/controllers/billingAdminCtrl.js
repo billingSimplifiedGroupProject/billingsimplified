@@ -84,6 +84,8 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
 		chartService.getDailyChartData(practiceId, date)
 			.then(function(response) {
 				$scope.dailyChartData = response;
+        $scope.dailyChart = response;
+        console.log($scope.dailyChart.data[0]._id);
 			});
 	};
 
@@ -102,5 +104,14 @@ angular.module("app").controller('billingAdminCtrl', function($scope, billingAdm
 				$scope.monthlyChartData = response;
 			});
 	};
+
+  $scope.updatePracticeData = function(practiceData, chosenClinic){
+    billingAdminService.updatePracticeData(practiceData, chosenClinic)
+      .then(function(response){
+        $scope.cat = response;
+        console.log($scope.cat);
+        console.log($scope.chosenClinic);
+    })
+  };
 
 });
