@@ -21,19 +21,59 @@
 .top-section
     width: 100%
     display: flex
-    background-color: blue
+    justify-content: space-around
+    // background-color: blue
+
+.admin-search-container
+    text-align: center
+
+.practice-search-title 
+
+.practice-filter
+    height: 3em
+    border: 0
+    box-shadow: 0 3px 12px -1px rgba(0, 0, 0, .3)
+    text-align: center
+
+    textarea
+        font-size: 22px
+        display: block
+        padding: 5px 10px
+        color: black
+
+
+    &:focus
+        outline: none
+        border: 1px solid black
 
 .practices-container
     width: 20%
     overflow-y: scroll
-    background-color: red
+    border: 1px solid gray
+    // background-color: red
 
     li
         list-style: none
-        font-size: 1em
+        font-size: 2em
+        text-align: center
+    ul
+        padding: 0
+
+.delete-prac-container
+    text-align: center
+
+.delete-practice
+  background-color: #FF9922
+  height: 2em
+  border: none
+  border-radius: 2px
+  color: white
+  font-size: 1em
+
+  &:hover
+    cursor: pointer
 
 .charts-container
-    width: 80%
-    background-color: yellow
-
-
+    width: 75%
+    border: 1px solid gray
+    // background-color: yellow
