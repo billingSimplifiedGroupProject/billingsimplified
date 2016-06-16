@@ -127,7 +127,7 @@
 
                     <input class="payment-date-created" type="date" ng-model="payment.dateCreated" placeholder="Date of Payment">
 
-                    <select class="payment-purpose" ng-model="payment.purpose" required>
+                    <select class="payment-purpose" ng-model="payment.purpose" ng-required="required">
                                 <option selected disabled>Select</option>
                                 <option value="Copay">Copay</option>
                                 <option value="Deposit">Deposit</option>
@@ -135,7 +135,7 @@
                                 <option value="Other">Other</option>
                             </select>
 
-                    <select class="payment-paid-by" ng-model="payment.paidBy" required>
+                    <select class="payment-paid-by" ng-model="payment.paidBy" ng-required="required">
                                 <option selected disabled>Select</option>
                                 <option value="Patient">Patient</option>
                                 <option value="Insurance">Insurance</option>
@@ -143,7 +143,7 @@
                                 <option value="Other">Other</option>
                             </select>
 
-                    <select class="payment-method" ng-model="payment.paymentMethod" required>
+                    <select class="payment-method" ng-model="payment.paymentMethod" ng-required="required">
                                 <option selected disabled>Select</option>
                                 <option value="Credit/Debit Card">Credit/Debit Card</option>
                                 <option value="Cash">Cash</option>

@@ -11,13 +11,13 @@ var BillSchema = new mongoose.Schema({
   billingAddress: {type:String},
   notes: {type:String},
   payments: [{
-       paymentAmount: {type: Number},
+       paymentAmount: {type: Number, required: true},
        remainingBal: {type: Number},
-       purpose: {type: String},
-       paidBy: {type: String},
-       method: {type: String},
+       purpose: {type: String, required: true},
+       paidBy: {type: String, required: true},
+       method: {type: String, required: true},
        comments: {type: String},
-       dateCreated:{type: Date}
+       dateCreated:{type: Date, required: true}
    }]
 })
 module.exports = mongoose.model('Bill', BillSchema);
