@@ -1,5 +1,5 @@
 angular.module("app")
-	.service("chartService", function($http) {
+	.service("chartService", function ($http) {
 
 		this.getDailyChartData = function(practiceId, dailyDate) {
 			return $http({
@@ -28,4 +28,4 @@ angular.module("app")
 			});
 		};
 
-});
+	});

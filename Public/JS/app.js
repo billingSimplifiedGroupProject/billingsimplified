@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'toaster'])
+angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login');
 
@@ -8,26 +8,40 @@ angular.module("app", ['ui.router', 'toaster'])
                 templateUrl: 'Views/login.html',
                 controller: 'loginCtrl'
             })
+            .state('patientProfile', {
+                url: "/patientProfile/:id",
+                templateUrl: 'Views/patientProfile.html',
+                controller: 'patientProfileCtrl',
+                resolve: {
+                    getPatient: function (patientProfileSvc, $stateParams) {
+                        return patientProfileSvc.getPatient($stateParams.id).then(function (response) {
+                            console.log(response);
+                            return response;
+                        });
+                    }
+                }
+            })
             .state('practiceStaff', {
                 url: "/practiceStaff",
                 templateUrl: 'Views/practiceStaff.html',
                 controller: 'practiceStaffCtrl',
                 resolve: {
-                    practiceStaffAndClinic: function(loginSvc, practiceStaffService, $state, $q) {
+                    practiceStaffAndClinic: function (loginSvc, practiceStaffService, $state, $q) {
                         var dfd = $q.defer();
                         return loginSvc.getCurrentUser()
-                            .then(function(response) {
+                            .then(function (response) {
                                 var currentUser = response;
                                 console.log("resolve response", response);
                                 if (response.data.userType === "practiceStaff") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
                                         .then(function(response) {
+                                            console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
                                             });
                                         });
-                                        return dfd.promise;
+                                    return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
@@ -40,21 +54,22 @@ angular.module("app", ['ui.router', 'toaster'])
                 templateUrl: 'Views/practiceAdmin.html',
                 controller: 'practiceAdminCtrl',
                 resolve: {
-                    practiceStaffAndClinic: function(loginSvc, practiceStaffService, $state, $q) {
+                    practiceStaffAndClinic: function (loginSvc, practiceStaffService, $state, $q) {
                         var dfd = $q.defer();
                         return loginSvc.getCurrentUser()
-                            .then(function(response) {
+                            .then(function (response) {
                                 var currentUser = response;
                                 console.log("resolve response", response);
                                 if (response.data.userType === "practiceAdmin") {
                                     practiceStaffService.getUsersPractice(response.data.practiceId)
                                         .then(function(response) {
+                                            console.log(response);
                                             dfd.resolve({
                                                 currentUser: currentUser.data,
                                                 practice: response.data
                                             });
                                         });
-                                        return dfd.promise;
+                                    return dfd.promise;
                                 } else {
                                     $state.go('login');
                                 }
@@ -67,16 +82,17 @@ angular.module("app", ['ui.router', 'toaster'])
                 templateUrl: 'Views/billingStaff.html',
                 controller: 'billingStaffCtrl',
                 resolve: {
-                  user: function(loginSvc, $state) {
-                      return loginSvc.getCurrentUser()
-                          .then(function(response) {
-                              if (response.data.userType === "billingStaff") {
-                                  return response.data;
-                              } else {
-                                  $state.go('login');
-                              }
-                          });
-                  }
+                    user: function(loginSvc, $state) {
+                        return loginSvc.getCurrentUser()
+                            .then(function (response) {
+                                console.log(response);
+                                if (response.data.userType === "billingStaff") {
+                                    return response.data;
+                                } else {
+                                    $state.go('login');
+                                }
+                            });
+                    }
                 }
             })
             .state('billingAdmin', {
@@ -84,9 +100,10 @@ angular.module("app", ['ui.router', 'toaster'])
                 templateUrl: 'Views/billingAdmin.html',
                 controller: 'billingAdminCtrl',
                 resolve: {
-                    user: function(loginSvc, $state) {
+                    user: function (loginSvc, $state) {
                         return loginSvc.getCurrentUser()
-                            .then(function(response) {
+                            .then(function (response) {
+                                console.log(response);
                                 if (response.data.userType === "billingAdmin") {
                                     return response.data;
                                 } else {

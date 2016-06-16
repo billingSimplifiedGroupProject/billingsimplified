@@ -6,7 +6,7 @@ angular.module("app")
         // Modal show and hide
         $scope.modalShown = false;
         $scope.toggleModal = function () {
-            $scope.modalShown = !$scope.modalShown;
+        $scope.modalShown = !$scope.modalShown;
         };
 
 
@@ -33,12 +33,14 @@ angular.module("app")
 
                     // console.log("submit bill response", response);
                         .then(function(response) {
+                            $scope.recentBill = response;
                             $scope.bill = "";
                         })
                 })
         }
 
         $scope.addPatient = function (patient, practiceId) {
+            console.log(patient, practiceId)
             practiceStaffService.addPatient(patient, practiceId)
                 .then(function (response) {
                     $scope.newAddPatient = response.data;
@@ -69,10 +71,12 @@ angular.module("app")
         }
 
         $scope.makePayment = function (paymentInfo, billId) {
+            console.log("hitting here")
             practiceStaffService.makePayment(paymentInfo, billId)
                 .then(function (response) {
                     console.log(response);
                     $scope.payment = "";
+                    $state.reload();
                 })
         }
 

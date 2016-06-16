@@ -1,4 +1,4 @@
-angular.module("app").service("practiceAdminService", function () {
+angular.module("app").service("patientProfileSvc", function ($http) {
 
     this.getUsersPractice = function (id) {
         return $http({
@@ -10,22 +10,39 @@ angular.module("app").service("practiceAdminService", function () {
         });
     };
 
+    this.getPatient = function(id) {
+        return $http({
+            method: 'GET',
+            url: '/get/patient/' + id
+        }).then (function (response) {
+            console.log(response);
+            return response.data;
+        })
+    }
+
     this.addPatient = function (patientInfo, practiceId) {
         console.log(patientInfo, practiceId);
+        patientInfo.practiceId = practiceId
         return $http({
             method: 'POST',
             url: '/create/patient',
-            data: {
-                firstName: patientInfo.firstName,
-                lastName: patientInfo.lastName,
-                insurance: patientInfo.insurance,
-                email: patientInfo.email,
-                practiceId: practiceId
-            }
+            data: patientInfo
         }).then(function (response) {
+           console.log(response);
             return response;
         });
     };
+
+    this.deletePatient = function (id) {
+        return $http({
+            method: "DELETE",
+            url: "/delete/patient/" + id
+        })
+            .then(function (response) {
+                console.log(response);
+                return response;
+            })
+    }
 
     this.submitBill = function (data, patientId) {
         data.patientId = patientId;
@@ -70,9 +87,7 @@ angular.module("app").service("practiceAdminService", function () {
         })
             .then(function (response) {
 
+                return response;
             })
     }
-
-
-
 });

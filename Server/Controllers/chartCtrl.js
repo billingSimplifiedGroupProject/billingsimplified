@@ -83,13 +83,17 @@ module.exports = {
 		});
 	},
 	updateChartData: function(req, res, next){
+
 		Chart.findByIdAndUpdate(req.params.id, req.body).exec(function(err, result){
-			console.log(req.body);
-			console.log(req.params);
+console.log("HERE", req.params.id);
+console.log("HERE", req.body);
+			// console.log(req.body);
+			// console.log(req.params);
 			if (err) {
 				res.status(500 + 'updateChartData function error');
 			} else {
 				res.status(200).json(result);
+				console.log("RESULT", result);
 			}
 		});
 	}

@@ -68,7 +68,7 @@ angular.module("app")
 	            });
 	        $scope.newUser = "";
 	    };
-	//ssldkf
+
 	    $scope.hidden = true;
 	    $scope.unhidden = function(practice) {
 	        $scope.hidden = !$scope.hidden;
@@ -85,6 +85,16 @@ angular.module("app")
 				});
 		};
 
+		$scope.updatePracticeData = function(practiceData, chosenClinic){
+			billingAdminService.updatePracticeData(practiceData, chosenClinic)
+				.then(function(response){
+					$scope.cat = response;
+					console.log($scope.cat);
+					console.log($scope.chosenClinic);
+				});
+		};
+
+	    // ****** CHART QUERIES ******
 		$scope.chartData = {};
 
 		$scope.getAllChartData = function(practiceId, currentMDY, weekStartDate, monthStartDate, monthEndDate) {
@@ -127,4 +137,4 @@ angular.module("app")
 				});
 		};
 
-});
+	});
