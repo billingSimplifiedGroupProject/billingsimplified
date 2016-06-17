@@ -103,7 +103,7 @@ angular.module("app", ['ui.router', 'toaster', 'ngCsvImport'])
                     user: function (loginSvc, $state) {
                         return loginSvc.getCurrentUser()
                             .then(function (response) {
-                                console.log(response);
+                                // console.log(response);
                                 if (response.data.userType === "billingAdmin") {
                                     return response.data;
                                 } else {
