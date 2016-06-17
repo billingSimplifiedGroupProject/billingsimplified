@@ -115,7 +115,7 @@ BILLING ADMIN
 
 		<input type="number" ng-model="practiceData.totalBilled" ng-value="chartData.data.totalBilled" placeholder="totalBilled"> totalBilled <br>
 		<input type="number" ng-model="practiceData.billedPerPatient" ng-value="chartData.data.billedPerPatient" placeholder="billedPerPatient"> billedPerPatient <br>
-	<input ng-model="dailyChart.data[0]._id"></input>
+	<!-- <input ng-model="dailyChart.data[0]._id"></input> -->
 
 		<button ng-hide="practiceData._id" ng-click="submitPracticeData(practiceData, chosenClinic._id)" name="button">Submit</button>
 		<button ng-show="practiceData._id" ng-click="updatePracticeData(practiceData, chosenClinic._id)" name="button">Update</button>
@@ -155,14 +155,21 @@ BILLING ADMIN
 	</div>
 	<br>
 
-	<!-- TOTAL A/R CHART -->
-	<total-ar-chart chart-data="chartData" ng-if="chartData.data"></total-ar-chart>
+	<!-- TOTAL A/R CHART --> <!-- arLineStackedChart -->
+	<!-- <total-ar-chart chart-data="chartData" ng-if="chartData.data"></total-ar-chart> -->
+	<!-- <total-ar-chart chart-data="arChartData" ng-if="arChartData"></total-ar-chart> -->
+
 	<!-- TOTAL A/R VS GOAL CHART --> <!-- arGoalBarChart -->
-	<ar-goal-chart chart-data="chartData" ng-if="chartData.data"></ar-goal-chart>
+	<!-- <ar-goal-chart chart-data="chartData" ng-if="chartData.data"></ar-goal-chart> -->
+	<!-- <ar-goal-chart chart-data="arChartData" ng-if="arChartData"></ar-goal-chart> -->
+	
 	<!-- PATIENTS SEEN CHART --> <!-- patientSplineChart -->
-	<patients-chart chart-data="chartData" ng-if="chartData.data"></patients-chart>
+	<!-- <patients-chart chart-data="chartData" ng-if="chartData.data"></patients-chart> -->
+	<patients-chart chart-data="patientsChartData" ng-if="patientsChartData"></patients-chart>
+	
 	<!-- AMOUNT BILLED OUT CHART --> <!-- risingBarChart -->
-	<amt-billed-chart chart-data="chartData" ng-if="chartData.data"></amt-billed-chart>
+	<!-- <amt-billed-chart chart-data="chartData" ng-if="chartData.data"></amt-billed-chart> -->
+	<!-- <amt-billed-chart chart-data="billedChartData" ng-if="billedChartData"></amt-billed-chart> -->
 
 </div>
 

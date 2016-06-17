@@ -10,29 +10,30 @@ angular.module('app')
 
 				// $scope.totalArChartData = $scope.chartData;	// So $scope.chartData's values aren't changed in the view by what happens here.
 
-				var makeObjLean = function(arr) {
-					var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
-					for (var i = 0; i < arr.length; i++) {
-						var obj = arr[i];
-						for (var key in obj) {
-							if (keyKeep.indexOf(key) === -1) {
-								delete obj[key];
-							}
-						}
-					}
-					return arr;
-				};
+				// var makeObjLean = function(arr) {
+				// 	var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
+				// 	for (var i = 0; i < arr.length; i++) {
+				// 		var obj = arr[i];
+				// 		for (var key in obj) {
+				// 			if (keyKeep.indexOf(key) === -1) {
+				// 				delete obj[key];
+				// 			}
+				// 		}
+				// 	}
+				// 	return arr;
+				// };
 
 				$scope.$watch('chartData', function(newVal) {
 
-					var data = newVal.data;
-					var type = newVal.type;
-					makeObjLean(data);
+					var data = newVal;
+					// var data = newVal.data;
+					// var type = newVal.type;
+					// makeObjLean(data);
 					// console.log(data);
 
 					d3.selectAll('.total-ar-chart > *').remove();
 
-					// STYLING
+					// STYLING //
 					var margin = {top: 40, right: 60, bottom: 40, left: 50},
 						width = 576 - margin.left - margin.right,
 						height = 300 - margin.top - margin.bottom;
@@ -45,7 +46,8 @@ angular.module('app')
 
 					if (!newVal) { return; }
 
-					function runTotalArChart(data, type) {
+					// function runTotalArChart(data, type) {
+					function runTotalArChart(data) {
 
 						var formatPercent = d3.format(".0%");
 						// var parseDate = d3.time.format("%a %b %d %Y %H:%M:%S GMT%Z (MDT)").parse;
@@ -214,7 +216,8 @@ angular.module('app')
 
 					}
 
-					runTotalArChart(data, type);
+					// runTotalArChart(data, type);
+					runTotalArChart(data);
 
 				}, true);
 
