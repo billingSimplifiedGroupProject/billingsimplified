@@ -8,6 +8,8 @@ angular.module('app')
 			templateUrl: './JS/directives/charts/arGoalChart.html',
 			link: function($scope, element, attrs){
 
+				console.log($scope.chartData);
+
 				var makeObjLean = function(arr) {
 					var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
 					for (var i = 0; i < arr.length; i++) {
