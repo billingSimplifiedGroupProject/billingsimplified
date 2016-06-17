@@ -21,7 +21,7 @@ angular.module('app')
 					{date: new Date("10/02/2014"), value: 10},
 					{date: new Date("10/01/2014"), value: 1},
 				];
-					
+
 				function calcBarName(d) {
 					return (d.date.getDate()) + "/" + (d.date.getMonth() + 1);
 				}

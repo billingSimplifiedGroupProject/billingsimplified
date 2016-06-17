@@ -36,6 +36,7 @@ module.exports = {
 			if (err) {
 				res.status(500 + "getWeeklyChartData function error").json(err);
 			} else {
+				console.log(result);
 				var sortDescDate = function(arr) {	// sort array with highest date first [0]
 					arr.sort(function(a, b){
 						var c = new Date(a.date);
@@ -45,6 +46,7 @@ module.exports = {
 					return arr;
 				};
 				sortDescDate(result);
+				console.log(result);
 				res.status(200).json(result);
 			}
 		});

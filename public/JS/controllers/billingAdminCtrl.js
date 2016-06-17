@@ -95,6 +95,69 @@ angular.module("app")
 		};
 
 	    // ****** CHART QUERIES ******
+
+		var arKeysObj = function(arr) {
+			// var newArr = [];
+			var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
+			for (var i = 0; i < arr.length; i++) {
+				var obj = arr[i];
+				for (var key in obj) {
+					if (keyKeep.indexOf(key) === -1) {
+						delete obj[key];
+					}
+				}
+			}
+			// Array.prototype.push.apply(newArr, arr);
+			// return newArr;
+			return arr;
+		};
+
+		var patientsKeysObj = function(arr) {
+			var keyKeep = ['patientTotalPatients', 'patientNewPatients', 'date'];
+			for (var i = 0; i < arr.length; i++) {
+				var obj = arr[i];
+				for (var key in obj) {
+					if (keyKeep.indexOf(key) === -1) {
+						delete obj[key];
+					}
+				}
+			}
+			return arr;
+		};
+
+		// var patientsKeysMEGAObj = function(arr) {
+		// 	newArr = [];
+		// 	newObj = {};
+		// 	var keyKeep = ['patientTotalPatients', 'patientNewPatients', 'date'];
+		// 	for (var i = 0; i < arr.length; i++) {
+		// 		newArr.push(newObj);
+		// 		var obj = arr[i];
+		// 		for (var key in obj) {
+		// 			if (keyKeep.indexOf(key) === -1) {
+		// 				var tKey = keyKeep.indexOf(key);
+		// 				// delete obj[key];
+		// 				newArr[i].tKey = obj.key;
+		// 				// add obj.key to newObj[key] // add value to new property
+		// 			}
+		// 		}
+		// 	}
+		// 	return newArr;
+		// };
+
+		var billedKeysObj = function(arr) {
+			var keyKeep = ['totalBilled', 'billedPerPatient', 'date'];
+			for (var i = 0; i < arr.length; i++) {
+				var obj = arr[i];
+				for (var key in obj) {
+					if (keyKeep.indexOf(key) === -1) {
+						delete obj[key];
+					}
+				}
+			}
+			return arr;
+		};
+
+
 		$scope.chartData = {};
 
 		$scope.getAllChartData = function(practiceId, currentMDY, weekStartDate, monthStartDate, monthEndDate) {
@@ -107,13 +170,17 @@ angular.module("app")
 			$scope.backupDate = currentMDY;
 			chartService.getDailyChartData(practiceId, currentMDY)
 				.then(function(response) {
+					console.log(response);
 					if (!$.trim(response)) {
 						$scope.practiceData = { date: $scope.backupDate , ARcurrent: '', ARthirtySixty: '', ARsixtyNinety: '', ARninetyUp: '', insuranceARcurrent: '', insuranceARthirtySixty: '', insuranceARsixtyNinety: '', insuranceARninetyUp: '', patientARCurrent: '', patientARThirtySixty: '', patientARSixtyNinety: '', patientARNinetyUp: '', patientTotalPatients: '', patientNewPatients: '', totalBilled: '', billedPerPatient: '' };
 					} else {
 						$scope.practiceData = response[0];
 						$scope.chartData.type = 'day';
 						$scope.chartData.data = response[0];
-						// console.log($scope.chartData.data);
+
+						// $scope.arChartData = arKeysObj(response.data);
+						// $scope.patientsChartData = patientsKeysObj(response.data);
+						// $scope.billedChartData = billedKeysObj(response.data);
 					}
 					// console.log($scope.practiceData.date);
 				});
@@ -122,9 +189,24 @@ angular.module("app")
 		$scope.getWeeklyChartData = function(practiceId, weekStartDate, currentMDY) {
 			chartService.getWeeklyChartData(practiceId, weekStartDate, currentMDY)
 				.then(function(response) {
-					$scope.chartData.type = 'week';
-					$scope.chartData.data = response.data;
-					// console.log($scope.chartData.data);
+
+					// var patientSimple = patientsKeysMEGAObj(response.data);
+					// console.log(patientSimple);
+					// var respArr1 = response.data.slice();
+					// var respArr2 = response.data.slice();
+					// var respArr3 = response.data.slice();
+					// $scope.arChartData = arKeysObj(response.data);
+					$scope.patientsChartData = patientsKeysObj(response.data);
+					// $scope.billedChartData = billedKeysObj(response.data);
+					// console.log($scope.arChartData);
+					// console.log($scope.patientsChartData);
+					// console.log($scope.billedChartData);
+					console.log(response);
+					// $scope.chartData.type = 'week';
+					// $scope.chartData.data = response.data;
+					// $scope.arChartData.type = 'week';
+					// $scope.patientsChartData.type = 'week';
+					// $scope.billedChartData.type = 'week';
 				});
 		};
 

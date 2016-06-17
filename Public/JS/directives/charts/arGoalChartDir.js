@@ -8,29 +8,30 @@ angular.module('app')
 			templateUrl: './JS/directives/charts/arGoalChart.html',
 			link: function($scope, element, attrs){
 
-				console.log($scope.chartData);
+				// $scope.arGoalChartData = $scope.chartData;	// So $scope.chartData's values aren't changed in the view by what happens here.
 
-				var makeObjLean = function(arr) {
-					var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
-					for (var i = 0; i < arr.length; i++) {
-						var obj = arr[i];
-						for (var key in obj) {
-							if (keyKeep.indexOf(key) === -1) {
-								delete obj[key];
-							}
-						}
-					}
-					return arr;
-				};
+				// var makeObjLean = function(arr) {
+				// 	var keyKeep = ['ARcurrent', 'ARninetyUp', 'ARsixtyNinety', 'ARthirtySixty', 'date'];
+				// 	for (var i = 0; i < arr.length; i++) {
+				// 		var obj = arr[i];
+				// 		for (var key in obj) {
+				// 			if (keyKeep.indexOf(key) === -1) {
+				// 				delete obj[key];
+				// 			}
+				// 		}
+				// 	}
+				// 	return arr;
+				// };
 
 				$scope.$watch('chartData', function(newVal) {
 
-					var data = newVal.data;
-					var type = newVal.type;
-					makeObjLean(data);
+					var data = newVal;
+					// var data = newVal.data;
+					// var type = newVal.type;
+					// makeObjLean(data);
 					// console.log(data);
 
-					d3.selectAll('.total-ar-chart > *').remove();
+					d3.selectAll('.ar-goal-chart > *').remove();
 
 					// STYLING //
 					var margin = {top: 40, right: 20, bottom: 40, left: 50},
@@ -45,7 +46,8 @@ angular.module('app')
 
 					if (!newVal) { return; }
 
-					function runArGoalChart(data, type) {
+					// function runArGoalChart(data, type) {
+					function runArGoalChart(data) {
 
 						var yScale = d3.scale.linear()
 							.domain([0, d3.max(data)])
@@ -143,7 +145,8 @@ angular.module('app')
 
 					}
 
-					runArGoalChart(data, type);
+					// runArGoalChart(data, type);
+					runArGoalChart(data);
 
 				}, true);
 
