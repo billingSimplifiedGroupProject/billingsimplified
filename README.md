@@ -20,6 +20,14 @@ MAJOR TECHNOLOGIES
 
 •	Node
 
+ ![billsimphomeview](https://github.com/billingSimplifiedGroupProject/billingsimplified/blob/master/Public/Assets/images/billsimphome.PNG)
+ 
+  ![billsimpcreate](https://github.com/billingSimplifiedGroupProject/billingsimplified/blob/master/Public/Assets/images/createnew.PNG
+)
+  
+  ![billsimpaddpay](https://github.com/billingSimplifiedGroupProject/billingsimplified/blob/master/Public/Assets/images/addpay.PNG)
+
+
 LOG IN AND AUTHENTICATION
 
 From this screen, users are able to log in with valid credentials provided to them by the Billing Administrator. Authentication is done using passportjs and bcryptjs to make sure user information is protected and secure. Since there are four different user types, checks are done in the app.js to check the users type, depending on the type they will be taken to their different login views accordingly.   
