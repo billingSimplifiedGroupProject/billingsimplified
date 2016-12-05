@@ -4,6 +4,8 @@ Billing Simplified is a transparent communication application for doctors and th
 
 Billing Simplified allows Doctors and their billing companies an easier way to be more transparent financially. There are four different types of users, Practice Admin, Practice Staff, Billing Admin, and Billing Staff. The Practice Admin and Staff can add patients, update their information, and document bill payments. Eventually, we hope to allow the Practice Admin to be able to view their financial wellness using D3. The Billing Staff are able to see all of the practice offices and their patient’s payment history. Billing admin can add new practices, staff members along with the additional functionality that the Practice Staff has. 
 
+ ![billsimphome](/billingSimplifiedGroupProject/Public/Assets/images/billsimplogin.PNG?raw=true "billsimplogin view")
+
 MAJOR TECHNOLOGIES
 
 •	Angular
